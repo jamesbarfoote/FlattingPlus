@@ -1,6 +1,5 @@
 package com.example.dinoapps.flattingplus;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 /**
@@ -25,6 +27,7 @@ public class CalendarFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     CalendarView calendar;
+    ListView listViewBox;
 
 
     // TODO: Rename and change types of parameters
@@ -78,6 +81,7 @@ public class CalendarFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_calendar, container, false);
         this.calendar = (CalendarView) v.findViewById(R.id.calendarViewMain);
+
 
         //initializes the calendarview
         initializeCalendar();
