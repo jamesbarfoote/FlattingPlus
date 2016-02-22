@@ -9,10 +9,16 @@
     <CalendarView
         android:layout_width="match_parent"
         android:layout_height="338dp"
-        android:id="@+id/calendarView"
+        android:id="@+id/calendarViewMain"
         android:layout_gravity="center_horizontal|top"
         android:touchscreenBlocksFocus="false"
         android:transitionGroup="false" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="167dp"
+        android:id="@+id/listViewCalendarItems"
+        android:layout_gravity="left|bottom" />
 
 
 </FrameLayout>
