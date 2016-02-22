@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\james\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\7.0.0\f1e24ac977505d1fdcabadaa5be1f41dc11c4286\butterknife-7.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f1e24ac977505d1fdcabadaa5be1f41dc11c4286">
+        <dex dex="C:\Users\james\Documents\GitHub\FlattingPlus\app\build\intermediates\pre-dexed\debug\butterknife-7.0.0_e52cfd004823f1aa087aa67aa79b7131cd5f9dad.jar" />
+    </item>
+
+</items>
