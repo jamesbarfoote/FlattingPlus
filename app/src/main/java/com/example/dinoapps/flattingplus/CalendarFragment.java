@@ -8,13 +8,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CalendarView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.tyczj.extendedcalendarview.CalendarProvider;
+import com.tyczj.extendedcalendarview.Day;
 import com.tyczj.extendedcalendarview.Event;
 import com.tyczj.extendedcalendarview.ExtendedCalendarView;
 
@@ -39,7 +43,8 @@ public class CalendarFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     //CalendarView calendar;
     ExtendedCalendarView calendar;
-    ListView listViewBox;
+    ListView listViewCalendarItems;
+    ArrayList<Event> itemsList;
 
 
     // TODO: Rename and change types of parameters
@@ -92,9 +97,39 @@ public class CalendarFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_calendar, container, false);
-       // this.calendar = (CalendarView) v.findViewById(R.id.calendarViewMain);
+        // this.calendar = (CalendarView) v.findViewById(R.id.calendarViewMain);
+
+        this.listViewCalendarItems = (ListView) v.findViewById(R.id.listViewCalendarItems);
+        //Disable Scrolling
+//        this.listViewCalendarItems.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return true;
+//            }
+//        });
+
+
         this.calendar = (ExtendedCalendarView)v.findViewById(R.id.calendar);
+//        this.calendar.setGesture(ExtendedCalendarView.LEFT_RIGHT_GESTURE);
         addSingle(v);
+
+        calendar.setOnDayClickListener(new ExtendedCalendarView.OnDayClickListener() {
+            @Override
+            public void onDayClicked(AdapterView<?> adapter, View view,
+                                     int position, long id, Day day) {
+
+                boolean dayIsClicked = true;
+                Day clickedDay = day;
+                getScheduleDetails(day);
+                                Toast.makeText(getContext(), day.getDay() + "", Toast.LENGTH_LONG).show();
+
+//                listViewCalendarItems.setAdapter(new ListAdapter(getContext(), R.layout.itemlist, this.itemsList));
+
+            }
+
+        });
+
+
 
         //initializes the calendarview
        // initializeCalendar();
@@ -111,6 +146,17 @@ public class CalendarFragment extends Fragment {
 
         return v;
     }
+
+    private void getScheduleDetails(Day day) {
+
+        this.itemsList = new ArrayList();
+
+        for (Event e : day.getEvents()) {
+            this.itemsList.add(e);
+        }
+    }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -136,8 +182,9 @@ public class CalendarFragment extends Fragment {
 
         cal.set(2016, 2, 25, 4, 0);
         values.put(CalendarProvider.START, cal.getTimeInMillis());
-        values.put(CalendarProvider.START_DAY, 25);
         TimeZone tz = TimeZone.getDefault();
+        int StartDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+        values.put(CalendarProvider.START_DAY, StartDayJulian);
 
         cal.set(2016, 2, 25, 7, 0);
         int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));

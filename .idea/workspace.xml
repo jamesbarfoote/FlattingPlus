@@ -4,46 +4,108 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b44e4d10-ba18-4263-b794-fa9d525a849c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/debug/com/tyczj/extendedcalendarview/CalendarProvider.class" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/debug/com/tyczj/extendedcalendarview/CalendarProvider.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/release/com/tyczj/extendedcalendarview/CalendarProvider.class" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/release/com/tyczj/extendedcalendarview/CalendarProvider.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/androidTest/debug/com/tyczj/extendedcalendarview/R.class" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/androidTest/debug/com/tyczj/extendedcalendarview/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/androidTest/debug/com/tyczj/extendedcalendarview/test/R.class" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/androidTest/debug/com/tyczj/extendedcalendarview/test/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/debug/com/tyczj/extendedcalendarview/R.class" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/debug/com/tyczj/extendedcalendarview/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/release/com/tyczj/extendedcalendarview/R.class" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/classes/release/com/tyczj/extendedcalendarview/R.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/outputs/aar/extendedCalendarView-debug.aar" afterPath="$PROJECT_DIR$/extendedCalendarView/build/outputs/aar/extendedCalendarView-debug.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/outputs/aar/extendedCalendarView-release.aar" afterPath="$PROJECT_DIR$/extendedCalendarView/build/outputs/aar/extendedCalendarView-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/aapt/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/buildConfig/androidTest/debug/com/tyczj/extendedcalendarview/test/BuildConfig.java" afterPath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/buildConfig/androidTest/debug/com/tyczj/extendedcalendarview/test/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/buildConfig/debug/com/tyczj/extendedcalendarview/BuildConfig.java" afterPath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/buildConfig/debug/com/tyczj/extendedcalendarview/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/buildConfig/release/com/tyczj/extendedcalendarview/BuildConfig.java" afterPath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/buildConfig/release/com/tyczj/extendedcalendarview/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlattingPlus.iml" afterPath="$PROJECT_DIR$/FlattingPlus.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/MaterialNavigationDrawer_1_3_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/MaterialNavigationDrawer_1_3_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/r/androidTest/debug/com/tyczj/extendedcalendarview/R.java" afterPath="$PROJECT_DIR$/extendedCalendarView/build/generated/source/r/androidTest/debug/com/tyczj/extendedcalendarview/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_reactive_location_0_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_reactive_location_0_6.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/color.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/color.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/drawable.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/layout.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/single/layout.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/material_ripple_1_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/material_ripple_1_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/packageDebugResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/incremental/packageReleaseResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_base_8_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_base_8_3_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_basement_8_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_basement_8_3_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_location_8_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_location_8_3_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_maps_8_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_maps_8_3_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/stickylistheaders_2_5_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/stickylistheaders_2_5_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-land.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-land.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-land/values-land.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-land/values-land.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-land/values-land.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-land/values-land.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-land/values-land.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-land/values-land.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw600dp-land-v13.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw600dp-land-v13.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw600dp-land-v13/values-sw600dp-land-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw600dp-land-v13/values-sw600dp-land-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw600dp-land-v13/values-sw600dp-land-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw600dp-land-v13/values-sw600dp-land-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw600dp-land-v13/values-sw600dp-land-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw600dp-land-v13/values-sw600dp-land-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw600dp-v13.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw600dp-v13.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw600dp-v13/values-sw600dp-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw600dp-v13/values-sw600dp-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw600dp-v13/values-sw600dp-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw600dp-v13/values-sw600dp-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw600dp-v13/values-sw600dp-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw600dp-v13/values-sw600dp-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-land-v13.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-land-v13.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-v13.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-v13.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw720dp-v13/values-sw720dp-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-sw720dp-v13/values-sw720dp-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw720dp-v13/values-sw720dp-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-sw720dp-v13/values-sw720dp-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw720dp-v13/values-sw720dp-v13.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-sw720dp-v13/values-sw720dp-v13.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-v11.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-v11/values-v11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-v11/values-v11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-v11/values-v11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values-v14.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values-v14/values-v14.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values-v14/values-v14.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values-v14/values-v14.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values.json" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/debug/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/bundles/release/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/extendedCalendarView/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FlattingPlus.iws" />
@@ -75,22 +137,14 @@
       <file leaf-file-name="CalendarFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5457876">
-              <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
+            <state vertical-scroll-proportion="-2.514793">
+              <caret line="123" column="73" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
               <folding>
-                <element signature="e#3324#3593#0" expanded="true" />
-                <element signature="e#3592#3593#0" expanded="true" />
+                <element signature="e#3801#4390#0" expanded="true" />
+                <element signature="e#4389#4390#0" expanded="true" />
+                <element signature="e#4583#4852#0" expanded="true" />
+                <element signature="e#4851#4852#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalendarProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extendedCalendarView/src/main/java/com/tyczj/extendedcalendarview/CalendarProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -117,15 +171,13 @@
       </file>
       <file leaf-file-name="fragment_calendar.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-              <folding>
-                <element signature="e#1331#1350#0" expanded="true" />
-              </folding>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.705882">
+              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
         </entry>
@@ -2069,6 +2121,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="C:\Users\JamesB\Documents\GitHub\FlattingPlus" value="5825253704118" />
+        <entry key="C:\Users\james\Documents\GitHub\FlattingPlus" value="5825411703928" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2289,21 +2342,21 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.0/f1e24ac977505d1fdcabadaa5be1f41dc11c4286/butterknife-7.0.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.balysv/material-ripple/1.0.1/e1623875a853385068539a3f964292237375f8fd/material-ripple-1.0.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxandroid/1.0.1/563323d4f90cdb87d067fcf02b06c5d16bb1a258/rxandroid-1.0.1.aar" />
-                            <option value="F:/SDK's/extras/android/m2repository/com/android/support/recyclerview-v7/23.1.1/recyclerview-v7-23.1.1.aar" />
+                            <option value="C:/SDK/extras/android/m2repository/com/android/support/recyclerview-v7/23.1.1/recyclerview-v7-23.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/se.emilsjolander/stickylistheaders/2.5.2/63b55952aa67c4d68a178b81ebc30f0cbf8fd78f/stickylistheaders-2.5.2.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/pl.charmas.android/android-reactive-location/0.6/9e6bf27f6c745e43e514c034d302f9d7ec3d8255/android-reactive-location-0.6.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.collections/google-collections/1.0-rc2/9cebebe5d264eb81233027742f776c0d85ce3d6c/google-collections-1.0-rc2.jar" />
-                            <option value="F:/SDK's/extras/google/m2repository/com/google/android/gms/play-services-location/8.3.0/play-services-location-8.3.0.aar" />
+                            <option value="C:/SDK/extras/google/m2repository/com/google/android/gms/play-services-location/8.3.0/play-services-location-8.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.16/bdc5ca010675cd9385bdd3a28cf53ee88164424f/rxjava-1.0.16.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar" />
-                            <option value="F:/SDK's/extras/android/m2repository/com/android/support/appcompat-v7/23.1.1/appcompat-v7-23.1.1.aar" />
-                            <option value="F:/SDK's/extras/android/m2repository/com/android/support/design/23.1.1/design-23.1.1.aar" />
-                            <option value="F:/SDK's/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar" />
-                            <option value="F:/SDK's/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1.aar" />
-                            <option value="F:/SDK's/extras/google/m2repository/com/google/android/gms/play-services-base/8.3.0/play-services-base-8.3.0.aar" />
-                            <option value="F:/SDK's/extras/google/m2repository/com/google/android/gms/play-services-maps/8.3.0/play-services-maps-8.3.0.aar" />
-                            <option value="F:/SDK's/extras/google/m2repository/com/google/android/gms/play-services-basement/8.3.0/play-services-basement-8.3.0.aar" />
+                            <option value="C:/SDK/extras/android/m2repository/com/android/support/appcompat-v7/23.1.1/appcompat-v7-23.1.1.aar" />
+                            <option value="C:/SDK/extras/android/m2repository/com/android/support/design/23.1.1/design-23.1.1.aar" />
+                            <option value="C:/SDK/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar" />
+                            <option value="C:/SDK/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1.aar" />
+                            <option value="C:/SDK/extras/google/m2repository/com/google/android/gms/play-services-base/8.3.0/play-services-base-8.3.0.aar" />
+                            <option value="C:/SDK/extras/google/m2repository/com/google/android/gms/play-services-maps/8.3.0/play-services-maps-8.3.0.aar" />
+                            <option value="C:/SDK/extras/google/m2repository/com/google/android/gms/play-services-basement/8.3.0/play-services-basement-8.3.0.aar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -2550,9 +2603,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java" />
       </list>
     </option>
@@ -2561,10 +2614,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1932" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -2589,9 +2642,10 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2612,7 +2666,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2624,6 +2677,7 @@
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="BH901EL413" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23_x86" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -2798,8 +2852,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33371693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2809,16 +2863,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295699" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867134" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946237" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2854,8 +2908,58 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3324#3593#0" expanded="true" />
-            <element signature="e#3592#3593#0" expanded="true" />
+            <element signature="e#3801#4390#0" expanded="true" />
+            <element signature="e#4389#4390#0" expanded="true" />
+            <element signature="e#4583#4852#0" expanded="true" />
+            <element signature="e#4851#4852#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extendedCalendarView/src/main/java/com/tyczj/extendedcalendarview/CalendarProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#3801#4390#0" expanded="true" />
+            <element signature="e#4389#4390#0" expanded="true" />
+            <element signature="e#4583#4852#0" expanded="true" />
+            <element signature="e#4851#4852#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2875,7 +2979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2903,19 +3006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#1331#1350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extendedCalendarView/src/main/java/com/tyczj/extendedcalendarview/CalendarProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2924,13 +3014,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calendar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.705882">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5457876">
-          <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
+        <state vertical-scroll-proportion="-2.514793">
+          <caret line="123" column="73" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
           <folding>
-            <element signature="e#3324#3593#0" expanded="true" />
-            <element signature="e#3592#3593#0" expanded="true" />
+            <element signature="e#3801#4390#0" expanded="true" />
+            <element signature="e#4389#4390#0" expanded="true" />
+            <element signature="e#4583#4852#0" expanded="true" />
+            <element signature="e#4851#4852#0" expanded="true" />
           </folding>
         </state>
       </provider>

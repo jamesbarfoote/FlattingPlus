@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\day_of_week.xml",
+        "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\layout\\day_of_week.xml"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\day_view.xml",
+        "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\layout\\day_view.xml"
+    },
+    {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\day_of_week.xml",
         "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\layout\\day_of_week.xml"
     },
