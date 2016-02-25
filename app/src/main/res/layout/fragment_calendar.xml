@@ -6,19 +6,33 @@
     android:background="@color/white"
     tools:context="com.example.dinoapps.flattingplus.CalendarFragment">
 
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="338dp"
-        android:id="@+id/calendarViewMain"
-        android:layout_gravity="center_horizontal|top"
-        android:touchscreenBlocksFocus="false"
-        android:transitionGroup="false" />
+    <!--<CalendarView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="338dp"-->
+        <!--android:id="@+id/calendarViewMain"-->
+        <!--android:layout_gravity="center_horizontal|top"-->
+        <!--android:touchscreenBlocksFocus="false"-->
+        <!--android:transitionGroup="false" />-->
+
+    <com.tyczj.extendedcalendarview.ExtendedCalendarView
+        android:id="@+id/calendar"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="167dp"
         android:id="@+id/listViewCalendarItems"
         android:layout_gravity="left|bottom" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="66dp"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_input_add" />
 
 
 </FrameLayout>

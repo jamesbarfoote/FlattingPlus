@@ -1,8 +1,12 @@
 package com.example.dinoapps.flattingplus;
 
+import android.content.ContentValues;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +14,14 @@ import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.tyczj.extendedcalendarview.CalendarProvider;
+import com.tyczj.extendedcalendarview.Event;
+import com.tyczj.extendedcalendarview.ExtendedCalendarView;
+
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -26,7 +37,8 @@ public class CalendarFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    CalendarView calendar;
+    //CalendarView calendar;
+    ExtendedCalendarView calendar;
     ListView listViewBox;
 
 
@@ -80,11 +92,22 @@ public class CalendarFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_calendar, container, false);
-        this.calendar = (CalendarView) v.findViewById(R.id.calendarViewMain);
-
+       // this.calendar = (CalendarView) v.findViewById(R.id.calendarViewMain);
+        this.calendar = (ExtendedCalendarView)v.findViewById(R.id.calendar);
+        addSingle(v);
 
         //initializes the calendarview
-        initializeCalendar();
+       // initializeCalendar();
+
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         return v;
     }
@@ -101,6 +124,29 @@ public class CalendarFragment extends Fragment {
 //    MaterialCalendarView.getSelectedDates();
 //}
 
+    public void addSingle(View v)
+    {
+        ContentValues values = new ContentValues();
+        values.put(CalendarProvider.COLOR, Event.COLOR_RED);
+        values.put(CalendarProvider.DESCRIPTION, "Some Description");
+        values.put(CalendarProvider.LOCATION, "Some location");
+                values.put(CalendarProvider.EVENT, "Event name");
+
+                        Calendar cal = Calendar.getInstance();
+
+        cal.set(2016, 2, 25, 4, 0);
+        values.put(CalendarProvider.START, cal.getTimeInMillis());
+        values.put(CalendarProvider.START_DAY, 25);
+        TimeZone tz = TimeZone.getDefault();
+
+        cal.set(2016, 2, 25, 7, 0);
+        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+
+        values.put(CalendarProvider.END, cal.getTimeInMillis());
+        values.put(CalendarProvider.END_DAY, endDayJulian);
+
+        Uri uri = getContext().getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
+    }
 
 
     @Override
@@ -124,22 +170,22 @@ public class CalendarFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public void initializeCalendar() {
-
-        // sets whether to show the week number.
-        calendar.setShowWeekNumber(false);
-
-        // sets the first day of week according to Calendar.
-        // here we set Monday as the first day of the Calendar
-        calendar.setFirstDayOfWeek(2);
-
-        //sets the listener to be notified upon selected date change.
-        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            //show the selected date as a toast
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-                Toast.makeText(getContext(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
+//    public void initializeCalendar() {
+//
+//        // sets whether to show the week number.
+//        calendar.setShowWeekNumber(false);
+//
+//        // sets the first day of week according to Calendar.
+//        // here we set Monday as the first day of the Calendar
+//        calendar.setFirstDayOfWeek(2);
+//
+//        //sets the listener to be notified upon selected date change.
+//        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+//            //show the selected date as a toast
+//            @Override
+//            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+//                Toast.makeText(getContext(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+//            }
+//        });
+//    }
 }
