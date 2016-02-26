@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
-        android:id="@+id/doneButton"
+        android:id="@+id/doneButtonPicker"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -23,8 +23,8 @@
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/doneButton"
-        android:layout_alignStart="@+id/doneButton"
+        android:layout_alignLeft="@+id/doneButtonPicker"
+        android:layout_alignStart="@+id/doneButtonPicker"
         android:layout_marginTop="105dp" />
 
     <TextView
@@ -34,7 +34,7 @@
         android:id="@+id/startDateTxt"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/doneButton" />
+        android:layout_alignLeft="@+id/doneButtonPicker" />
 
     <TextView
         android:layout_width="wrap_content"
