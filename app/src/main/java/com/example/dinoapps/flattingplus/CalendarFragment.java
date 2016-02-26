@@ -1,11 +1,13 @@
 package com.example.dinoapps.flattingplus;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -157,7 +159,11 @@ public class CalendarFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+//                final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.replace(R.id.calendar_view, new EventPicker(), "NewFragmentTag");
+//                ft.commit();
+                Intent ep = new Intent(getContext(), EventPickerActivity.class);
+                startActivity(ep);
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }

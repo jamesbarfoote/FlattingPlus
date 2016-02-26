@@ -8,9 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 
 /**
@@ -72,13 +69,13 @@ public class EventPicker extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_event_picker, container, false);
         this.startDate = (TextView) v.findViewById(R.id.startDateTxt);
-        this.endDate = (TextView) v.findViewById(R.id.endDateTxt);
+        this.endDate = (TextView) v.findViewById(R.id.timeTxt);
 
         this.startDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //code here ...
+
 
             }
         });
@@ -119,6 +116,7 @@ public class EventPicker extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this

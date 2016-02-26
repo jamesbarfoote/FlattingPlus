@@ -37,4 +37,5 @@ dependencies {
     compile 'com.github.tibolte:agendacalendarview:1.0.3'
     compile 'com.jakewharton:butterknife:7.0.0'
     compile 'com.wdullaer:materialdatetimepicker:2.2.0'
+    compile 'com.code-troopers.betterpickers:library:2.5.1'
 }

@@ -5,4 +5,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_fragment_list">FragmentListActivity</string>
+    <string name="title_activity_event_picker">EventPickerActivity</string>
+    <string name="calendar_date_picker_result_values">Year: %1$s\nMonth: %2$s\nDay: %3$s</string>
+    <string name="radial_time_picker">Set Time</string>
+    <string name="radial_time_picker_result_value">%1$d:%2$d</string>
 </resources>

@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="End Date"
+        android:text="Time"
         android:id="@+id/textView4"
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
@@ -50,8 +50,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"
-        android:id="@+id/endDateTxt"
+        android:text="Time"
+        android:id="@+id/timeTxt"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/textView4"
         android:layout_alignLeft="@+id/startDateTxt" />
@@ -62,9 +62,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Description"
         android:id="@+id/textView"
-        android:layout_below="@+id/endDateTxt"
-        android:layout_alignLeft="@+id/endDateTxt"
-        android:layout_alignStart="@+id/endDateTxt"
+        android:layout_below="@+id/timeTxt"
+        android:layout_alignLeft="@+id/timeTxt"
+        android:layout_alignStart="@+id/timeTxt"
         android:layout_marginTop="46dp" />
 
     <EditText
@@ -76,5 +76,6 @@
         android:layout_alignStart="@+id/textView"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
+
 
 </RelativeLayout>
