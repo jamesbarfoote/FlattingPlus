@@ -199,13 +199,13 @@ public class CalendarFragment extends Fragment {
 
                         Calendar cal = Calendar.getInstance();
 
-        cal.set(2016, 2, 25, 4, 0);
+        cal.set(2016, 1, 25, 4, 0);
         values.put(CalendarProvider.START, cal.getTimeInMillis());
         TimeZone tz = TimeZone.getDefault();
         int StartDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
         values.put(CalendarProvider.START_DAY, StartDayJulian);
 
-        cal.set(2016, 2, 25, 7, 0);
+        cal.set(2016, 1, 25, 7, 0);
         int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
 
         values.put(CalendarProvider.END, cal.getTimeInMillis());
