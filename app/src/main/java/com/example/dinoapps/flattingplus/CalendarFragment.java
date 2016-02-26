@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -45,6 +46,7 @@ public class CalendarFragment extends Fragment {
     ExtendedCalendarView calendar;
     ListView listViewCalendarItems;
     ArrayList<Event> itemsList;
+    ArrayAdapter<String> adapter;
 
 
     // TODO: Rename and change types of parameters
@@ -112,7 +114,6 @@ public class CalendarFragment extends Fragment {
         this.calendar = (ExtendedCalendarView)v.findViewById(R.id.calendar);
 //        this.calendar.setGesture(ExtendedCalendarView.LEFT_RIGHT_GESTURE);
         addSingle(v);
-
         calendar.setOnDayClickListener(new ExtendedCalendarView.OnDayClickListener() {
             @Override
             public void onDayClicked(AdapterView<?> adapter, View view,
@@ -121,8 +122,26 @@ public class CalendarFragment extends Fragment {
                 boolean dayIsClicked = true;
                 Day clickedDay = day;
                 getScheduleDetails(day);
-                                Toast.makeText(getContext(), day.getDay() + "", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getContext(), day.getDay() + "/ " + day.getMonth() + "/ " + day.getYear() + " Events: " + day.getNumOfEvenets(), Toast.LENGTH_LONG).show();
+                ArrayList<String> myStringArray1 = new ArrayList<String>();
+                //myStringArray1.add(day.getEvents().get(0).getDescription());
+                //adapter = new AdapterView<>(getActivity(), R.layout.listitem, myStringArray1);
+                if(itemsList.size() > 0)
+                {
+                    ArrayList<String> dayEvents = new ArrayList<String>();
+                    for(Event e: itemsList)
+                    {
+                        dayEvents.add(e.getDescription());
+                        listViewCalendarItems.setAdapter(new ArrayAdapter(getContext(), R.layout.listitem, R.id.txtview, dayEvents));
 
+                    }
+                }
+                else
+                {
+                    listViewCalendarItems.setAdapter(new ArrayAdapter(getContext(), R.layout.listitem,R.id.txtview, itemsList));
+
+                }
+                //listViewCalendarItems.setAdapter(adapter);
 //                listViewCalendarItems.setAdapter(new ListAdapter(getContext(), R.layout.itemlist, this.itemsList));
 
             }
