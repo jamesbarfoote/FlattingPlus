@@ -2,6 +2,7 @@ package com.example.dinoapps.flattingplus;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.format.Time;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,6 +51,9 @@ public class CalendarFragment extends Fragment {
     ListView listViewCalendarItems;
     ArrayList<Event> itemsList;
     ArrayAdapter<String> adapter;
+    private String dateData;
+    private String timeData;
+    private String descriptionData;
 
 
     // TODO: Rename and change types of parameters
@@ -162,10 +167,11 @@ public class CalendarFragment extends Fragment {
 //                final FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.calendar_view, new EventPicker(), "NewFragmentTag");
 //                ft.commit();
+                EventPickerActivity epa = new EventPickerActivity();
                 Intent ep = new Intent(getContext(), EventPickerActivity.class);
                 startActivity(ep);
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+
             }
         });
 
@@ -194,6 +200,34 @@ public class CalendarFragment extends Fragment {
 //{
 //    MaterialCalendarView.getSelectedDates();
 //}
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        String hasSuccess;
+        String res;
+        SharedPreferences suc = getActivity().getSharedPreferences("hasSuccess", 0);
+        hasSuccess = suc.getString("Success", null);
+        Log.v("Cal Frag", "success: " + hasSuccess);
+
+        if(hasSuccess !=null && hasSuccess.equals("true")) {
+            SharedPreferences settings = getActivity().getSharedPreferences("DateData", 0);
+            dateData = settings.getString("Date", null);
+
+            SharedPreferences timeS = getActivity().getSharedPreferences("TimeData", 0);
+            timeData = timeS.getString("Time", null);
+
+            SharedPreferences descS = getActivity().getSharedPreferences("DescriptionData", 0);
+            descriptionData = descS.getString("Description", null);
+
+            Log.v("CalFrag Res", "Date: " + dateData + " Time: " + timeData + " Description: " + descriptionData);
+
+            if (dateData == null) {
+                dateData = "";
+                Log.v("Date", "No date set");
+            }
+        }
+    }
 
     public void addSingle(View v)
     {
@@ -241,23 +275,4 @@ public class CalendarFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
-//    public void initializeCalendar() {
-//
-//        // sets whether to show the week number.
-//        calendar.setShowWeekNumber(false);
-//
-//        // sets the first day of week according to Calendar.
-//        // here we set Monday as the first day of the Calendar
-//        calendar.setFirstDayOfWeek(2);
-//
-//        //sets the listener to be notified upon selected date change.
-//        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            //show the selected date as a toast
-//            @Override
-//            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-//                Toast.makeText(getContext(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
-//            }
-//        });
-//    }
 }

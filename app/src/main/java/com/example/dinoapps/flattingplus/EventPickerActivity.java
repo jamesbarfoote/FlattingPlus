@@ -1,6 +1,7 @@
 package com.example.dinoapps.flattingplus;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ public class EventPickerActivity extends AppCompatActivity implements CalendarDa
     String date;
     String description;
     Button doneB;
+    static boolean isRunning = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +64,27 @@ public class EventPickerActivity extends AppCompatActivity implements CalendarDa
             public void onClick(View v) {
                 Log.v("Done","Done clicked");
                 TextView dec = (TextView)findViewById(R.id.eventDiscriptionTxt);
-                setDesc(dec.toString());
+                setDesc(dec.getText().toString());
                 //Go back to calendar fragment
                 //Intent n = new Intent(v.getContext(), CalendarFragment.class);
                 //startActivity(new Intent(v.getContext(), CalendarFragment.class));
-                finish();
+
+                // We need an Editor object to make preference changes.
+                // All objects are from android.context.Context
+                SharedPreferences settings = getSharedPreferences("DateData", 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("Date", date);
+
+                // Commit the edits!
+                editor.commit();
+                if(time.equals(null) || date.equals(null) || description.equals(null))
+                {
+                    Log.v("Event picker", "Missing data");
+                }
+                else
+                {
+                    finish();
+                }
             }
         });
     }
@@ -101,6 +119,58 @@ public class EventPickerActivity extends AppCompatActivity implements CalendarDa
     public String getDescription()
     {
         return this.description;
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        Log.v("Paused", "On pause");
+        isRunning = false;
+
+        if(date != null) {
+            Log.v("EventPicker", "success");
+            SharedPreferences paus = getSharedPreferences("hasSuccess", 0);
+            SharedPreferences.Editor ed = paus.edit();
+            ed.putString("Success", "true");
+
+            // Commit the edits!
+            ed.commit();
+        }
+        Log.v("Event Picker", "Date: " + date);
+
+        //Share the date result
+        SharedPreferences settings = getSharedPreferences("DateData", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("Date", date);
+        editor.commit();
+
+        //Share the time result
+        SharedPreferences timeS = getSharedPreferences("TimeData", 0);
+        SharedPreferences.Editor timeEd = timeS.edit();
+        timeEd.putString("Time", time);
+        timeEd.commit();
+
+        //share the description result
+        SharedPreferences descS = getSharedPreferences("DescriptionData", 0);
+        SharedPreferences.Editor descEd = descS.edit();
+        descEd.putString("Description", description);
+        descEd.commit();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        Log.v("Resumed", "On resume");
+        isRunning = true;
+
+        SharedPreferences paus = getSharedPreferences("isPaused", 0);
+        SharedPreferences.Editor ed = paus.edit();
+        ed.putBoolean("Paused", isRunning);
+
+        // Commit the edits!
+        ed.commit();
     }
 
 
