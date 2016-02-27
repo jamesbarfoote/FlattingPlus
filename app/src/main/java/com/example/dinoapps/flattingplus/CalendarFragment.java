@@ -28,7 +28,9 @@ import com.tyczj.extendedcalendarview.Event;
 import com.tyczj.extendedcalendarview.ExtendedCalendarView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
@@ -54,6 +56,11 @@ public class CalendarFragment extends Fragment {
     private String dateData;
     private String timeData;
     private String descriptionData;
+    private int dayOfWeek;
+    private int monthOfYear;
+    private int year;
+    private int hours;
+    private int minutes;
 
 
     // TODO: Rename and change types of parameters
@@ -222,11 +229,37 @@ public class CalendarFragment extends Fragment {
 
             Log.v("CalFrag Res", "Date: " + dateData + " Time: " + timeData + " Description: " + descriptionData);
 
-            if (dateData == null) {
-                dateData = "";
-                Log.v("Date", "No date set");
-            }
+            addEvent(dateData, timeData, descriptionData);
         }
+    }
+
+    public void addEvent(String date, String time, String description)
+    {
+        ContentValues values = new ContentValues();
+        values.put(CalendarProvider.COLOR, Event.COLOR_RED);
+        values.put(CalendarProvider.DESCRIPTION, description);
+        values.put(CalendarProvider.LOCATION, "Some location");
+        values.put(CalendarProvider.EVENT, "Event name");
+
+        splitDate(date);
+        splitTime(time);
+
+        Calendar cal = Calendar.getInstance();
+        //dateData = day,month,year
+        //timeData = hours:minutes
+        cal.set(year, monthOfYear, dayOfWeek, hours, minutes);
+        values.put(CalendarProvider.START, cal.getTimeInMillis());
+        TimeZone tz = TimeZone.getDefault();
+        int StartDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+        values.put(CalendarProvider.START_DAY, StartDayJulian);
+
+        cal.set(year, monthOfYear, dayOfWeek, hours, minutes);
+        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+
+        values.put(CalendarProvider.END, cal.getTimeInMillis());
+        values.put(CalendarProvider.END_DAY, endDayJulian);
+
+        Uri uri = getContext().getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
     }
 
     public void addSingle(View v)
@@ -274,5 +307,23 @@ public class CalendarFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void splitDate(String date)
+    {
+        List<String> split = Arrays.asList(date.split(","));
+        dayOfWeek = Integer.parseInt(split.get(0));
+        monthOfYear = Integer.parseInt(split.get(1));
+        year = Integer.parseInt(split.get(2));
+        Log.v("Split date", "Day: " + dayOfWeek + " Month: " + monthOfYear + " Year: " + year);
+    }
+
+    public void splitTime(String time)
+    {
+        List<String> split = Arrays.asList(time.split(":"));
+        hours = Integer.parseInt(split.get(0));
+        minutes = Integer.parseInt(split.get(1));
+        Log.v("Split time", "Hours: " + hours + " Minutes: " + minutes);
+
     }
 }

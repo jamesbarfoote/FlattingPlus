@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFragment;
@@ -80,6 +81,8 @@ public class EventPickerActivity extends AppCompatActivity implements CalendarDa
                 if(time.equals(null) || date.equals(null) || description.equals(null))
                 {
                     Log.v("Event picker", "Missing data");
+                    Toast.makeText(getApplicationContext(), "Make sure all fields are filled", Toast.LENGTH_LONG).show();
+
                 }
                 else
                 {
