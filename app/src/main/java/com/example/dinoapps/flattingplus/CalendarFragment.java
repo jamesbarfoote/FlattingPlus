@@ -218,7 +218,8 @@ public class CalendarFragment extends Fragment {
         Log.v("Cal Frag", "success: " + hasSuccess);
 
         if(hasSuccess !=null && hasSuccess.equals("true")) {
-            
+            suc.edit().clear().commit();
+
             SharedPreferences settings = getActivity().getSharedPreferences("DateData", 0);
             dateData = settings.getString("Date", null);
 
@@ -235,7 +236,9 @@ public class CalendarFragment extends Fragment {
 
             Log.v("CalFrag Res", "Date: " + dateData + " Time: " + timeData + " Description: " + descriptionData);
 
-            addEvent(dateData, timeData, descriptionData);
+            if(dateData != null && timeData != null && descriptionData != null) {
+                addEvent(dateData, timeData, descriptionData);
+            }
         }
     }
 
