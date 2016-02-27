@@ -127,7 +127,7 @@ public class CalendarFragment extends Fragment {
 
         this.calendar = (ExtendedCalendarView)v.findViewById(R.id.calendar);
 //        this.calendar.setGesture(ExtendedCalendarView.LEFT_RIGHT_GESTURE);
-        addSingle(v);
+
         calendar.setOnDayClickListener(new ExtendedCalendarView.OnDayClickListener() {
             @Override
             public void onDayClicked(AdapterView<?> adapter, View view,
@@ -218,6 +218,7 @@ public class CalendarFragment extends Fragment {
         Log.v("Cal Frag", "success: " + hasSuccess);
 
         if(hasSuccess !=null && hasSuccess.equals("true")) {
+            
             SharedPreferences settings = getActivity().getSharedPreferences("DateData", 0);
             dateData = settings.getString("Date", null);
 
@@ -226,6 +227,11 @@ public class CalendarFragment extends Fragment {
 
             SharedPreferences descS = getActivity().getSharedPreferences("DescriptionData", 0);
             descriptionData = descS.getString("Description", null);
+
+            settings.edit().clear().commit();
+            timeS.edit().clear().commit();
+            descS.edit().clear().commit();
+
 
             Log.v("CalFrag Res", "Date: " + dateData + " Time: " + timeData + " Description: " + descriptionData);
 
@@ -262,30 +268,7 @@ public class CalendarFragment extends Fragment {
         Uri uri = getContext().getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
     }
 
-    public void addSingle(View v)
-    {
-        ContentValues values = new ContentValues();
-        values.put(CalendarProvider.COLOR, Event.COLOR_RED);
-        values.put(CalendarProvider.DESCRIPTION, "Some Description");
-        values.put(CalendarProvider.LOCATION, "Some location");
-                values.put(CalendarProvider.EVENT, "Event name");
 
-                        Calendar cal = Calendar.getInstance();
-
-        cal.set(2016, 1, 25, 4, 0);
-        values.put(CalendarProvider.START, cal.getTimeInMillis());
-        TimeZone tz = TimeZone.getDefault();
-        int StartDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
-        values.put(CalendarProvider.START_DAY, StartDayJulian);
-
-        cal.set(2016, 1, 25, 7, 0);
-        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
-
-        values.put(CalendarProvider.END, cal.getTimeInMillis());
-        values.put(CalendarProvider.END_DAY, endDayJulian);
-
-        Uri uri = getContext().getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
-    }
 
 
     @Override
