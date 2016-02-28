@@ -2,6 +2,7 @@ package com.example.dinoapps.flattingplus;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +30,7 @@ public class NotesFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private boolean addButtonClicked = false;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -101,6 +103,7 @@ public class NotesFragment extends Fragment {
 //                ft.replace(R.id.calendar_view, new EventPicker(), "NewFragmentTag");
 //                ft.commit();
                // AddNoteActivity nn = new AddNoteActivity();
+                addButtonClicked = true;
                 Intent ni = new Intent(getContext(), AddNoteActivity.class);
                 startActivity(ni);
 
@@ -144,6 +147,23 @@ public class NotesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        //add new item here
+        if(addButtonClicked)
+        {
+            addButtonClicked = false; //reset the clicked status
+
+            //get the data from shared prefs
+            SharedPreferences noteT = getActivity().getSharedPreferences("NotesTitle", 0);
+            String title = noteT.getString("NotesTitle", null);
+
+            SharedPreferences noteN = getActivity().getSharedPreferences("NoteText", 0);
+            String note = noteN.getString("NoteNText", null);
+
+            //add new item
+            DataObject obj = new DataObject(title, note);
+        }
+
         ((MyRecycleViewAdapter) mAdapter).setOnItemClickListener(new MyRecycleViewAdapter
                 .MyClickListener() {
             @Override
