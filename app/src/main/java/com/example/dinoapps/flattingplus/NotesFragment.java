@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -40,6 +42,8 @@ public class NotesFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private static String LOG_TAG = "CardViewActivity";
+   // ArrayList res;
+    private int index = 0;
 
     private OnFragmentInteractionListener mListener;
 
@@ -72,6 +76,7 @@ public class NotesFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -148,6 +153,7 @@ public class NotesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.v("Index", "Size " + index);
         Log.v("Resumes", "In resume for notes fragment");
         Log.v("add button", "Set to: " + addButtonClicked);
         String title;
@@ -160,19 +166,25 @@ public class NotesFragment extends Fragment {
         SharedPreferences notesN = getActivity().getSharedPreferences("NotesText", 0);
         note = notesN.getString("NotesTxt", null);
 
-            Log.v("Notes Frag", title + " Note: " + note);
+        Log.v("Notes Frag", title + " Note: " + note);
         if(title != null && note != null)
         {
 
             notesT.edit().clear().commit();
             notesN.edit().clear().commit();
 
+            addCurrentNote(title, note);
+            ArrayList<DataObject> d = getDataSetTest();
+
 
             //add new item
-            DataObject obj = new DataObject(title, note);
-            ArrayList<DataObject> res = new ArrayList<>();
-            res.add(obj);
-            mAdapter = new MyRecycleViewAdapter(res);
+//            DataObject obj = new DataObject(title, note);
+//
+//            ((MainActivity)getActivity()).res.add(obj);
+
+            //index++;
+            //Log.v("Notes size", "Size: " + ((MainActivity)getActivity()).res.size());
+            mAdapter = new MyRecycleViewAdapter(d);
             mRecyclerView.setAdapter(mAdapter);
 
             addButtonClicked = false; //reset the clicked status
@@ -196,6 +208,47 @@ public class NotesFragment extends Fragment {
             results.add(index, obj);
         }
         return results;
+    }
+
+    private ArrayList<DataObject> getDataSetTest() {
+        Set<String> currentNotes = getCurrentNotes();
+        ArrayList<String> data = new ArrayList<>();
+        for(String s: currentNotes)
+        {
+            data.add(s);
+        }
+
+        ArrayList results = new ArrayList<DataObject>();
+        for (int index = 0; index < data.size() -1; index++) {
+            DataObject obj = new DataObject(data.get(index),
+                    data.get(index + 1));
+            results.add(index, obj);
+        }
+        return results;
+    }
+
+    public void addCurrentNote(String title, String notes)
+    {
+        Set<String> s = getCurrentNotes();
+        if(s.size() <= 0) {
+            s = new HashSet<>();
+        }
+            s.add(title);
+            s.add(notes);
+
+        SharedPreferences notesD = getContext().getSharedPreferences("NotesData", 0);
+        SharedPreferences.Editor edit = notesD.edit();
+        edit.putStringSet("Notes", s);
+        edit.commit();
+    }
+
+    public Set<String> getCurrentNotes()
+    {
+        Set<String> notes;
+        SharedPreferences notesC = getActivity().getSharedPreferences("NotesData", 0);
+        notes = notesC.getStringSet("NotesData", null);
+        return notes;
+
     }
 
 }

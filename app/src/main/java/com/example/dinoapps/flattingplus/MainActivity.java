@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 
 public class MainActivity extends MaterialNavigationDrawer {
+    ArrayList<DataObject> res = new ArrayList<DataObject>();
 
     @Override
     public void init(Bundle savedInstanceState) {
