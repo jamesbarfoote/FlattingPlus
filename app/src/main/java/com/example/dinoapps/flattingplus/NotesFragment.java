@@ -1,8 +1,10 @@
 package com.example.dinoapps.flattingplus;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -90,6 +92,22 @@ public class NotesFragment extends Fragment {
         // Code to remove an item with default animation
         //((MyRecyclerViewAdapter) mAdapter).deleteItem(index);
 
+
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.floatAddNote);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.replace(R.id.calendar_view, new EventPicker(), "NewFragmentTag");
+//                ft.commit();
+               // AddNoteActivity nn = new AddNoteActivity();
+                Intent ni = new Intent(getContext(), AddNoteActivity.class);
+                startActivity(ni);
+
+
+            }
+        });
+
         return v;
     }
 
@@ -138,8 +156,8 @@ public class NotesFragment extends Fragment {
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 20; index++) {
-            DataObject obj = new DataObject("Some Primary Text " + index,
-                    "Secondary " + index);
+            DataObject obj = new DataObject("Title " + index,
+                    "Note stuff here " + index);
             results.add(index, obj);
         }
         return results;

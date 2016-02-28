@@ -34,6 +34,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.dinoapps.flattingplus.MainActivity" />
         </activity>
+        <activity
+            android:name=".AddNoteActivity"
+            android:label="@string/title_activity_add_note"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.dinoapps.flattingplus.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
