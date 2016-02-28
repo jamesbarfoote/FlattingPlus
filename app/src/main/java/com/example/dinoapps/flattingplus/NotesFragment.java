@@ -153,10 +153,6 @@ public class NotesFragment extends Fragment {
         String title;
         String note;
 
-        //add new item here
-
-            Log.v("In onResume notes", "button has been clicked");
-
             //get the data from shared prefs
         SharedPreferences notesT = getActivity().getSharedPreferences("NotesTitle", 0);
         title = notesT.getString("NotesT", null);
@@ -176,7 +172,8 @@ public class NotesFragment extends Fragment {
             DataObject obj = new DataObject(title, note);
             ArrayList<DataObject> res = new ArrayList<>();
             res.add(obj);
-            mAdapter = new MyRecycleViewAdapter(getDataSet());
+            mAdapter = new MyRecycleViewAdapter(res);
+            mRecyclerView.setAdapter(mAdapter);
 
             addButtonClicked = false; //reset the clicked status
 
