@@ -27,9 +27,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b44e4d10-ba18-4263-b794-fa9d525a849c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/AddNoteActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/AddNoteActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/NotesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/NotesFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_add_note.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_add_note.xml" />
     </list>
     <ignored path="FlattingPlus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="211" column="52" selection-start-line="210" selection-start-column="8" selection-end-line="211" selection-end-column="52" />
+              <caret line="228" column="42" selection-start-line="228" selection-start-column="12" selection-end-line="228" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5859#6373#0" expanded="true" />
@@ -74,13 +72,13 @@
       <file leaf-file-name="NotesFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/NotesFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46881288">
-              <caret line="160" column="52" selection-start-line="160" selection-start-column="52" selection-end-line="160" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.60160965">
+              <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
               <folding>
                 <element signature="e#3551#4095#0" expanded="true" />
                 <element signature="e#4094#4095#0" expanded="true" />
-                <element signature="e#5782#6013#0" expanded="true" />
-                <element signature="e#6012#6013#0" expanded="true" />
+                <element signature="e#5869#6100#0" expanded="true" />
+                <element signature="e#6099#6100#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,7 +128,7 @@
       <file leaf-file-name="EventPickerActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/EventPickerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5833335">
+            <state vertical-scroll-proportion="1.5277778">
               <caret line="67" column="27" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="27" />
               <folding />
             </state>
@@ -3169,8 +3167,8 @@
           <folding>
             <element signature="e#3551#4095#0" expanded="true" />
             <element signature="e#4094#4095#0" expanded="true" />
-            <element signature="e#5782#6013#0" expanded="true" />
-            <element signature="e#6012#6013#0" expanded="true" />
+            <element signature="e#5869#6100#0" expanded="true" />
+            <element signature="e#6099#6100#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3556,26 +3554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="211" column="52" selection-start-line="210" selection-start-column="8" selection-end-line="211" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5859#6373#0" expanded="true" />
-            <element signature="e#6372#6373#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/EventPickerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5833335">
-          <caret line="67" column="27" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_note.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3608,15 +3586,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/EventPickerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5277778">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/CalendarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="228" column="42" selection-start-line="228" selection-start-column="12" selection-end-line="228" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5859#6373#0" expanded="true" />
+            <element signature="e#6372#6373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dinoapps/flattingplus/NotesFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46881288">
-          <caret line="160" column="52" selection-start-line="160" selection-start-column="52" selection-end-line="160" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.60160965">
+          <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
           <folding>
             <element signature="e#3551#4095#0" expanded="true" />
             <element signature="e#4094#4095#0" expanded="true" />
-            <element signature="e#5782#6013#0" expanded="true" />
-            <element signature="e#6012#6013#0" expanded="true" />
+            <element signature="e#5869#6100#0" expanded="true" />
+            <element signature="e#6099#6100#0" expanded="true" />
           </folding>
         </state>
       </provider>

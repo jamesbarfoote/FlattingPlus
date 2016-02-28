@@ -160,6 +160,9 @@ public class NotesFragment extends Fragment {
             SharedPreferences noteN = getActivity().getSharedPreferences("NoteText", 0);
             String note = noteN.getString("NoteNText", null);
 
+            noteT.edit().clear().commit();
+            noteN.edit().clear().commit();
+
             //add new item
             DataObject obj = new DataObject(title, note);
         }
