@@ -30,7 +30,7 @@ public class NotesFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private boolean addButtonClicked = false;
+    private boolean addButtonClicked;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -104,6 +104,7 @@ public class NotesFragment extends Fragment {
 //                ft.commit();
                // AddNoteActivity nn = new AddNoteActivity();
                 addButtonClicked = true;
+                Log.v("add button", "Set to: " + addButtonClicked);
                 Intent ni = new Intent(getContext(), AddNoteActivity.class);
                 startActivity(ni);
 
@@ -147,24 +148,36 @@ public class NotesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.v("Resumes", "In resume for notes fragment");
+        Log.v("add button", "Set to: " + addButtonClicked);
 
         //add new item here
-        if(addButtonClicked)
-        {
-            addButtonClicked = false; //reset the clicked status
+
+            Log.v("In onResume notes", "button has been clicked");
 
             //get the data from shared prefs
-            SharedPreferences noteT = getActivity().getSharedPreferences("NotesTitle", 0);
+            SharedPreferences noteT = getActivity().getSharedPreferences("NotesTitle", 1);
             String title = noteT.getString("NotesTitle", null);
 
-            SharedPreferences noteN = getActivity().getSharedPreferences("NoteText", 0);
-            String note = noteN.getString("NoteNText", null);
+            SharedPreferences noteN = getActivity().getSharedPreferences("NotesText", 1);
+            String note = noteN.getString("NotesText", null);
+
+            Log.v("Notes Frag", title + " Note: " + note);
+        if(title != null && note != null)
+        {
 
             noteT.edit().clear().commit();
             noteN.edit().clear().commit();
 
+
             //add new item
             DataObject obj = new DataObject(title, note);
+            ArrayList<DataObject> res = new ArrayList<>();
+            res.add(obj);
+            mAdapter = new MyRecycleViewAdapter(getDataSet());
+
+            addButtonClicked = false; //reset the clicked status
+
         }
 
         ((MyRecycleViewAdapter) mAdapter).setOnItemClickListener(new MyRecycleViewAdapter
