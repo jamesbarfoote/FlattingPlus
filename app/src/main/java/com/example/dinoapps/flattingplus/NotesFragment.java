@@ -234,6 +234,8 @@ public class NotesFragment extends Fragment {
 
     public void addCurrentNote(String title, String notes)
     {
+        Log.v("Notes Frag add current", title + " Note: " + notes);
+
         Set<String> s = getCurrentNotes();
         if(s == null) {
             s = new HashSet<>();
@@ -241,9 +243,14 @@ public class NotesFragment extends Fragment {
             s.add(title);
             s.add(notes);
 
+        for(String n: s)
+        {
+            Log.v("HashSet", "" + n);
+        }
+
         SharedPreferences notesD = getContext().getSharedPreferences("NotesData", 0);
         SharedPreferences.Editor edit = notesD.edit();
-        edit.putStringSet("Notes", s);
+        edit.putStringSet("NotesData", s);
         edit.commit();
     }
 
