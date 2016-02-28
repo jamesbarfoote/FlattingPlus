@@ -107,7 +107,7 @@ public class NotesFragment extends Fragment {
 //                final FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.calendar_view, new EventPicker(), "NewFragmentTag");
 //                ft.commit();
-               // AddNoteActivity nn = new AddNoteActivity();
+                // AddNoteActivity nn = new AddNoteActivity();
                 addButtonClicked = true;
                 Log.v("add button", "Set to: " + addButtonClicked);
                 Intent ni = new Intent(getContext(), AddNoteActivity.class);
@@ -184,10 +184,13 @@ public class NotesFragment extends Fragment {
 
             //index++;
             //Log.v("Notes size", "Size: " + ((MainActivity)getActivity()).res.size());
-            mAdapter = new MyRecycleViewAdapter(d);
-            mRecyclerView.setAdapter(mAdapter);
+            if(d != null) {
+                mAdapter = new MyRecycleViewAdapter(d);
+                mRecyclerView.setAdapter(mAdapter);
+            }
 
             addButtonClicked = false; //reset the clicked status
+
 
         }
 
@@ -212,25 +215,27 @@ public class NotesFragment extends Fragment {
 
     private ArrayList<DataObject> getDataSetTest() {
         Set<String> currentNotes = getCurrentNotes();
-        ArrayList<String> data = new ArrayList<>();
-        for(String s: currentNotes)
-        {
-            data.add(s);
-        }
+        if(currentNotes != null) {
+            ArrayList<String> data = new ArrayList<>();
+            for (String s : currentNotes) {
+                data.add(s);
+            }
 
-        ArrayList results = new ArrayList<DataObject>();
-        for (int index = 0; index < data.size() -1; index++) {
-            DataObject obj = new DataObject(data.get(index),
-                    data.get(index + 1));
-            results.add(index, obj);
+            ArrayList results = new ArrayList<DataObject>();
+            for (int index = 0; index < data.size() - 1; index++) {
+                DataObject obj = new DataObject(data.get(index),
+                        data.get(index + 1));
+                results.add(index, obj);
+            }
+            return results;
         }
-        return results;
+        return null;
     }
 
     public void addCurrentNote(String title, String notes)
     {
         Set<String> s = getCurrentNotes();
-        if(s.size() <= 0) {
+        if(s == null) {
             s = new HashSet<>();
         }
             s.add(title);
