@@ -36,13 +36,15 @@ public class AddNoteActivity extends AppCompatActivity {
         String note = notesText.getText().toString();
 
         Log.v("Add note", "Title: " + title);
-        SharedPreferences notesT = getSharedPreferences("NotesTitle", 1);
+        SharedPreferences notesT = getSharedPreferences("NotesTitle", 0);
         SharedPreferences.Editor ed = notesT.edit();
-        ed.putString("NotesTitle", title);
+        ed.putString("NotesT", title);
+        ed.commit();
 
         Log.v("Add note", " Text: " + note);
-        SharedPreferences notesN = getSharedPreferences("NotesText", 1);
+        SharedPreferences notesN = getSharedPreferences("NotesText", 0);
         SharedPreferences.Editor edit = notesN.edit();
-        edit.putString("NotesText", note);
+        edit.putString("NotesTxt", note);
+        edit.commit();
     }
 }

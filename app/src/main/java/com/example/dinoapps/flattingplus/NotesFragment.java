@@ -150,24 +150,26 @@ public class NotesFragment extends Fragment {
         super.onResume();
         Log.v("Resumes", "In resume for notes fragment");
         Log.v("add button", "Set to: " + addButtonClicked);
+        String title;
+        String note;
 
         //add new item here
 
             Log.v("In onResume notes", "button has been clicked");
 
             //get the data from shared prefs
-            SharedPreferences noteT = getActivity().getSharedPreferences("NotesTitle", 1);
-            String title = noteT.getString("NotesTitle", null);
+        SharedPreferences notesT = getActivity().getSharedPreferences("NotesTitle", 0);
+        title = notesT.getString("NotesT", null);
 
-            SharedPreferences noteN = getActivity().getSharedPreferences("NotesText", 1);
-            String note = noteN.getString("NotesText", null);
+        SharedPreferences notesN = getActivity().getSharedPreferences("NotesText", 0);
+        note = notesN.getString("NotesTxt", null);
 
             Log.v("Notes Frag", title + " Note: " + note);
         if(title != null && note != null)
         {
 
-            noteT.edit().clear().commit();
-            noteN.edit().clear().commit();
+            notesT.edit().clear().commit();
+            notesN.edit().clear().commit();
 
 
             //add new item
