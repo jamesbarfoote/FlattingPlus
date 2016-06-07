@@ -2,6 +2,7 @@ package com.example.dinoapps.flattingplus;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -133,6 +134,11 @@ public class SignInActivity extends AppCompatActivity implements
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            String personId = acct.getId();
+            Uri personPhoto = acct.getPhotoUrl();
+            Log.v("Account info", "Name: " + personName + " Email: " + personEmail);
             mStatusTextView.setText(getString(0, acct.getDisplayName()));
             updateUI(true);
         } else {
@@ -163,6 +169,7 @@ public class SignInActivity extends AppCompatActivity implements
 
     public void signIn()
     {
+        Log.v("Signin method", "In signin method");
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
