@@ -160,9 +160,6 @@ public class NotesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.v("Index", "Size " + index);
-        Log.v("Resumes", "In resume for notes fragment");
-        Log.v("add button", "Set to: " + addButtonClicked);
 
         //get the data from shared prefs
 //        SharedPreferences notesT = getActivity().getSharedPreferences("NotesTitle", 0);
@@ -172,13 +169,14 @@ public class NotesFragment extends Fragment {
 //        note = notesN.getString("NotesTxt", null);
 //
 //        Log.v("Notes Frag", title + " Note: " + note);
+
+        //get all the info from the notes table
         Cursor cursor = MainActivity.dbHelper.getNotesCount();
         int cnt = 0;
         if(cursor != null) {
-            Log.v("Non null", "cursor wasnt null");
             cnt = cursor.getCount();
         }
-                Log.v("Notes count"," count: " + cnt);
+        Log.v("Notes count"," count: " + cnt);
 
         if(cnt > this.numNotes)
         {
@@ -186,7 +184,8 @@ public class NotesFragment extends Fragment {
             //add the new notes
             long numNew = cnt - this.numNotes;
             //Go through all the new notes and add them
-            Cursor c = MainActivity.dbHelper.getNotes();
+
+            //add all the titles to an array
             ArrayList<String> title= new ArrayList<String>();
             if (cursor.moveToFirst()) {
 
@@ -199,7 +198,7 @@ public class NotesFragment extends Fragment {
                 }
             }
 
-
+            //add all the content to another array
             ArrayList<String> content= new ArrayList<String>();
             if (cursor.moveToFirst()) {
 
@@ -212,25 +211,12 @@ public class NotesFragment extends Fragment {
                 }
             }
 
-
-
-            for (int i = content.size() - (int)numNew; i < content.size(); i++)
-            {
-                String t = title.get(i);
-                    String cont = content.get(i);
-Log.v("title and content:", "title: " + t + " content: " + cont);
-                    addCurrentNote(t, cont);
-                    ArrayList<DataObject> d = getDataSetTest();
-
-
-                    if(d != null) {
-                        mAdapter = new MyRecycleViewAdapter(d);
-                        mRecyclerView.setAdapter(mAdapter);
-                    }
-
-                    addButtonClicked = false; //reset the clicked status
-
+            ArrayList<DataObject> d = createDataObjs(title, content);
+            if(d != null) {
+                mAdapter = new MyRecycleViewAdapter(d);
+                mRecyclerView.setAdapter(mAdapter);
             }
+
             this.numNotes += numNew;
 
         }
@@ -244,6 +230,17 @@ Log.v("title and content:", "title: " + t + " content: " + cont);
         });
     }
 
+    private ArrayList<DataObject> createDataObjs(ArrayList<String> title, ArrayList<String> content)
+    {
+        ArrayList<DataObject> data = new ArrayList<>();
+        for(int i =0; i < title.size(); i++)
+        {
+            DataObject obj = new DataObject(title.get(i), content.get(i));
+            data.add(obj);
+        }
+        return data;
+    }
+
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 20; index++) {
@@ -253,55 +250,4 @@ Log.v("title and content:", "title: " + t + " content: " + cont);
         }
         return results;
     }
-
-    private ArrayList<DataObject> getDataSetTest() {
-        Set<String> currentNotes = getCurrentNotes();
-        if(currentNotes != null) {
-            ArrayList<String> data = new ArrayList<>();
-            for (String s : currentNotes) {
-                data.add(s);
-            }
-
-            ArrayList results = new ArrayList<DataObject>();
-            for (int index = 0; index < data.size() - 1; index++) {
-                DataObject obj = new DataObject(data.get(index),
-                        data.get(index + 1));
-                results.add(index, obj);
-            }
-            return results;
-        }
-        return null;
-    }
-
-    public void addCurrentNote(String title, String notes)
-    {
-        Log.v("Notes Frag add current", title + " Note: " + notes);
-
-        Set<String> s = getCurrentNotes();
-        if(s == null) {
-            s = new HashSet<>();
-        }
-        s.add(title);
-        s.add(notes);
-
-        for(String n: s)
-        {
-            Log.v("HashSet", "" + n);
-        }
-
-        SharedPreferences notesD = getContext().getSharedPreferences("NotesData", 0);
-        SharedPreferences.Editor edit = notesD.edit();
-        edit.putStringSet("NotesData", s);
-        edit.commit();
-    }
-
-    public Set<String> getCurrentNotes()
-    {
-        Set<String> notes;
-        SharedPreferences notesC = getActivity().getSharedPreferences("NotesData", 0);
-        notes = notesC.getStringSet("NotesData", null);
-        return notes;
-
-    }
-
 }

@@ -35,6 +35,15 @@ public class AddNoteActivity extends AppCompatActivity {
         super.onPause();
         String title = titleText.getText().toString();
         String note = notesText.getText().toString();
+        if(title.equals(""))
+        {
+            title = "Title";
+        }
+
+        if(note.equals(""))
+        {
+            note = "Note";
+        }
 
         Log.v("Add note", "Title: " + title);
         SharedPreferences notesT = getSharedPreferences("NotesTitle", 0);
