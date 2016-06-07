@@ -97,7 +97,7 @@ public class NotesFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyRecycleViewAdapter(getDataSet());
+        mAdapter = new MyRecycleViewAdapter(getAndDisplay());
         mRecyclerView.setAdapter(mAdapter);
 
         // Code to Add an item with default animation
@@ -184,38 +184,38 @@ public class NotesFragment extends Fragment {
             //add the new notes
             long numNew = cnt - this.numNotes;
             //Go through all the new notes and add them
-
+            getAndDisplay();
             //add all the titles to an array
-            ArrayList<String> title= new ArrayList<String>();
-            if (cursor.moveToFirst()) {
-
-                while (cursor.isAfterLast() == false) {
-                    String name = cursor.getString(cursor
-                            .getColumnIndex("title"));
-
-                    title.add(name);
-                    cursor.moveToNext();
-                }
-            }
-
-            //add all the content to another array
-            ArrayList<String> content= new ArrayList<String>();
-            if (cursor.moveToFirst()) {
-
-                while (cursor.isAfterLast() == false) {
-                    String name = cursor.getString(cursor
-                            .getColumnIndex("content"));
-
-                    content.add(name);
-                    cursor.moveToNext();
-                }
-            }
-
-            ArrayList<DataObject> d = createDataObjs(title, content);
-            if(d != null) {
-                mAdapter = new MyRecycleViewAdapter(d);
-                mRecyclerView.setAdapter(mAdapter);
-            }
+//            ArrayList<String> title= new ArrayList<String>();
+//            if (cursor.moveToFirst()) {
+//
+//                while (cursor.isAfterLast() == false) {
+//                    String name = cursor.getString(cursor
+//                            .getColumnIndex("title"));
+//
+//                    title.add(name);
+//                    cursor.moveToNext();
+//                }
+//            }
+//
+//            //add all the content to another array
+//            ArrayList<String> content= new ArrayList<String>();
+//            if (cursor.moveToFirst()) {
+//
+//                while (cursor.isAfterLast() == false) {
+//                    String name = cursor.getString(cursor
+//                            .getColumnIndex("content"));
+//
+//                    content.add(name);
+//                    cursor.moveToNext();
+//                }
+//            }
+//
+//            ArrayList<DataObject> d = createDataObjs(title, content);
+//            if(d != null) {
+//                mAdapter = new MyRecycleViewAdapter(d);
+//                mRecyclerView.setAdapter(mAdapter);
+//            }
 
             this.numNotes += numNew;
 
@@ -241,13 +241,45 @@ public class NotesFragment extends Fragment {
         return data;
     }
 
-    private ArrayList<DataObject> getDataSet() {
-        ArrayList results = new ArrayList<DataObject>();
-        for (int index = 0; index < 20; index++) {
-            DataObject obj = new DataObject("Title " + index,
-                    "Note stuff here " + index);
-            results.add(index, obj);
+    private ArrayList<DataObject> getAndDisplay()
+    {
+        Cursor cursor = MainActivity.dbHelper.getNotesCount();
+        int cnt = 0;
+        if(cursor != null) {
+            cnt = cursor.getCount();
         }
-        return results;
+
+        //add all the titles to an array
+        ArrayList<String> title= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("title"));
+
+                title.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        //add all the content to another array
+        ArrayList<String> content= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("content"));
+
+                content.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        ArrayList<DataObject> d = createDataObjs(title, content);
+        if(d != null) {
+            mAdapter = new MyRecycleViewAdapter(d);
+            mRecyclerView.setAdapter(mAdapter);
+        }
+        return d;
     }
 }
