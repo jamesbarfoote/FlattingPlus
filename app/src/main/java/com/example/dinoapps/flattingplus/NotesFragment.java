@@ -3,6 +3,7 @@ package com.example.dinoapps.flattingplus;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -34,6 +36,11 @@ public class NotesFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private boolean addButtonClicked;
 
+    DBHelper dbHelper= new DBHelper(getContext());
+
+
+    private long numNotes = 0;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -42,7 +49,7 @@ public class NotesFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private static String LOG_TAG = "CardViewActivity";
-   // ArrayList res;
+    // ArrayList res;
     private int index = 0;
 
     private OnFragmentInteractionListener mListener;
@@ -156,44 +163,78 @@ public class NotesFragment extends Fragment {
         Log.v("Index", "Size " + index);
         Log.v("Resumes", "In resume for notes fragment");
         Log.v("add button", "Set to: " + addButtonClicked);
-        String title;
-        String note;
 
-            //get the data from shared prefs
-        SharedPreferences notesT = getActivity().getSharedPreferences("NotesTitle", 0);
-        title = notesT.getString("NotesT", null);
-
-        SharedPreferences notesN = getActivity().getSharedPreferences("NotesText", 0);
-        note = notesN.getString("NotesTxt", null);
-
-        Log.v("Notes Frag", title + " Note: " + note);
-        if(title != null && note != null)
-        {
-
-            notesT.edit().clear().commit();
-            notesN.edit().clear().commit();
-
-            addCurrentNote(title, note);
-            ArrayList<DataObject> d = getDataSetTest();
-
-
-            //add new item
-//            DataObject obj = new DataObject(title, note);
+        //get the data from shared prefs
+//        SharedPreferences notesT = getActivity().getSharedPreferences("NotesTitle", 0);
+//        title = notesT.getString("NotesT", null);
 //
-//            ((MainActivity)getActivity()).res.add(obj);
+//        SharedPreferences notesN = getActivity().getSharedPreferences("NotesText", 0);
+//        note = notesN.getString("NotesTxt", null);
+//
+//        Log.v("Notes Frag", title + " Note: " + note);
+        Cursor cursor = MainActivity.dbHelper.getNotesCount();
+        int cnt = 0;
+        if(cursor != null) {
+            Log.v("Non null", "cursor wasnt null");
+            cnt = cursor.getCount();
+        }
+                Log.v("Notes count"," count: " + cnt);
 
-            //index++;
-            //Log.v("Notes size", "Size: " + ((MainActivity)getActivity()).res.size());
-            if(d != null) {
-                mAdapter = new MyRecycleViewAdapter(d);
-                mRecyclerView.setAdapter(mAdapter);
+        if(cnt > this.numNotes)
+        {
+            Log.v("adding note", "need to add");
+            //add the new notes
+            long numNew = cnt - this.numNotes;
+            //Go through all the new notes and add them
+            Cursor c = MainActivity.dbHelper.getNotes();
+            ArrayList<String> title= new ArrayList<String>();
+            if (cursor.moveToFirst()) {
+
+                while (cursor.isAfterLast() == false) {
+                    String name = cursor.getString(cursor
+                            .getColumnIndex("title"));
+
+                    title.add(name);
+                    cursor.moveToNext();
+                }
             }
 
-            addButtonClicked = false; //reset the clicked status
 
+            ArrayList<String> content= new ArrayList<String>();
+            if (cursor.moveToFirst()) {
+
+                while (cursor.isAfterLast() == false) {
+                    String name = cursor.getString(cursor
+                            .getColumnIndex("content"));
+
+                    content.add(name);
+                    cursor.moveToNext();
+                }
+            }
+
+
+
+            for (int i = content.size() - (int)numNew; i < content.size(); i++)
+            {
+                String t = title.get(i);
+                    String cont = content.get(i);
+Log.v("title and content:", "title: " + t + " content: " + cont);
+                    addCurrentNote(t, cont);
+                    ArrayList<DataObject> d = getDataSetTest();
+
+
+                    if(d != null) {
+                        mAdapter = new MyRecycleViewAdapter(d);
+                        mRecyclerView.setAdapter(mAdapter);
+                    }
+
+                    addButtonClicked = false; //reset the clicked status
+
+            }
+            this.numNotes += numNew;
 
         }
-
+//
         ((MyRecycleViewAdapter) mAdapter).setOnItemClickListener(new MyRecycleViewAdapter
                 .MyClickListener() {
             @Override
@@ -240,8 +281,8 @@ public class NotesFragment extends Fragment {
         if(s == null) {
             s = new HashSet<>();
         }
-            s.add(title);
-            s.add(notes);
+        s.add(title);
+        s.add(notes);
 
         for(String n: s)
         {

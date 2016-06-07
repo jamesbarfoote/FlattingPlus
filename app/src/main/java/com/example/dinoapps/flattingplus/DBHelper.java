@@ -3,6 +3,7 @@ package com.example.dinoapps.flattingplus;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "FlattingPlusDB.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     public static final String USER_TABLE_NAME = "user";
     public static final String USER_COLUMN_ID = "_id";
@@ -90,6 +91,53 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public boolean insertNote(int userID, String title, String content, String flatGroup) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(NOTE_COLUMN_USER_ID, userID);
+        contentValues.put(NOTE_COLUMN_TITLE, title);
+        contentValues.put(NOTE_COLUMN_CONTENT, content);
+        contentValues.put(USER_COLUMN_FLAT_GROUP, flatGroup);
+        db.insert(NOTE_TABLE_NAME, null, contentValues);
+        return true;
+    }
+
+    public boolean insertNote(String title, String content) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(NOTE_COLUMN_TITLE, title);
+        contentValues.put(NOTE_COLUMN_CONTENT, content);
+        db.insert(NOTE_TABLE_NAME, null, contentValues);
+        return true;
+    }
+
+    public Cursor getNotes()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + NOTE_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
+    }
+
+    public Cursor getNotesCount() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        long cnt  = DatabaseUtils.queryNumEntries(db, NOTE_TABLE_NAME);
+//        db.close();
+//        return cnt;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + NOTE_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+//        int cnt = 0;
+//        if(cursor != null) {
+//            cnt = cursor.getCount();
+//        }
+
+       // cursor.close();
+
+        return cursor;
+    }
+
     public boolean insertUser(int userID, String email, String pic, String flatGroup) {
         clearUserTable();
         SQLiteDatabase db = getWritableDatabase();
@@ -128,7 +176,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query,null);
         if (cursor.moveToFirst()) {
             Log.d("in if", "");
-                return cursor.getString(cursor.getColumnIndex("flatgroup"));
+            return cursor.getString(cursor.getColumnIndex("flatgroup"));
 
         }
         return "";
@@ -224,16 +272,16 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public String getNotes()
-    {
-        String list = "";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select todoList from fgroup", null);
-        if(cursor.moveToFirst()){
-            list = cursor.getString(0);
-            Log.v("Stuff", "Stuff " + list);}
-        return list;
-    }
+//    public String getNotes()
+//    {
+//        String list = "";
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery("select todoList from fgroup", null);
+//        if(cursor.moveToFirst()){
+//            list = cursor.getString(0);
+//            Log.v("Stuff", "Stuff " + list);}
+//        return list;
+//    }
 
     public ArrayList<String> getGroupData()
     {

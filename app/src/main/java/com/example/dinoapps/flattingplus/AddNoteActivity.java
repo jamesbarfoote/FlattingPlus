@@ -13,6 +13,7 @@ import android.widget.EditText;
 public class AddNoteActivity extends AppCompatActivity {
     EditText titleText;
     EditText notesText;
+    DBHelper dbHelper= new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +47,7 @@ public class AddNoteActivity extends AppCompatActivity {
         SharedPreferences.Editor edit = notesN.edit();
         edit.putString("NotesTxt", note);
         edit.commit();
+
+        MainActivity.dbHelper.insertNote(0,title, note,"0");
     }
 }
