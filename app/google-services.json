@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "990776252040",
+    "project_id": "flattingplus"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990776252040:android:5417eee68c299bae",
+        "android_client_info": {
+          "package_name": "com.example.dinoapps.flattingplus.MainActivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990776252040-32bst3ul93bu8boaegdi8p43te7llqeh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dinoapps.flattingplus.MainActivity",
+            "certificate_hash": "EF312E8C6284710CCF7CFB0997C98B77EA295733"
+          }
+        },
+        {
+          "client_id": "990776252040-al8er2lk5fmijqouj4n6si0rjdne5pgf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDkM4BOxqCJs359KNU8UK3rwd4Ghn1HLY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

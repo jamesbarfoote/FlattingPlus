@@ -184,7 +184,7 @@ public class NotesFragment extends Fragment {
             //add the new notes
             long numNew = cnt - this.numNotes;
             //Go through all the new notes and add them
-            getAndDisplay();
+            ArrayList<DataObject> d =getAndDisplay();
             //add all the titles to an array
 //            ArrayList<String> title= new ArrayList<String>();
 //            if (cursor.moveToFirst()) {
@@ -212,10 +212,10 @@ public class NotesFragment extends Fragment {
 //            }
 //
 //            ArrayList<DataObject> d = createDataObjs(title, content);
-//            if(d != null) {
-//                mAdapter = new MyRecycleViewAdapter(d);
-//                mRecyclerView.setAdapter(mAdapter);
-//            }
+            if(d != null) {
+                mAdapter = new MyRecycleViewAdapter(d);
+                mRecyclerView.setAdapter(mAdapter);
+            }
 
             this.numNotes += numNew;
 
@@ -276,10 +276,6 @@ public class NotesFragment extends Fragment {
         }
 
         ArrayList<DataObject> d = createDataObjs(title, content);
-        if(d != null) {
-            mAdapter = new MyRecycleViewAdapter(d);
-            mRecyclerView.setAdapter(mAdapter);
-        }
         return d;
     }
 }

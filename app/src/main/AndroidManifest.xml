@@ -43,6 +43,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.dinoapps.flattingplus.MainActivity" />
         </activity>
+        <activity android:name=".SignInActivity"></activity>
     </application>
 
 </manifest>
