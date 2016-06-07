@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\james\Documents\GitHub\FlattingPlus\extendedCalendarView\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="C:\Users\james\Documents\GitHub\FlattingPlus\extendedCalendarView\src\release\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\james\Documents\Android\FlattingPlus\extendedCalendarView\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="C:\Users\james\Documents\Android\FlattingPlus\extendedCalendarView\src\release\jniLibs"/></dataSet></merger>

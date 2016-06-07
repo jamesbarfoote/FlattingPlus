@@ -4,16 +4,16 @@
         "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png"
     },
     {
-        "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png",
-        "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png"
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\red.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\red.png"
     },
     {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\red.png",
         "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\red.png"
     },
     {
-        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\day_bg.9.png",
-        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\day_bg.9.png"
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\purple.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\purple.png"
     },
     {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\navigation_next_item.png",
@@ -32,20 +32,12 @@
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\day_bg.9.png"
     },
     {
-        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\blue.png",
-        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\blue.png"
-    },
-    {
         "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\red.png",
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\red.png"
     },
     {
-        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\orange.png",
-        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\orange.png"
-    },
-    {
-        "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\green.png",
-        "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\green.png"
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\green.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\green.png"
     },
     {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
@@ -56,12 +48,64 @@
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\navigation_next_item.png"
     },
     {
-        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\navigation_previous_item.png",
-        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\navigation_previous_item.png"
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\blue.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\blue.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\day_bg.9.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\day_bg.9.png"
     },
     {
         "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\blue.png",
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\blue.png"
+    },
+    {
+        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\green.png",
+        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\green.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\navigation_next_item.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\navigation_next_item.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\navigation_previous_item.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\navigation_previous_item.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png",
+        "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\day_bg.9.png",
+        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\day_bg.9.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\orange.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\orange.png"
+    },
+    {
+        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\blue.png",
+        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\blue.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\orange.png",
+        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\orange.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\green.png",
+        "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\green.png"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\quickcontact_badge_overlay_normal_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\navigation_previous_item.png",
+        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\navigation_previous_item.png"
     },
     {
         "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\orange.png",
@@ -74,9 +118,5 @@
     {
         "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\purple.png",
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\purple.png"
-    },
-    {
-        "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\green.png",
-        "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\green.png"
     }
 ]

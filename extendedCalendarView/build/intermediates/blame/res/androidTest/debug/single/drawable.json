@@ -4,12 +4,24 @@
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\today.xml"
     },
     {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\normal_day.xml",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\normal_day.xml"
+    },
+    {
         "merged": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\normal_day.xml",
         "source": "C:\\Users\\james\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\normal_day.xml"
     },
     {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\normal_day.xml",
         "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\normal_day.xml"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\today.xml",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\today.xml"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\date_number_background.xml",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\date_number_background.xml"
     },
     {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\day_selected.xml",
@@ -30,5 +42,9 @@
     {
         "merged": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\today.xml",
         "source": "C:\\Users\\JamesB\\Documents\\GitHub\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\today.xml"
+    },
+    {
+        "merged": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\day_selected.xml",
+        "source": "C:\\Users\\james\\Documents\\Android\\FlattingPlus\\extendedCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable\\day_selected.xml"
     }
 ]
