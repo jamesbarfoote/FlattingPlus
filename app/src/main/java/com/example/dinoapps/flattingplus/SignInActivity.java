@@ -29,6 +29,8 @@ public class SignInActivity extends AppCompatActivity implements
     private ProgressDialog mProgressDialog;
     private TextView mStatusTextView;
     private TextView titleThing;
+    static DBHelper dbHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,6 +142,7 @@ public class SignInActivity extends AppCompatActivity implements
             Uri personPhoto = acct.getPhotoUrl();
             Log.v("Account info", "Name: " + personName + " Email: " + personEmail);
             titleThing.setText(personName + " " + personEmail);
+            addUserToDB(personName, personEmail, personId, personPhoto);
 //            updateUI(true);
         } else {
             Log.v("Signin", "signin failed");
@@ -182,6 +185,17 @@ public class SignInActivity extends AppCompatActivity implements
                 signIn();
                 break;
         }
+    }
+
+    private void addUserToDB(String personName, String personEmail, String personId, Uri personPhoto)
+    {
+        dbHelper = new DBHelper(this);
+        dbHelper.insertUser(personName, personEmail, "" + personPhoto, "null");
+
+        //Check internet db to see if user exists
+            //pull down info if it does
+
+        //Return user to main activity
     }
 
 }

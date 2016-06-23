@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String USER_TABLE_NAME = "user";
     public static final String USER_COLUMN_ID = "_id";
-    public static final String USER_COLUMN_USER_ID = "userID";
+    public static final String USER_COLUMN_NAME = "name";
     public static final String USER_COLUMN_EMAIL = "email";
     public static final String USER_COLUMN_FLAT_GROUP = "flatgroup";
     public static final String USER_COLUMN_PICTURE = "pic";
@@ -56,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String createUser = "CREATE TABLE " + USER_TABLE_NAME + "(" +
             USER_COLUMN_ID + " INTEGER PRIMARY KEY, " +
-            USER_COLUMN_USER_ID + " INTEGER, " +
+            USER_COLUMN_NAME + " TEXT, " +
             USER_COLUMN_EMAIL + " TEXT, " +
             USER_COLUMN_PICTURE + " TEXT," +
             USER_COLUMN_FLAT_GROUP + " TEXT" + ")";
@@ -138,11 +138,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public boolean insertUser(int userID, String email, String pic, String flatGroup) {
+    public boolean insertUser(String name, String email, String pic, String flatGroup) {
         clearUserTable();
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(USER_COLUMN_USER_ID, userID);
+        contentValues.put(USER_COLUMN_NAME, name);
         contentValues.put(USER_COLUMN_EMAIL, email);
         contentValues.put(USER_COLUMN_PICTURE, pic);
         contentValues.put(USER_COLUMN_FLAT_GROUP, flatGroup);
@@ -151,14 +151,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updatePerson(Integer id, int userID, String email, String pic, String flatGroup) {
+    public boolean updatePerson(String name, String email, String pic, String flatGroup) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(USER_COLUMN_USER_ID, userID);
+        contentValues.put(USER_COLUMN_NAME, name);
         contentValues.put(USER_COLUMN_EMAIL, email);
         contentValues.put(USER_COLUMN_PICTURE, pic);
         contentValues.put(USER_COLUMN_FLAT_GROUP, flatGroup);
-        db.update(USER_TABLE_NAME, contentValues, USER_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
+        db.update(USER_TABLE_NAME, contentValues, USER_COLUMN_ID + " = ? ", new String[]{email});
         return true;
     }
 
@@ -272,17 +272,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-//    public String getNotes()
-//    {
-//        String list = "";
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery("select todoList from fgroup", null);
-//        if(cursor.moveToFirst()){
-//            list = cursor.getString(0);
-//            Log.v("Stuff", "Stuff " + list);}
-//        return list;
-//    }
-
     public ArrayList<String> getGroupData()
     {
         ArrayList<String> groupData = new ArrayList<String>();
@@ -301,20 +290,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public boolean groupExists(String gName)
     {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        String query = "SELECT * FROM " + FLATGROUP_COLUMN_GROUP_NAME;
-//        Cursor  cursor = db.rawQuery(query,null);
-//        if (cursor.moveToFirst()) {
-//            if(cursor.getString(cursor.getColumnIndex("groupname")).equals(gName))
-//            {
-//                return true;
-//            }
-//            else
-//            {
-//                return false;
-//            }
-//
-//        }
         SQLiteDatabase db = this.getReadableDatabase();
         String query ="SELECT * FROM fgroup";
 
