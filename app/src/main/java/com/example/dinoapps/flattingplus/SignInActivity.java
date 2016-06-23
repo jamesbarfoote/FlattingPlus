@@ -3,21 +3,19 @@ package com.example.dinoapps.flattingplus;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
@@ -30,15 +28,15 @@ public class SignInActivity extends AppCompatActivity implements
     private static final int RC_SIGN_IN = 9001;
     private ProgressDialog mProgressDialog;
     private TextView mStatusTextView;
+    private TextView titleThing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        titleThing = (TextView)findViewById(R.id.textView3);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -77,6 +75,7 @@ public class SignInActivity extends AppCompatActivity implements
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
+                    Log.v("Results returned", "Res returned");
                     hideProgressDialog();
                     handleSignInResult(googleSignInResult);
                 }
@@ -121,6 +120,7 @@ public class SignInActivity extends AppCompatActivity implements
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        Log.v("Res code", "" + resultCode);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
@@ -139,9 +139,10 @@ public class SignInActivity extends AppCompatActivity implements
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
             Log.v("Account info", "Name: " + personName + " Email: " + personEmail);
-            mStatusTextView.setText(getString(0, acct.getDisplayName()));
-            updateUI(true);
+            titleThing.setText(personName + " " + personEmail);
+//            updateUI(true);
         } else {
+            Log.v("Signin", "signin failed");
             // Signed out, show unauthenticated UI.
             updateUI(false);
         }
@@ -151,12 +152,12 @@ public class SignInActivity extends AppCompatActivity implements
     private void updateUI(boolean signedIn) {
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
-//            mStatusTextView.setText("Signed out");
+            titleThing.setText("Signed out");
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
 

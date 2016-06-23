@@ -7,7 +7,12 @@
         android:name="com.tyczj.extendedcalendarview.CalendarProvider"
         android:authorities="com.tyczj.extendedcalendarview.calendarprovider"
         android:permission="signature" />
+    <!-- To access internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- To access accounts configured on device -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- To use account credentials -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
         android:allowBackup="true"
@@ -43,8 +48,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.dinoapps.flattingplus.MainActivity" />
+                android:value="com.example.dinoapps.flattingplus.MainActivity" />
         </activity>
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".SignInActivity">
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+        </activity>
     </application>
 
 </manifest>
