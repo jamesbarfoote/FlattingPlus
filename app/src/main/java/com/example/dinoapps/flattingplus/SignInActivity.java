@@ -9,6 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -191,11 +197,43 @@ public class SignInActivity extends AppCompatActivity implements
     {
         dbHelper = new DBHelper(this);
         dbHelper.insertUser(personName, personEmail, "" + personPhoto, "null");
+        int size = dbHelper.getAllUsers().getCount();
 
+        volley("/get/users");
         //Check internet db to see if user exists
             //pull down info if it does
+            //Check if they are part of a group
+                //if not then show the group login page
+                //else download group info
 
         //Return user to main activity
+    }
+
+
+    public void volley(String route)
+    {
+        String baseURL ="https://flattingplus.herokuapp.com";
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = baseURL + route;
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.length() > 0)
+                        {
+                            Log.v("Main", "Response is: " + response + " size: " + response.length());
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.v("Main","That didn't work!");
+            }
+        });
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
     }
 
 }

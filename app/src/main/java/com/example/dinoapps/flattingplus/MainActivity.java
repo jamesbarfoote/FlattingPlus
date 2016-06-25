@@ -11,6 +11,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.io.Console;
 import java.util.ArrayList;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
@@ -18,6 +26,7 @@ import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 public class MainActivity extends MaterialNavigationDrawer {
     ArrayList<DataObject> res = new ArrayList<DataObject>();
 static DBHelper dbHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,5 +53,7 @@ static DBHelper dbHelper;
 
 
     }
+
+
 
 }
