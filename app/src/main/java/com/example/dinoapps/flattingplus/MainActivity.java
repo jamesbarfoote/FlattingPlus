@@ -34,12 +34,12 @@ static DBHelper dbHelper;
         dbHelper = new DBHelper(this);
         Log.v("created db", "db started");
 
-        if(dbHelper.getAllUsers().getCount() < 1)
-        {
+//        if(dbHelper.getAllUsers().getCount() < 1)
+//        {
             Log.v("Not signed it", "Going to login screen");
             Intent signin = new Intent(this, SignInActivity.class);
             startActivity(signin);
-        }
+//        }
 
     }
 
