@@ -1,6 +1,7 @@
 package com.example.dinoapps.flattingplus;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -186,7 +188,7 @@ public class GroupLoginReg extends AppCompatActivity {
 //        queue.add(req);
 //    }
 
-    public void addGroupTONetDB(String route, String gname, String password)
+    public void addGroupTONetDB(String route, String gname, String password)//Register group
     {
         Log.v(TAG, gname + " " + password);
         String baseURL = "https://flattingplus.herokuapp.com";
@@ -209,6 +211,32 @@ public class GroupLoginReg extends AppCompatActivity {
 
                             //Add group to local db
                             MainActivity.dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
+
+                            //TODO Add group to online user
+                            Cursor c = MainActivity.dbHelper.getUser();
+                        ArrayList<String> info= new ArrayList<String>();
+                        if (c.moveToFirst()) {
+
+//                            while (c.isAfterLast() == false) {
+                                String name = c.getString(c.getColumnIndex("name"));
+                                info.add(name);
+                                c.moveToNext();
+
+                            String email = c.getString(c.getColumnIndex("email"));
+                            info.add(email);
+                            c.moveToNext();
+
+                            String flatgroup = c.getString(c.getColumnIndex("flatgroup"));
+                            info.add(flatgroup);
+                            c.moveToNext();
+
+                            String pic = c.getString(c.getColumnIndex("pic"));
+                            info.add(pic);
+                            c.moveToNext();
+                            //                            }
+
+                            updateUser(info);
+                        }
 
                             Intent home = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(home);
@@ -234,6 +262,64 @@ public class GroupLoginReg extends AppCompatActivity {
             }
         };
         queue.add(postRequest);
+    }
+
+    public void updateUser(ArrayList<String> info)
+    {
+        String name = info.get(0);
+        String email = info.get(1);
+        String flatg = info.get(2);
+        String pic = info.get(3);
+
+        Log.v(TAG, name + " " + email + " " + flatg + " " + pic);
+        String baseURL = "https://flattingplus.herokuapp.com";
+        String url = baseURL + "/update/user";
+
+         /*Post data*/
+        Map<String, String> jsonParams = new HashMap<String, String>();
+
+        JSONObject user = new JSONObject();
+        try {
+            user.put("email", email);
+            user.put("name", name);
+            user.put("group", flatg);
+            user.put("pic", pic);
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.POST, url, user,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try
+                        {
+                            Log.v(TAG, "updated user: " + response.toString(4));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //   Handle Error
+                        Log.v(TAG, "Error: " + error);
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("User-agent", System.getProperty("http.agent"));
+                return headers;
+            }
+        };
+        queue.add(postRequest);
+
     }
 
 

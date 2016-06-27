@@ -162,11 +162,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getUser(int id) {
+    public Cursor getUser() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery( "SELECT * FROM " + USER_TABLE_NAME + " WHERE " +
-                USER_COLUMN_ID + "=?", new String[] { Integer.toString(id) } );
-        return res;
+        String query = "SELECT * FROM " + USER_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
     }
 
     public String getGroup()

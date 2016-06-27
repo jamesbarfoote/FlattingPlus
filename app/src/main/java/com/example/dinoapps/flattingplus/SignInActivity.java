@@ -321,18 +321,32 @@ public class SignInActivity extends AppCompatActivity implements
          /*Post data*/
         Map<String, String> jsonParams = new HashMap<String, String>();
 
-        jsonParams.put("email", pEmail);
-        jsonParams.put("name", personName);
-        jsonParams.put("group", "");
-        jsonParams.put("pic", personPhoto);
+        JSONObject user = new JSONObject();
+        try {
+            user.put("email", pEmail);
+            user.put("name", personName);
+            user.put("group", "");
+            user.put("pic", personPhoto);
 
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(jsonParams);
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-        JsonArrayRequest postRequest = new JsonArrayRequest( Request.Method.PUT, url, jsonArray,
-                new Response.Listener<JSONArray>() {
+//        jsonParams.put("email", pEmail);
+//        jsonParams.put("name", personName);
+//        jsonParams.put("group", "");
+//        jsonParams.put("pic", personPhoto);
+//
+//        JSONArray jsonArray = new JSONArray();
+//        jsonArray.put(jsonParams);
+//        Log.v(TAG, "Json params: " + jsonParams.toString());
+//        Log.v(TAG, "Json array: " + jsonArray.toString());
+//        Log.v(TAG, "Json object: " + user.toString());
+        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.PUT, url, user,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(JSONObject response) {
                        try
                        {
                            Log.v(TAG, "add user: " + response.toString(4));
