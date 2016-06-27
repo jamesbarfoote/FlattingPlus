@@ -233,7 +233,7 @@ public class SignInActivity extends AppCompatActivity implements
 //            Log.v("sigin", " " + user.toString());
             String baseURL = "https://flattingplus.herokuapp.com";
             RequestQueue queue = Volley.newRequestQueue(this);
-        email = "test@test.com";
+            email = "test@test.com";
             String url = baseURL + route + "?email=" + email;
 
             // Request a string response from the provided URL.
@@ -266,7 +266,9 @@ public class SignInActivity extends AppCompatActivity implements
 
                         //Check if they are part of a group
                         if(flatgroup.equals("null")) {
+                            Log.v(TAG, "flatgroup is empty");
                             //if not then show the group login page
+                            gotg();
 
                         }
                         else//else download group info
@@ -291,6 +293,12 @@ public class SignInActivity extends AppCompatActivity implements
 //        {
 //
 //        }
+    }
+
+    public void gotg()
+    {
+        Intent grouplogin = new Intent(this, GroupLoginReg.class);
+        startActivity(grouplogin);
     }
 
 }

@@ -1,0 +1,94 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dinoapps.flattingplus.GroupLogin">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Group Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gLogin"
+            tools:text="Group Login"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="Group Password:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/textView7" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_alignEnd="@+id/groupNameText"
+            android:id="@+id/groupPassword"
+            android:hint="Group Password" />
+
+        <Button
+            android:text="Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/textView8"
+            android:layout_marginStart="47dp"
+            android:layout_marginBottom="33dp"
+            android:id="@+id/buttonLoginG" />
+
+        <Button
+            android:text="Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/buttonLoginG"
+            android:layout_alignEnd="@+id/groupPassword"
+            android:layout_marginEnd="29dp"
+            android:id="@+id/buttonRegG" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text|textPersonName"
+            android:ems="10"
+            android:id="@+id/groupNameText"
+            android:hint="Your groups unique name"
+            android:layout_above="@+id/groupPassword"
+            android:layout_toEndOf="@+id/textView8" />
+
+        <TextView
+            android:text="Group Name:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:layout_marginStart="26dp"
+            android:layout_alignBaseline="@+id/groupNameText"
+            android:layout_alignBottom="@+id/groupNameText"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonLoginG"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView9"
+            android:textColor="#ff0000"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</FrameLayout>

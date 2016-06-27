@@ -32,10 +32,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':extendedCalendarView')
     compile project(":volley")
-    compile 'org.apache.commons:commons-lang3:3.4'
 
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'org.apache.commons:commons-collections4:4.0'
     compile 'commons-net:commons-net:3.3'
     compile 'commons-io:commons-io:2.4'
