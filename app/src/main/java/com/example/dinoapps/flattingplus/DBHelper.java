@@ -223,18 +223,16 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
-    public boolean insertGroup(int group_id, String groupName, String shoppingList, String calendar, String money, String todoList, String ownerID)
+    public boolean insertGroup(String groupName, String shoppingList, String calendar, String money, String todoList)
     {
         clearGroupTable();
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(FLATGROUP_COLUMN_GROUP_ID, group_id);
         contentValues.put(FLATGROUP_COLUMN_GROUP_NAME, groupName);
         contentValues.put(FLATGROUP_COLUMN_SHOPPINGLIST, shoppingList);
         contentValues.put(FLATGROUP_COLUMN_CALENDAR, calendar);
         contentValues.put(FLATGROUP_COLUMN_MONEY, money);
         contentValues.put(FLATGROUP_COLUMN_TODO_LIST, todoList);
-        contentValues.put(FLATGROUP_COLUMN_OWNER_ID, ownerID);
         db.insert(FLATGROUP_TABLE_NAME, null, contentValues);
 
         addGroupToUser(groupName);
@@ -247,17 +245,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updateGroup(int id, String groupName, String shoppingList, String calendar, String money, String todoList, String ownerID)
+    public boolean updateGroup(String groupName, String shoppingList, String calendar, String money, String todoList)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(FLATGROUP_COLUMN_GROUP_ID, id);
         contentValues.put(FLATGROUP_COLUMN_GROUP_NAME, groupName);
         contentValues.put(FLATGROUP_COLUMN_SHOPPINGLIST, shoppingList);
         contentValues.put(FLATGROUP_COLUMN_CALENDAR, calendar);
         contentValues.put(FLATGROUP_COLUMN_MONEY, money);
         contentValues.put(FLATGROUP_COLUMN_TODO_LIST, todoList);
-        contentValues.put(FLATGROUP_COLUMN_OWNER_ID, ownerID);
 
         db.update(FLATGROUP_TABLE_NAME, contentValues, FLATGROUP_COLUMN_ID + " = ? ", new String[]{Integer.toString(1)});
         return true;

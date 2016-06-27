@@ -1,0 +1,1 @@
+curl -v -H "Content-Type:application/json" -X PUT https://flattingplus.herokuapp.com/add/group -d '{"group":"test","gpass":"testPass"}'

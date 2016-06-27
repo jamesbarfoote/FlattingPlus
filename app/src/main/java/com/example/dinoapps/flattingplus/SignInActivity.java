@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -33,6 +34,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignInActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
@@ -44,12 +48,15 @@ public class SignInActivity extends AppCompatActivity implements
     private TextView titleThing;
     static DBHelper dbHelper;
     String TAG = "Signin";
+    RequestQueue queue;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        queue = Volley.newRequestQueue(this);
 
         titleThing = (TextView)findViewById(R.id.textView3);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
@@ -207,7 +214,7 @@ public class SignInActivity extends AppCompatActivity implements
         dbHelper.insertUser(personName, personEmail, "" + personPhoto, "null");
         int size = dbHelper.getAllUsers().getCount();
 
-        volleyGetUser("/get/user", personEmail);
+        volleyGetUser("/get/user", personEmail, personName, "" + personPhoto);
         //Check internet db to see if user exists
             //pull down info if it does
             //Check if they are part of a group
@@ -218,7 +225,7 @@ public class SignInActivity extends AppCompatActivity implements
     }
 
 
-    public void volleyGetUser(String route, String email)
+    public void volleyGetUser(String route, String personEmail, final String personName, final String personPhoto)
     {
 //        JSONObject user = new JSONObject();
 //        try {
@@ -232,10 +239,10 @@ public class SignInActivity extends AppCompatActivity implements
 //        if(user != null) {// user exists
 //            Log.v("sigin", " " + user.toString());
             String baseURL = "https://flattingplus.herokuapp.com";
-            RequestQueue queue = Volley.newRequestQueue(this);
-            email = "test@test.com";
-            String url = baseURL + route + "?email=" + email;
-
+//            RequestQueue queue = Volley.newRequestQueue(this);
+//            email = "test@test.com";
+            String url = baseURL + route + "?email=" + personEmail;
+            final String pEmail = personEmail;
             // Request a string response from the provided URL.
 
         JsonArrayRequest req = new JsonArrayRequest(url, new Response.Listener<JSONArray> () {
@@ -248,7 +255,8 @@ public class SignInActivity extends AppCompatActivity implements
                     {
                         Log.v("Signin", "user doesn't exits");
                         //TODO add user to internet db
-                        //TODO get user to signin to a flatgroup
+                        addUserTONetDB(pEmail, personName, personPhoto);
+
 
                     }
                     else //User exits so update the local version
@@ -297,8 +305,57 @@ public class SignInActivity extends AppCompatActivity implements
 
     public void gotg()
     {
+        Log.v(TAG, "Starting group signin");
         Intent grouplogin = new Intent(this, GroupLoginReg.class);
         startActivity(grouplogin);
+    }
+
+//
+
+    public void addUserTONetDB(String pEmail, String personName, String personPhoto)
+    {
+        Log.v(TAG, pEmail + " " + personName + " " + personPhoto);
+        String baseURL = "https://flattingplus.herokuapp.com";
+        String url = baseURL + "/add/user";
+
+         /*Post data*/
+        Map<String, String> jsonParams = new HashMap<String, String>();
+
+        jsonParams.put("email", pEmail);
+        jsonParams.put("name", personName);
+        jsonParams.put("group", "");
+        jsonParams.put("pic", personPhoto);
+
+        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.PUT, url, new JSONObject(jsonParams),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                       try
+                       {
+                           Log.v(TAG, "add user: " + response.toString(4));
+                           gotg();
+                       } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //   Handle Error
+                        Log.v(TAG, "Error: " + error);
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("User-agent", System.getProperty("http.agent"));
+                return headers;
+            }
+        };
+        queue.add(postRequest);
     }
 
 }

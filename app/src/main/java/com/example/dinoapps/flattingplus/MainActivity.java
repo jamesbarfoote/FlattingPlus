@@ -26,11 +26,13 @@ import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 public class MainActivity extends MaterialNavigationDrawer {
     ArrayList<DataObject> res = new ArrayList<DataObject>();
 static DBHelper dbHelper;
-
+//    public static RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RequestQueue queue = Volley.newRequestQueue(this);
+
         dbHelper = new DBHelper(this);
         Log.v("created db", "db started");
 

@@ -1,5 +1,6 @@
 package com.example.dinoapps.flattingplus;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -15,16 +18,23 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.R.attr.button;
 
 public class GroupLoginReg extends AppCompatActivity {
-    String TAG = "GroupLogin";
-    EditText groupname = (EditText) findViewById(R.id.groupNameText);
-    EditText grouppass = (EditText) findViewById(R.id.groupPassword);
-    TextView errorText = (TextView) findViewById(R.id.textView9);
+    private String TAG = "GroupLogin";
+    EditText groupname;
+    EditText grouppass;
+    TextView errorText;
+    static DBHelper dbHelper;
+    RequestQueue queue = Volley.newRequestQueue(this);
+
 
 
 
@@ -32,9 +42,11 @@ public class GroupLoginReg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_login_reg);
+
+        groupname = (EditText) findViewById(R.id.groupNameText);
+        grouppass = (EditText) findViewById(R.id.groupPassword);
+        errorText = (TextView) findViewById(R.id.textView9);
         errorText.setVisibility(View.INVISIBLE);
-
-
         Button loginButton= (Button) findViewById(R.id.buttonLoginG);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -49,7 +61,7 @@ public class GroupLoginReg extends AppCompatActivity {
                     String groupName = groupname.getText().toString();
                     String groupPassword = grouppass.getText().toString();
                     //Find the group in the database using the password and email
-                    JSONRequestLogin("/get/group", groupName, groupPassword);
+                    JSONRequestLogin("/get/flatgroup", groupName, groupPassword);
                 }
             }
         });
@@ -58,6 +70,7 @@ public class GroupLoginReg extends AppCompatActivity {
         Button registerButton= (Button) findViewById(R.id.buttonRegG);
         registerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Log.v(TAG, "reg button clicked");
                 if(groupname.equals("") || grouppass.equals(""))
                 {
                     Log.v(TAG, "Password or group name is empty");
@@ -68,7 +81,7 @@ public class GroupLoginReg extends AppCompatActivity {
                 {
                     String groupName = groupname.getText().toString();
                     String groupPassword = grouppass.getText().toString();
-                    JSONRequestReg("/add/group", groupName, groupPassword);
+                    addGroupTONetDB("/add/group", groupName, groupPassword);
                 }
             }
         });
@@ -77,7 +90,7 @@ public class GroupLoginReg extends AppCompatActivity {
     public void JSONRequestLogin(String route, String gname, String password)
     {
         String baseURL = "https://flattingplus.herokuapp.com";
-        RequestQueue queue = Volley.newRequestQueue(this);
+//        RequestQueue queue = Volley.newRequestQueue(this);
         String url = baseURL + route + "?group=" + gname + "&gpass=" + password;
 
         JsonObjectRequest req = new JsonObjectRequest(url, null,
@@ -93,8 +106,23 @@ public class GroupLoginReg extends AppCompatActivity {
                             }
                             else
                             {
-                                //TODO
-                                // Returned something so we want to store it in our internal database and return user to main screen
+                               String groupName = groupname.getText().toString();
+                                dbHelper.addGroupToUser(groupName);
+
+                                //Add group info to local db
+                                JSONArray arr = new JSONArray(response.toString(4));
+                                JSONObject jObj = arr.getJSONObject(0);
+                                String id = jObj.getString("id");
+                                groupName = jObj.getString("groupname");
+                                String notes = jObj.getString("notes");
+                                String shoppinglist = jObj.getString("shoppinglist");
+                                String calendar = jObj.getString("calendar");
+                                String money = jObj.getString("money");
+
+                                dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes);
+
+                                Intent home = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(home);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -111,43 +139,100 @@ public class GroupLoginReg extends AppCompatActivity {
         queue.add(req);
     }
 
-    public void JSONRequestReg(String route, String gname, String password)
+//    public void JSONRequestReg(String route, String gname, String password)
+//    {
+//        String baseURL = "https://flattingplus.herokuapp.com";
+//
+//        String url = baseURL + route;
+//
+//        // Post params to be sent to the server
+//        JSONObject group = new JSONObject();
+//        try {
+//            group.put("group", gname);
+//            group.put("gpass", password);
+//
+//        } catch (JSONException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//
+//        JsonObjectRequest req = new JsonObjectRequest(Request.Method.PUT, url, group,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        //try {
+//                            //Add group to user
+//                            String groupName = groupname.getText().toString();
+//                            dbHelper.addGroupToUser(groupName);
+//
+//                            //Add group to local db
+//                            dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
+//
+//                            Intent home = new Intent(getApplicationContext(), MainActivity.class);
+//                            startActivity(home);
+//                        //} catch (JSONException e) {
+//                        //    e.printStackTrace();
+//                        //}
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                VolleyLog.e("Error: ", error.getMessage());
+//            }
+//        });
+//
+//        // add the request object to the queue to be executed
+//        queue.add(req);
+//    }
+
+    public void addGroupTONetDB(String route, String gname, String password)
     {
+        Log.v(TAG, gname + " " + password);
         String baseURL = "https://flattingplus.herokuapp.com";
-        RequestQueue queue = Volley.newRequestQueue(this);
         String url = baseURL + route;
 
-        // Post params to be sent to the server
-        JSONObject group = new JSONObject();
-        try {
-            group.put("group", gname);
-            group.put("gpass", password);
+         /*Post data*/
+        Map<String, String> jsonParams = new HashMap<String, String>();
 
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        jsonParams.put("group", gname);
+        jsonParams.put("gpass", password);
 
-        JsonObjectRequest req = new JsonObjectRequest(url, group,
+        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.PUT, url, new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try {
-                            Log.v("Response:%n %s", response.toString(4));
-                            //TODO add group to user and store the group in to local db
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.e("Error: ", error.getMessage());
-            }
-        });
+//                        try
+//                        {
+                            String groupName = groupname.getText().toString();
+                            dbHelper.addGroupToUser(groupName);
 
-        // add the request object to the queue to be executed
-        queue.add(req);
+                            //Add group to local db
+                            dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
+
+                            Intent home = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(home);
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //   Handle Error
+                        Log.v(TAG, "Error: " + error);
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("User-agent", System.getProperty("http.agent"));
+                return headers;
+            }
+        };
+        queue.add(postRequest);
     }
 
 
