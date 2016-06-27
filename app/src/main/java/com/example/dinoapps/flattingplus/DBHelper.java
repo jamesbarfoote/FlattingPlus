@@ -151,7 +151,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updatePerson(String name, String email, String pic, String flatGroup) {
+    public boolean updateUser(String name, String email, String pic, String flatGroup) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(USER_COLUMN_NAME, name);

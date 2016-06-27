@@ -13,6 +13,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -27,6 +29,7 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,6 +43,7 @@ public class SignInActivity extends AppCompatActivity implements
     private TextView mStatusTextView;
     private TextView titleThing;
     static DBHelper dbHelper;
+    String TAG = "Signin";
 
 
     @Override
@@ -216,59 +220,77 @@ public class SignInActivity extends AppCompatActivity implements
 
     public void volleyGetUser(String route, String email)
     {
-        JSONObject user = new JSONObject();
-        try {
-            user.put("email", "test@test.com");
+//        JSONObject user = new JSONObject();
+//        try {
+//            user.put("email", "test@test.com");
+//
+//        } catch (JSONException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
 
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        if(user != null) {
-            Log.v("sigin", " " + user.toString());
+//        if(user != null) {// user exists
+//            Log.v("sigin", " " + user.toString());
             String baseURL = "https://flattingplus.herokuapp.com";
             RequestQueue queue = Volley.newRequestQueue(this);
-            String url = baseURL + route;
+        email = "test@test.com";
+            String url = baseURL + route + "?email=" + email;
 
             // Request a string response from the provided URL.
-            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, user,
-                    new Response.Listener<JSONObject>()
+
+        JsonArrayRequest req = new JsonArrayRequest(url, new Response.Listener<JSONArray> () {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+//                    VolleyLog.v("Response:%n %s", response.toString(4));
+                    Log.v("Response:%n %s", response.toString(4));
+                    if(response.length() < 1) //User doesnt exist
                     {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            // display response
-                            Log.d("Response", response.toString());
+                        Log.v("Signin", "user doesn't exits");
+                        //TODO add user to internet db
+                        //TODO get user to signin to a flatgroup
+
+                    }
+                    else //User exits so update the local version
+                    {
+                        JSONArray arr = new JSONArray(response.toString(4));
+                        JSONObject jObj = arr.getJSONObject(0);
+                        String id = jObj.getString("id");
+                        String email = jObj.getString("email");
+                        String name = jObj.getString("name");
+                        String pic = jObj.getString("pic");
+                        String flatgroup = jObj.getString("flatgroup");
+                        Log.v(TAG, "id " + id + " email: " + email + " name: " + name + " pic: " + pic + " flatgroup: " + flatgroup);
+
+                        dbHelper.updateUser(name, email, pic, flatgroup);//Update the internal db
+
+                        //Check if they are part of a group
+                        if(flatgroup.equals("null")) {
+                            //if not then show the group login page
+
                         }
-                    },
-                    new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("Error.Response", error.toString());
+                        else//else download group info
+                        {
+
                         }
                     }
-            );
-
-
-//            JsonObjectRequest req = new JsonObjectRequest(url, user,
-//                    new Response.Listener<JSONObject>() {
-//                        @Override
-//                        public void onResponse(JSONObject response) {
-//                            if (response.length() > 0) //User exits
-//                            {
-//                                Log.v("Main", "Response is: " + response + " size: " + response.length());
-//                            }
-//                        }
-//                    }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    Log.v("Main", "That didn't work!");
-//                }
-//            });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        });
             // Add the request to the RequestQueue.
-            queue.add(getRequest);
-        }
+            queue.add(req);
+//        }
+//        else //user doesn't exist
+//        {
+//
+//        }
     }
 
 }
