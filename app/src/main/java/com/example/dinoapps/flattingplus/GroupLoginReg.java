@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -15,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -32,17 +34,14 @@ public class GroupLoginReg extends AppCompatActivity {
     EditText groupname;
     EditText grouppass;
     TextView errorText;
-    static DBHelper dbHelper;
-    RequestQueue queue = Volley.newRequestQueue(this);
-
-
-
+//    static DBHelper dbHelper;
+    RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_login_reg);
-
+        queue = Volley.newRequestQueue(this);
         groupname = (EditText) findViewById(R.id.groupNameText);
         grouppass = (EditText) findViewById(R.id.groupPassword);
         errorText = (TextView) findViewById(R.id.textView9);
@@ -50,7 +49,7 @@ public class GroupLoginReg extends AppCompatActivity {
         Button loginButton= (Button) findViewById(R.id.buttonLoginG);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(groupname.equals("") || grouppass.equals(""))
+                if(groupname.getText().toString().equals("") || grouppass.getText().toString().equals(""))
                 {
                     Log.v(TAG, "Password or group name is empty");
                     errorText.setText("Please make sure that both name and password are not empty and try again");
@@ -90,28 +89,28 @@ public class GroupLoginReg extends AppCompatActivity {
     public void JSONRequestLogin(String route, String gname, String password)
     {
         String baseURL = "https://flattingplus.herokuapp.com";
-//        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = baseURL + route + "?group=" + gname + "&gpass=" + password;
+        String url = baseURL + route + "?gname=" + gname + "&pass=" + password;
 
-        JsonObjectRequest req = new JsonObjectRequest(url, null,
-                new Response.Listener<JSONObject>() {
+        JsonArrayRequest getRequest = new JsonArrayRequest( Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         try {
-                            Log.v("Response:%n %s", response.toString(4));
+                            Log.v("Response:group log reg ", response.toString(4));
 
                             if(response.length() < 1)//No group found
                             {
                                 errorText.setText("Groupname and/or password incorrect");
+                                Toast.makeText(getApplicationContext(), "Groupname and/or password incorrect",
+                                        Toast.LENGTH_LONG).show();
                             }
                             else
                             {
                                String groupName = groupname.getText().toString();
-                                dbHelper.addGroupToUser(groupName);
+                                MainActivity.dbHelper.addGroupToUser(groupName);
 
                                 //Add group info to local db
-                                JSONArray arr = new JSONArray(response.toString(4));
-                                JSONObject jObj = arr.getJSONObject(0);
+                                JSONObject jObj = response.getJSONObject(0);
                                 String id = jObj.getString("id");
                                 groupName = jObj.getString("groupname");
                                 String notes = jObj.getString("notes");
@@ -119,7 +118,9 @@ public class GroupLoginReg extends AppCompatActivity {
                                 String calendar = jObj.getString("calendar");
                                 String money = jObj.getString("money");
 
-                                dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes);
+                                Toast.makeText(getApplicationContext(), "Signin successful!",
+                                        Toast.LENGTH_LONG).show();
+                                MainActivity.dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes);
 
                                 Intent home = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(home);
@@ -136,7 +137,7 @@ public class GroupLoginReg extends AppCompatActivity {
         });
 
         // add the request object to the queue to be executed
-        queue.add(req);
+        queue.add(getRequest);
     }
 
 //    public void JSONRequestReg(String route, String gname, String password)
@@ -204,10 +205,10 @@ public class GroupLoginReg extends AppCompatActivity {
 //                        try
 //                        {
                             String groupName = groupname.getText().toString();
-                            dbHelper.addGroupToUser(groupName);
+                            MainActivity.dbHelper.addGroupToUser(groupName);
 
                             //Add group to local db
-                            dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
+                            MainActivity.dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
 
                             Intent home = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(home);

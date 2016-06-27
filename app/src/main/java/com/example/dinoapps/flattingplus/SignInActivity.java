@@ -326,10 +326,13 @@ public class SignInActivity extends AppCompatActivity implements
         jsonParams.put("group", "");
         jsonParams.put("pic", personPhoto);
 
-        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.PUT, url, new JSONObject(jsonParams),
-                new Response.Listener<JSONObject>() {
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.put(jsonParams);
+
+        JsonArrayRequest postRequest = new JsonArrayRequest( Request.Method.PUT, url, jsonArray,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                        try
                        {
                            Log.v(TAG, "add user: " + response.toString(4));
