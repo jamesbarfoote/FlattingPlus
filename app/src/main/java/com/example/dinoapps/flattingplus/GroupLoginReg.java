@@ -36,7 +36,7 @@ public class GroupLoginReg extends AppCompatActivity {
     EditText groupname;
     EditText grouppass;
     TextView errorText;
-//    static DBHelper dbHelper;
+    //    static DBHelper dbHelper;
     RequestQueue queue;
 
     @Override
@@ -48,17 +48,14 @@ public class GroupLoginReg extends AppCompatActivity {
         grouppass = (EditText) findViewById(R.id.groupPassword);
         errorText = (TextView) findViewById(R.id.textView9);
         errorText.setVisibility(View.INVISIBLE);
-        Button loginButton= (Button) findViewById(R.id.buttonLoginG);
+        Button loginButton = (Button) findViewById(R.id.buttonLoginG);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(groupname.getText().toString().equals("") || grouppass.getText().toString().equals(""))
-                {
+                if (groupname.getText().toString().equals("") || grouppass.getText().toString().equals("")) {
                     Log.v(TAG, "Password or group name is empty");
                     errorText.setText("Please make sure that both name and password are not empty and try again");
                     errorText.setVisibility(View.VISIBLE);
-                }
-                else
-                {
+                } else {
                     String groupName = groupname.getText().toString();
                     String groupPassword = grouppass.getText().toString();
                     //Find the group in the database using the password and email
@@ -68,18 +65,15 @@ public class GroupLoginReg extends AppCompatActivity {
         });
 
 
-        Button registerButton= (Button) findViewById(R.id.buttonRegG);
+        Button registerButton = (Button) findViewById(R.id.buttonRegG);
         registerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.v(TAG, "reg button clicked");
-                if(groupname.equals("") || grouppass.equals(""))
-                {
+                if (groupname.equals("") || grouppass.equals("")) {
                     Log.v(TAG, "Password or group name is empty");
                     errorText.setText("Please make sure that both name and password are not empty and try again");
                     errorText.setVisibility(View.VISIBLE);
-                }
-                else
-                {
+                } else {
                     String groupName = groupname.getText().toString();
                     String groupPassword = grouppass.getText().toString();
                     addGroupTONetDB("/add/group", groupName, groupPassword);
@@ -88,28 +82,28 @@ public class GroupLoginReg extends AppCompatActivity {
         });
     }
 
-    public void JSONRequestLogin(String route, String gname, String password)
-    {
+    public void JSONRequestLogin(String route, String gname, String password) {
         String baseURL = "https://flattingplus.herokuapp.com";
         String url = baseURL + route + "?gname=" + gname + "&pass=" + password;
 
-        JsonArrayRequest getRequest = new JsonArrayRequest( Request.Method.GET, url, null,
+        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
                             Log.v("Response:group log reg ", response.toString(4));
 
-                            if(response.length() < 1)//No group found
+                            if (response.length() < 1)//No group found
                             {
                                 errorText.setText("Groupname and/or password incorrect");
                                 Toast.makeText(getApplicationContext(), "Groupname and/or password incorrect",
                                         Toast.LENGTH_LONG).show();
-                            }
-                            else
-                            {
-                               String groupName = groupname.getText().toString();
-                                MainActivity.dbHelper.addGroupToUser(groupName);
+                            } else {
+
+                                ArrayList<String> info = getAllUserInfo();
+
+                                String groupName = groupname.getText().toString();
+                                MainActivity.dbHelper.addGroupToUser(groupName, Integer.parseInt(info.get(0)));
 
                                 //Add group info to local db
                                 JSONObject jObj = response.getJSONObject(0);
@@ -124,8 +118,9 @@ public class GroupLoginReg extends AppCompatActivity {
                                         Toast.LENGTH_LONG).show();
                                 MainActivity.dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes);
 
-                                Intent home = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(home);
+                                //Add group to online user
+                                info = getAllUserInfo();
+                                updateUser(info);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -142,51 +137,6 @@ public class GroupLoginReg extends AppCompatActivity {
         queue.add(getRequest);
     }
 
-//    public void JSONRequestReg(String route, String gname, String password)
-//    {
-//        String baseURL = "https://flattingplus.herokuapp.com";
-//
-//        String url = baseURL + route;
-//
-//        // Post params to be sent to the server
-//        JSONObject group = new JSONObject();
-//        try {
-//            group.put("group", gname);
-//            group.put("gpass", password);
-//
-//        } catch (JSONException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//
-//        JsonObjectRequest req = new JsonObjectRequest(Request.Method.PUT, url, group,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        //try {
-//                            //Add group to user
-//                            String groupName = groupname.getText().toString();
-//                            dbHelper.addGroupToUser(groupName);
-//
-//                            //Add group to local db
-//                            dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
-//
-//                            Intent home = new Intent(getApplicationContext(), MainActivity.class);
-//                            startActivity(home);
-//                        //} catch (JSONException e) {
-//                        //    e.printStackTrace();
-//                        //}
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                VolleyLog.e("Error: ", error.getMessage());
-//            }
-//        });
-//
-//        // add the request object to the queue to be executed
-//        queue.add(req);
-//    }
 
     public void addGroupTONetDB(String route, String gname, String password)//Register group
     {
@@ -200,50 +150,26 @@ public class GroupLoginReg extends AppCompatActivity {
         jsonParams.put("group", gname);
         jsonParams.put("gpass", password);
 
-        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.PUT, url, new JSONObject(jsonParams),
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.PUT, url, new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
 //                        try
 //                        {
-                            String groupName = groupname.getText().toString();
-                            MainActivity.dbHelper.addGroupToUser(groupName);
+                        //Add group to online user
+                        ArrayList<String> info = getAllUserInfo();
 
-                            //Add group to local db
-                            MainActivity.dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
+                        String groupName = groupname.getText().toString();
+                        Log.v(TAG, groupName + " User id: " + info.get(0));
+                        MainActivity.dbHelper.addGroupToUser(groupName, Integer.parseInt(info.get(0)));
 
-                            //TODO Add group to online user
-                            Cursor c = MainActivity.dbHelper.getUser();
-                        ArrayList<String> info= new ArrayList<String>();
-                        if (c.moveToFirst()) {
+                        //Add group to local db
+                        MainActivity.dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
 
-//                            while (c.isAfterLast() == false) {
-                                String name = c.getString(c.getColumnIndex("name"));
-                                info.add(name);
-                                c.moveToNext();
-
-                            String email = c.getString(c.getColumnIndex("email"));
-                            info.add(email);
-                            c.moveToNext();
-
-                            String flatgroup = c.getString(c.getColumnIndex("flatgroup"));
-                            info.add(flatgroup);
-                            c.moveToNext();
-
-                            String pic = c.getString(c.getColumnIndex("pic"));
-                            info.add(pic);
-                            c.moveToNext();
-                            //                            }
-
-                            updateUser(info);
-                        }
-
-                            Intent home = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(home);
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-
+                        info = getAllUserInfo();
+                        Log.v(TAG, info.toString());
+                        updateUser(info);
+//
                     }
                 },
                 new Response.ErrorListener() {
@@ -264,11 +190,11 @@ public class GroupLoginReg extends AppCompatActivity {
         queue.add(postRequest);
     }
 
-    public void updateUser(ArrayList<String> info)
-    {
-        String name = info.get(0);
-        String email = info.get(1);
-        String flatg = info.get(2);
+    public void updateUser(ArrayList<String> info) {
+        String id = info.get(0);
+        String name = info.get(1);
+        String email = info.get(2);
+        String flatg = info.get(4);
         String pic = info.get(3);
 
         Log.v(TAG, name + " " + email + " " + flatg + " " + pic);
@@ -290,13 +216,14 @@ public class GroupLoginReg extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.POST, url, user,
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, user,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try
-                        {
+                        try {
                             Log.v(TAG, "updated user: " + response.toString(4));
+                            Intent home = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(home);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -320,6 +247,19 @@ public class GroupLoginReg extends AppCompatActivity {
         };
         queue.add(postRequest);
 
+    }
+
+    public ArrayList<String> getAllUserInfo() {
+        Cursor cursor = MainActivity.dbHelper.getUser();
+        ArrayList<String> info = new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+            do {
+                for (int i = 0; i < cursor.getColumnCount(); i++) {
+                    info.add(cursor.getString(i));
+                }
+            } while (cursor.moveToNext());
+        }
+        return info;
     }
 
 

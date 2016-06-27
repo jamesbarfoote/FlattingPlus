@@ -235,7 +235,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(FLATGROUP_COLUMN_TODO_LIST, todoList);
         db.insert(FLATGROUP_TABLE_NAME, null, contentValues);
 
-        addGroupToUser(groupName);
+//        addGroupToUser(groupName);
 
         Cursor cursor = db.rawQuery("select todoList from fgroup", null);
         if(cursor.moveToFirst()){
@@ -307,12 +307,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public void addGroupToUser(String groupname)
+    public void addGroupToUser(String groupname, int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(USER_COLUMN_FLAT_GROUP, groupname);
-        db.update(USER_TABLE_NAME, contentValues, USER_COLUMN_FLAT_GROUP + " = ? ", new String[]{Integer.toString(0)});
+        db.update(USER_TABLE_NAME, contentValues, "_id="+id, null);
+//        db.update(USER_TABLE_NAME, contentValues, USER_COLUMN_FLAT_GROUP + " = ? ", new String[]{Integer.toString(0)});
 
     }
 
