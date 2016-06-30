@@ -56,7 +56,13 @@ public class AddNoteActivity extends AppCompatActivity {
         SharedPreferences.Editor edit = notesN.edit();
         edit.putString("NotesTxt", note);
         edit.commit();
+        String userEmail = MainActivity.dbHelper.getEmail();
+        String flatgroup = MainActivity.dbHelper.getGroup();
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
 
-        MainActivity.dbHelper.insertNote(0,title, note,"0");
+        Log.v("Add note activity", "Email: " + userEmail + " Group: " + flatgroup + " Time created: " + ts);
+
+        MainActivity.dbHelper.insertNote(userEmail,title, note, flatgroup, ts);
     }
 }

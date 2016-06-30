@@ -186,32 +186,7 @@ public class NotesFragment extends Fragment {
             //Go through all the new notes and add them
             ArrayList<DataObject> d =getAndDisplay();
             //add all the titles to an array
-//            ArrayList<String> title= new ArrayList<String>();
-//            if (cursor.moveToFirst()) {
-//
-//                while (cursor.isAfterLast() == false) {
-//                    String name = cursor.getString(cursor
-//                            .getColumnIndex("title"));
-//
-//                    title.add(name);
-//                    cursor.moveToNext();
-//                }
-//            }
-//
-//            //add all the content to another array
-//            ArrayList<String> content= new ArrayList<String>();
-//            if (cursor.moveToFirst()) {
-//
-//                while (cursor.isAfterLast() == false) {
-//                    String name = cursor.getString(cursor
-//                            .getColumnIndex("content"));
-//
-//                    content.add(name);
-//                    cursor.moveToNext();
-//                }
-//            }
-//
-//            ArrayList<DataObject> d = createDataObjs(title, content);
+
             if(d != null) {
                 mAdapter = new MyRecycleViewAdapter(d);
                 mRecyclerView.setAdapter(mAdapter);

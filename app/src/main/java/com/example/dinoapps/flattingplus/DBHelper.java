@@ -30,6 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NOTE_COLUMN_USER_ID = "userID";
     public static final String NOTE_COLUMN_TITLE = "title";
     public static final String NOTE_COLUMN_CONTENT = "content";
+    public static final String NOTE_COLUMN_CREATION_TIME = "createdTime";
     public static final String NOTE_COLUMN_FLAT_GROUP = "flatgroup";
 
     public static final String FLATGROUP_TABLE_NAME = "fgroup";
@@ -66,6 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
             NOTE_COLUMN_USER_ID + " INTEGER, " +
             NOTE_COLUMN_TITLE + " TEXT, " +
             NOTE_COLUMN_CONTENT + " TEXT," +
+            NOTE_COLUMN_CREATION_TIME + "TEXT, " +
             NOTE_COLUMN_FLAT_GROUP + " TEXT" + ")";
 
     public DBHelper(Context context) {
@@ -88,28 +90,31 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + NOTE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + FLATGROUP_TABLE_NAME);
         onCreate(db);
     }
 
-    public boolean insertNote(int userID, String title, String content, String flatGroup) {
+    public boolean insertNote(String userID, String title, String content, String flatGroup, String creationTime) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(NOTE_COLUMN_USER_ID, userID);
         contentValues.put(NOTE_COLUMN_TITLE, title);
         contentValues.put(NOTE_COLUMN_CONTENT, content);
-        contentValues.put(USER_COLUMN_FLAT_GROUP, flatGroup);
+        contentValues.put(NOTE_COLUMN_CREATION_TIME, creationTime);
+        contentValues.put(NOTE_COLUMN_FLAT_GROUP, flatGroup);
         db.insert(NOTE_TABLE_NAME, null, contentValues);
         return true;
     }
 
-    public boolean insertNote(String title, String content) {
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(NOTE_COLUMN_TITLE, title);
-        contentValues.put(NOTE_COLUMN_CONTENT, content);
-        db.insert(NOTE_TABLE_NAME, null, contentValues);
-        return true;
-    }
+//    public boolean insertNote(String title, String content) {
+//        SQLiteDatabase db = getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(NOTE_COLUMN_TITLE, title);
+//        contentValues.put(NOTE_COLUMN_CONTENT, content);
+//        db.insert(NOTE_TABLE_NAME, null, contentValues);
+//        return true;
+//    }
 
     public Cursor getNotes()
     {
@@ -172,11 +177,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public String getGroup()
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM " + USER_TABLE_NAME;
+        String query = "SELECT * FROM " + FLATGROUP_TABLE_NAME;
         Cursor cursor = db.rawQuery(query,null);
         if (cursor.moveToFirst()) {
             Log.d("in if", "");
-            return cursor.getString(cursor.getColumnIndex("flatgroup"));
+            return cursor.getString(cursor.getColumnIndex("groupname"));
 
         }
         return "";
@@ -195,14 +200,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return "";
     }
 
-    public int getUserID(int id)
-    {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor userC = db.rawQuery("SELECT userID FROM " + USER_TABLE_NAME + " WHERE " +
-                USER_COLUMN_ID + "=?", new String[] { Integer.toString(id) });
-
-        return userC.getInt(0);
-    }
+//    public int getUserEmail()
+//    {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor userC = db.rawQuery("SELECT userID FROM " + USER_TABLE_NAME + " WHERE " +
+//                USER_COLUMN_ID + "=?", new String[] { Integer.toString(id) });
+//
+//        return userC.getInt(0);
+//    }
 
     public Cursor getAllUsers() {
         SQLiteDatabase db = this.getReadableDatabase();

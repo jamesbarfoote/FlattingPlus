@@ -69,7 +69,7 @@ public class GroupLoginReg extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.v(TAG, "reg button clicked");
-                if (groupname.equals("") || grouppass.equals("")) {
+                if (groupname.getText().toString().equals("") || grouppass.getText().toString().equals("")) {
                     Log.v(TAG, "Password or group name is empty");
                     errorText.setText("Please make sure that both name and password are not empty and try again");
                     errorText.setVisibility(View.VISIBLE);
@@ -114,10 +114,13 @@ public class GroupLoginReg extends AppCompatActivity {
                                 String calendar = jObj.getString("calendar");
                                 String money = jObj.getString("money");
 
+                                MainActivity.dbHelper.insertGroup(groupName, shoppinglist, calendar, money, notes);
+
                                 Toast.makeText(getApplicationContext(), "Signin successful!",
                                         Toast.LENGTH_LONG).show();
                                 MainActivity.dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes);
 
+                                Log.v(TAG, "Name: " + groupName + " id: " + id);
                                 //Add group to online user
                                 info = getAllUserInfo();
                                 updateUser(info);

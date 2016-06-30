@@ -17,7 +17,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -44,13 +43,10 @@ public class SignInActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private ProgressDialog mProgressDialog;
-    private TextView mStatusTextView;
     private TextView titleThing;
     static DBHelper dbHelper;
     String TAG = "Signin";
     RequestQueue queue;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -232,7 +228,7 @@ public class SignInActivity extends AppCompatActivity implements
 //            user.put("email", "test@test.com");
 //
 //        } catch (JSONException e) {
-//            // TODO Auto-generated catch block
+//            // Auto-generated catch block
 //            e.printStackTrace();
 //        }
 
@@ -281,7 +277,8 @@ public class SignInActivity extends AppCompatActivity implements
                         }
                         else//else download group info
                         {
-
+                            Intent launchGLogin = new Intent(getApplicationContext(), GroupLoginReg.class);
+                            startActivity(launchGLogin);
                         }
                     }
                 } catch (JSONException e) {
@@ -374,5 +371,7 @@ public class SignInActivity extends AppCompatActivity implements
         };
         queue.add(postRequest);
     }
+
+
 
 }
