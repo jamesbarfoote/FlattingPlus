@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NOTE_COLUMN_USER_ID = "userID";
     public static final String NOTE_COLUMN_TITLE = "title";
     public static final String NOTE_COLUMN_CONTENT = "content";
-    public static final String NOTE_COLUMN_CREATION_TIME = "createdTime";
+    public static final String NOTE_COLUMN_CREATION_TIME = "created";
     public static final String NOTE_COLUMN_FLAT_GROUP = "flatgroup";
 
     public static final String FLATGROUP_TABLE_NAME = "fgroup";
@@ -67,7 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
             NOTE_COLUMN_USER_ID + " INTEGER, " +
             NOTE_COLUMN_TITLE + " TEXT, " +
             NOTE_COLUMN_CONTENT + " TEXT," +
-            NOTE_COLUMN_CREATION_TIME + "TEXT, " +
+            NOTE_COLUMN_CREATION_TIME + " TEXT, " +
             NOTE_COLUMN_FLAT_GROUP + " TEXT" + ")";
 
     public DBHelper(Context context) {
