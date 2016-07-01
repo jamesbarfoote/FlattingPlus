@@ -1,0 +1,3 @@
+keytool -exportcert -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
+
+Run on C:\Program Files (x86)\Java\jdk1.6.0_32\bin

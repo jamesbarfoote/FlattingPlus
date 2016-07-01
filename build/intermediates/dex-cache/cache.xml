@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="dc4c18602ecffb3e69cda6cdc51ba4feac0f97d7">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.2.0_cf122cb71c06ed73d398af77b4ccdcd1ef085ce6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\se.emilsjolander\stickylistheaders\2.5.2\jars\classes.jar"
         jumboMode="true"
         optimize="false"
@@ -12,39 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.0.0_13a4c19b4c7357910a0933013c850169d81bba1c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.3.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.2"
-        sha1="6d9ed9a288364688e7fcf6704776284dac1eb42e">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-8.3.0_b867fde49635e4d6dbfa6513f704a148c8dd8f26\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.2"
-        sha1="7da84426d876216ed4cdddd85e739be5ecabdd04">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.0.0_54b450d2aafc758ceec3a6a607e78d1727bc370b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.2"
-        sha1="a819aae4f0c711e50b4fd633922a3c1a176cb51e">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.0.0_483bdae02e9a0e7059c7dda61112ad6136be3d7f\classes.dex" />
+        sha1="7428f0d1debdcf1b5792a26146e51a38d992d04d">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.2.0_18cc3739f80306c18dfd9fb980f15a447ffec136\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -57,12 +39,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.0_4b7623cfbfdb5cdd27ea56266bfe9d027f6bea2f\classes.dex" />
+        sha1="08cdd337d1d9247eb915f0ab365624dd7966e7fa">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.2.0_93dbb343cb400053d99ea9359f215adc8fea3449\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -72,6 +54,24 @@
         revision="23.0.2"
         sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.0_b87ee405f6d9f96779b9029f4e14382b2a72efc4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="ce9432b50a02be101bc491a1b38d3904200bd988">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.2.0_4d91762af9f69cc9a8d3f357a480a32757d94e97\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="163b095362fd14d682ac311bf672c2fb54de5078">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.2.0_fe23b01514e433bf6dd629a41635b1186c762bae\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,15 +93,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.2"
-        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.0.0_ed3db1061b76bf21f2f1c9ee093175974e43db6e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
         jumboMode="true"
         optimize="false"
@@ -120,12 +111,66 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="44120508d7240c3e34a05957981a5c3c9b9f61aa">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.2.0_000c0f3026fbfe8127040f1f56237d855df0d448\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="a0712565a784bedd07ada2393c95e0b1e288840f">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.2.0_4a005f8c7a05acb928ad736681d91878ec031c71\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="fa6c324604383981fb74c4cb036d4171ed0a9a02">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.2.0_cd9bbf2f429edaafc3bb983b2148660311a8b830\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\it.neokree\MaterialNavigationDrawer\1.3.3\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
         sha1="0640bc34b0f25196f82fe1e707a437bd4a405933">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\it.neokree-MaterialNavigationDrawer-1.3.3_d4a61f565109bd48410999498e64ff8f6d49c526\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="811202a9098047576814fc2171b56b83b537a8b9">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.2.0_6e64e03c4ff2a6569ec325e837e92a968d48bf1f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="18e52280643effbab30370b073e456d670a0db54">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.2.0_66391e58e9e1774dd8aba6317a36bb2176f2c189\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="3c8fcebabb73df25937704f5566bf6c388ea941d">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.2.0_f9bf75a36a05774bddb422187dc6237363f0461c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -138,12 +183,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="8ec9ae00d45e758ac5b7a1c5dc0daa8a4b24280f">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.2.0_4800da94ec55a2ab4c93ac9bd47361493cba4841\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="535d4497b5fa5d451e07a043e9e220d5c25ab7c7">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.2.0_0366353db4330b65dd508f1b6a1076b8c855d8cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\7.0.0\f1e24ac977505d1fdcabadaa5be1f41dc11c4286\butterknife-7.0.0.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
         sha1="f1e24ac977505d1fdcabadaa5be1f41dc11c4286">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-7.0.0_e52cfd004823f1aa087aa67aa79b7131cd5f9dad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="e3f200938bb888d83c2da807cb6aee983baae254">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.2.0_d9cd389b520c280ef0f018409d045aeacf6bd935\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -165,21 +237,66 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.0.0_cb8c801f1568279123792b245d63a2aa930a0e42\classes.dex" />
+        sha1="982031d2aa9652bc955d0b581ec70378c0adfc56">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.2.0_7f457736c3064198526faca35a8d73f934087e7f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="817b9101192f2fd6dc0fd8cd522d8f4a1a75fcdc">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.0.0_5e33a3d1508448bb534c50a7819c5147be57bf02\classes.dex" />
+        sha1="f56a68df45e18ce77814db6553fdaa229308f49b">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.2.0_3e0bea80a667847181d9c4fd77eb989b64ebb714\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="dd7b4a8e01cafa79a0b228b2ee5bd57ae5577444">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.2.0_3310e233b6775f6960b177d23cf86071a98ee859\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="7378806b630886994099d03c369983f2848a609f">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.2.0_6db96c383f486c864e30efa837f41cf0cbbac6a6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="a378adc3106cb3560ab3dfed05f1fda26cff5b49">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.2.0_e09cf1c768bc142cda52c2c1a7919438d2131992\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="a06eb7761fca120bbb46b34b930a3a3462ba9d7f">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.2.0_a9302e2c0ffee8e7efbaeee14c421f371d18c479\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="7c39a4b431976abc46d3cf6344c75d06c769cd35">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.2.0_6ded8a27d56530831f431228692533d221f567ca\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -187,7 +304,7 @@
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="e9afaec3959fa4586d0f726af4e406d25d374d12">
+        sha1="9b77ea9be044108cd949e8919fd6628bf46d6a62">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d1fa33dac2b7b36f2f4c40433732d5584e871f45\classes.dex" />
     </item>
     <item
@@ -201,15 +318,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.2"
-        sha1="7a23185c9b1c100e7d1a32275017e4712e31c796">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.0.0_265779e7b90551759079be4751efb5160b76c82c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
@@ -219,12 +327,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\android-studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_137ab5916977f3460c3623d2d8a2c38fed01fe9d\classes.dex" />
+        sha1="20ca7888c59f63d439f218a8810c88039f8bc7db">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.2.0_a4f882286d47041abeba060c06e7096ee961a2c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="363f626ad5686283250cdb6073ae1bba5cb07a87">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.2.0_465dd8c2c09f5d1359f5417ef636b59d58d952ed\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -237,12 +354,48 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\android-studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_137ab5916977f3460c3623d2d8a2c38fed01fe9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\pl.charmas.android\android-reactive-location\0.6\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
         sha1="b285f779bd8949474640ae9f0ecc285f44fdb1a5">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\pl.charmas.android-android-reactive-location-0.6_1a8a25df5622f9bf898fa0e12bb8ab318c575c42\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="74694bf98bd1f856cf478bd0c516531801badced">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.2.0_aea7ccaa35b8794dcaf893c95c83b11981385947\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="be009dbe07b3a252c8cda07fc948ac713d2f5171">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.2.0_4cea2164bc2e1a8306a5d5e113a0bccbc4e0674f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="4838df6db988160b107e954e02a745370df543b6">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.2.0_f135f9c9db5d115fa26fe7405cf959e9970879bb\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -264,6 +417,51 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="0595e77431edaba6793410f9bfa3603c063c58e7">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.2.0_b256786e2a083d54d4674dc2e81c0d177ea7c799\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="21bb89120d84fa29afeb0f9c0ebf415bc3b45a7e">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.2.0_e0592463010a5162cb64419fa1311c38be67a5df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="fbb50f7f89342c915898c9376a67229e2fcee286">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.2.0_5128604af62bb44c1e0475e5ae8126b4a5ec4d10\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="593fbaec1c3e100480a2bd72457b64b7dde6ac2d">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.2.0_cb2ee6b0ddb7f1895ab8369fd122493411c07987\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="1dc44c4798cbd79e95e4838a3fdc734c0e3f895f">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.2.0_611e0154f992172877ca7e3dd794bf56b44b503d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha2\jars\classes.jar"
         jumboMode="true"
         optimize="false"
@@ -273,12 +471,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="e91e1f335dc418d0138991a1d5155f0490ab6082">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.2.0_61d55e1aa8ed6e372ea47c12450b6198f4dfd187\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.wdullaer\materialdatetimepicker\2.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
         sha1="8a0cab6c96fb94a28534e7d20be3f08f880dee00">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.wdullaer-materialdatetimepicker-2.2.0_e99b91c5e3f37dc3bc347a62bd77be57cc795b47\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="a03f4d605b0f29222c2ddf8b7896258cb4b92def">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.2.0_6c5651e2d2e6b565efb0beb7c1002972ebb1621e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -318,6 +534,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_933b4183cd8054d958253f491524683af6a46956\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="dd7676ac12aa6653718b7ea33d93ce9d6915d526">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.2.0_204a0feafe8b37be1dac871d0a3b200430d2bf4d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="5acfd484717d9175c175569a114d46dbeec074ed">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.2.0_e60411d1aeb7f61f0b64d1e4c08bbe9cb09eb5a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\.gradle\caches\modules-2\files-2.1\commons-net\commons-net\3.3\cd0d5510908225f76c5fe5a3f1df4fa44866f81e\commons-net-3.3.jar"
         jumboMode="true"
         optimize="false"
@@ -336,12 +579,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-contextmanager\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="8ad1b5663f367dac619256d75fb08a98c7baa4f4">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-contextmanager-9.2.0_778b5bdf3876d829474b59f0bb265ff3bfada2d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="b59f86c3c89a54b8c567f9cd6620b0a3d403e313">
+        sha1="1160d7909dbea1dce50c7362ca40cb93e7c0702d">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d2133ece8a035a9bf7fe66b6dab23bd91b7f3685\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="e791f7f2fbf9ca5b3b576916533f844dfb384024">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.2.0_e2ae592bd4979fd9547c31d32242541819ba148a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="33203b081101ca6242a4cd746aafe5fc2dd98a34">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.2.0_aaf9b57ede37ecf4c5821bd91fcabf1853acb4ae\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -363,21 +633,39 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.0.0_02493c4ef8c9c5aa628a70d31b447430e6e0fc09\classes.dex" />
+        sha1="f315c6b5b99081f16a79c9aaa557328a4644fe63">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.2.0_2e6bc42c1a45d5a10067c68207469fa8619f246b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.0_9fc3531e03f579fa87640539b446c6cb48d42fd6\classes.dex" />
+        sha1="fb15fd9774b5c51dcb39d8e6fa1b6f06bcd1cd34">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.2.0_2e012bd6272e601fd5f0cf8adeaec5a27024c7da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="39261f58509b1a379df041f03da394c29da05395">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.2.0_685645a65e263e19ce725c350f3ae08fe1ea3bef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="404f4108b41050173f93836f5b35efdd9525a0ad">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.2.0_3f0c94d8ce7df464c4bd253a0697dbfb2ae04617\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -390,6 +678,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="299e04800d1169b9f3dd04c376c7b266a3594cca">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.2.0_e68464bf42e6acdabe44750fb325ea23c5b9f933\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.github.tibolte\agendacalendarview\1.0.3\jars\classes.jar"
         jumboMode="true"
         optimize="false"
@@ -399,21 +696,66 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="33b5900f82d19fd3dacee518363b249ace77b8f5">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.2.0_29ce6c87bee66d60bacec1ac909574977fecb5f4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="7c7c21cc7a45d5c2a57d77f4840d4d4ea3c7604f">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.2.0_cfec46fdd142b52e200112a1b3de2ac563e9ddf6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="b53d61bae49278c0fa202d9066d2e72fc151c1e8">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.2.0_2859505db2f56ec0b0987848e29844f44cb6e194\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="30489a97b06cc3945bdbcc1770089af9e3b3b64d">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.2.0_8b4db2a84a457bc0c3e8d4452c3c1c4e96f71751\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="d7572433ba21aa9e4624c819fa738b2748b82d05">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.2.0_b67a374a5e0b719c9aa989584bf6d058c65698d9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-23.0.0_de8b7b56f8819e5b39a5c255a515f8e678820b5e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\james\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
         sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.1.0_d7631ff046094d79db24f019ac71735575063998\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.2"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_71cfaac6628f83b66126eb45f03633bafd66750b\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -435,12 +777,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.0\jars\classes.jar"
+        jar="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.2"
-        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
-        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.0.0_db055d86b040abed9f78cb91600925632e1075f0\classes.dex" />
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_71cfaac6628f83b66126eb45f03633bafd66750b\classes.dex" />
     </item>
 
 </items>
