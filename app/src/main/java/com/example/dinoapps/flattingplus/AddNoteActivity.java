@@ -92,7 +92,7 @@ public class AddNoteActivity extends AppCompatActivity {
         String url = baseURL + "/add/note";
 
          /*Post data*/
-        Map<String, String> jsonParams = new HashMap<String, String>();
+//        Map<String, String> jsonParams = new HashMap<String, String>();
 
         JSONObject notes = new JSONObject();
         try {
