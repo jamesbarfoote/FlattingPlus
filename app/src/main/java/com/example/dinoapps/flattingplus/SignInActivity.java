@@ -28,6 +28,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -223,20 +224,7 @@ public class SignInActivity extends AppCompatActivity implements
 
     public void volleyGetUser(String route, String personEmail, final String personName, final String personPhoto)
     {
-//        JSONObject user = new JSONObject();
-//        try {
-//            user.put("email", "test@test.com");
-//
-//        } catch (JSONException e) {
-//            // Auto-generated catch block
-//            e.printStackTrace();
-//        }
-
-//        if(user != null) {// user exists
-//            Log.v("sigin", " " + user.toString());
             String baseURL = "https://flattingplus.herokuapp.com";
-//            RequestQueue queue = Volley.newRequestQueue(this);
-//            email = "test@test.com";
             String url = baseURL + route + "?email=" + personEmail;
             final String pEmail = personEmail;
             // Request a string response from the provided URL.
@@ -314,6 +302,8 @@ public class SignInActivity extends AppCompatActivity implements
         Log.v(TAG, pEmail + " " + personName + " " + personPhoto);
         String baseURL = "https://flattingplus.herokuapp.com";
         String url = baseURL + "/add/user";
+        Log.d(TAG, "InstanceID token: " + FirebaseInstanceId.getInstance().getToken());
+        String fireToken = FirebaseInstanceId.getInstance().getToken();
 
          /*Post data*/
         Map<String, String> jsonParams = new HashMap<String, String>();
@@ -324,22 +314,13 @@ public class SignInActivity extends AppCompatActivity implements
             user.put("name", personName);
             user.put("group", "");
             user.put("pic", personPhoto);
+            user.put("token", fireToken);
 
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-//        jsonParams.put("email", pEmail);
-//        jsonParams.put("name", personName);
-//        jsonParams.put("group", "");
-//        jsonParams.put("pic", personPhoto);
-//
-//        JSONArray jsonArray = new JSONArray();
-//        jsonArray.put(jsonParams);
-//        Log.v(TAG, "Json params: " + jsonParams.toString());
-//        Log.v(TAG, "Json array: " + jsonArray.toString());
-//        Log.v(TAG, "Json object: " + user.toString());
         JsonObjectRequest postRequest = new JsonObjectRequest( Request.Method.PUT, url, user,
                 new Response.Listener<JSONObject>() {
                     @Override

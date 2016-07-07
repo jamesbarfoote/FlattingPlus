@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import java.util.ArrayList;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
@@ -20,7 +22,7 @@ static DBHelper dbHelper;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RequestQueue queue = Volley.newRequestQueue(this);
-
+        Log.d(TAG, "InstanceID token: " + FirebaseInstanceId.getInstance().getToken());
         dbHelper = new DBHelper(this);
         Log.v("created db", "db started");
 

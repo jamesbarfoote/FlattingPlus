@@ -20,6 +20,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,8 +59,8 @@ public class GroupLoginReg extends AppCompatActivity {
                 } else {
                     String groupName = groupname.getText().toString();
                     String groupPassword = grouppass.getText().toString();
-                    //Find the group in the database using the password and email
-                    JSONRequestLogin("/get/flatgroup", groupName, groupPassword);
+                    ArrayList<String> info = getAllUserInfo();
+                    JSONRequestLogin("/get/flatgroup/add", groupName, groupPassword, info.get(2));
                 }
             }
         });
@@ -76,15 +77,16 @@ public class GroupLoginReg extends AppCompatActivity {
                 } else {
                     String groupName = groupname.getText().toString();
                     String groupPassword = grouppass.getText().toString();
-                    addGroupTONetDB("/add/group", groupName, groupPassword);
+                    ArrayList<String> info = getAllUserInfo();
+                    addGroupTONetDB("/add/group", groupName, groupPassword, info.get(2), FirebaseInstanceId.getInstance().getToken());
                 }
             }
         });
     }
 
-    public void JSONRequestLogin(String route, String gname, String password) {
+    public void JSONRequestLogin(String route, String gname, String password, String email) {
         String baseURL = "https://flattingplus.herokuapp.com";
-        String url = baseURL + route + "?gname=" + gname + "&pass=" + password;
+        String url = baseURL + route + "?gname=" + gname + "&pass=" + password + "&email=" + email;
 
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -141,7 +143,7 @@ public class GroupLoginReg extends AppCompatActivity {
     }
 
 
-    public void addGroupTONetDB(String route, String gname, String password)//Register group
+    public void addGroupTONetDB(String route, String gname, String password, String userEmail, String fireToken)//Register group
     {
         Log.v(TAG, gname + " " + password);
         String baseURL = "https://flattingplus.herokuapp.com";
@@ -152,6 +154,9 @@ public class GroupLoginReg extends AppCompatActivity {
 
         jsonParams.put("group", gname);
         jsonParams.put("gpass", password);
+        jsonParams.put("email", userEmail);
+        jsonParams.put("token", fireToken);
+        Log.v(TAG, "Email: " + userEmail);
 
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.PUT, url, new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {

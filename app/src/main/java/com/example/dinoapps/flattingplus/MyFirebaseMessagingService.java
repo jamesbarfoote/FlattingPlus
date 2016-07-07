@@ -16,29 +16,41 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
 
+    /**
+     * Called when message is received.
+     *
+     * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
+     */
+    // [START receive_message]
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        //Displaying data in log
-        //It is optional
+        // TODO(developer): Handle FCM messages here.
+        // If the application is in the foreground handle both data and notification messages here.
+        // Also if you intend on generating your own notifications as a result of a received FCM
+        // message, here is where that should be initiated. See sendNotification method below.
         Log.d(TAG, "From: " + remoteMessage.getFrom());
-        Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
-
-        //Calling method to generate notification
-        sendNotification(remoteMessage.getNotification().getBody());
+        if(remoteMessage.getNotification() != null) {
+            Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        }
+        Log.v(TAG, "Recieved push notification, but notif had no body");
     }
+    // [END receive_message]
 
-    //This method is only generating push notification
-    //It is same as we did in earlier posts
+    /**
+     * Create and show a simple notification containing the received FCM message.
+     *
+     * @param messageBody FCM message body received.
+     */
     private void sendNotification(String messageBody) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Firebase Push Notification")
+                .setSmallIcon(R.drawable.ic_arrow_drop_down_white_24dp)
+                .setContentTitle("FCM Message")
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
@@ -47,6 +59,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0, notificationBuilder.build());
+        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
     }
 }

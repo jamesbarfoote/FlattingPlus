@@ -1,9 +1,7 @@
 {
   "project_info": {
     "project_number": "990776252040",
-    "firebase_url": "https://flattingplus.firebaseio.com",
-    "project_id": "flattingplus",
-    "storage_bucket": "flattingplus.appspot.com"
+    "project_id": "flattingplus"
   },
   "client": [
     {
@@ -15,23 +13,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "990776252040-32bst3ul93bu8boaegdi8p43te7llqeh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.dinoapps.flattingplus.MainActivity",
-            "certificate_hash": "EF312E8C6284710CCF7CFB0997C98B77EA295733"
-          }
-        },
-        {
-          "client_id": "990776252040-mpr061hu4v3n7rh3r6iunbk4v5958o12.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
           "client_id": "990776252040-05j505oskdqtv7lf5c15e5u8g2hmghi1.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "990776252040-al8er2lk5fmijqouj4n6si0rjdne5pgf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -49,7 +31,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     },
@@ -70,15 +52,7 @@
           }
         },
         {
-          "client_id": "990776252040-mpr061hu4v3n7rh3r6iunbk4v5958o12.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
           "client_id": "990776252040-05j505oskdqtv7lf5c15e5u8g2hmghi1.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "990776252040-al8er2lk5fmijqouj4n6si0rjdne5pgf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -92,16 +66,11 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "990776252040-mpr061hu4v3n7rh3r6iunbk4v5958o12.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     }
