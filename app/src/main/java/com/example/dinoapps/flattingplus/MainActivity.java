@@ -33,12 +33,12 @@ static DBHelper dbHelper;
             startActivity(signin);
         }
 
-        if(dbHelper.getAllGroup().getCount() < 1)
-        {
-            Log.v(TAG, "User no group info");
-            Intent groupLogin = new Intent (this, GroupLoginReg.class);
-            startActivity(groupLogin);
-        }
+//        if(dbHelper.getAllGroup().getCount() < 1)
+//        {
+//            Log.v(TAG, "User no group info");
+//            Intent groupLogin = new Intent (this, GroupLoginReg.class);
+//            startActivity(groupLogin);
+//        }
 
     }
 
@@ -48,11 +48,9 @@ static DBHelper dbHelper;
         addSection(newSection("Money", new MoneyFragment()));
         addSection(newSection("Shopping", new ShoppingFragment()));
         addSection(newSection("Calendar", new CalendarFragment()));
+
         addBottomSection(newSection("Settings", new SettingsFragment()));
 
 
     }
-
-
-
 }

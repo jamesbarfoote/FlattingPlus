@@ -88,9 +88,9 @@ public class SignInActivity extends AppCompatActivity implements
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
-            // If the user has not previously signed in on this device or the sign-in has expired,
-            // this asynchronous branch will attempt to sign in the user silently.  Cross-device
-            // single sign-on will occur in this branch.
+//             If the user has not previously signed in on this device or the sign-in has expired,
+//             this asynchronous branch will attempt to sign in the user silently.  Cross-device
+//             single sign-on will occur in this branch.
             showProgressDialog();
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
@@ -115,7 +115,7 @@ public class SignInActivity extends AppCompatActivity implements
     }
 
     // [START revokeAccess]
-    private void revokeAccess() {
+    public void revokeAccess() {
         Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -257,7 +257,7 @@ public class SignInActivity extends AppCompatActivity implements
                         dbHelper.updateUser(name, email, pic, flatgroup);//Update the internal db
 
                         //Check if they are part of a group
-                        if(flatgroup.equals("null")) {
+                        if(flatgroup.length() <1) {
                             Log.v(TAG, "flatgroup is empty");
                             //if not then show the group login page
                             gotg();

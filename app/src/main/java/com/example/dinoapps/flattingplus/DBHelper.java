@@ -325,7 +325,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void clearUserTable()   {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(USER_TABLE_NAME, null,null);
+//        db.delete(USER_TABLE_NAME, null,null);
+        db.execSQL("delete from "+ USER_TABLE_NAME);
     }
 
     public void clearNotesTable()   {
