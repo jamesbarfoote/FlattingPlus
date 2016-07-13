@@ -1,13 +1,18 @@
 package com.example.dinoapps.flattingplus;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -48,6 +53,7 @@ public class SignInActivity extends AppCompatActivity implements
     static DBHelper dbHelper;
     String TAG = "Signin";
     RequestQueue queue;
+    Button signoutB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,8 @@ public class SignInActivity extends AppCompatActivity implements
 
         titleThing = (TextView)findViewById(R.id.textView3);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
+        findViewById(R.id.buttonSignout).setOnClickListener(this);
+
 
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -74,34 +82,70 @@ public class SignInActivity extends AppCompatActivity implements
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
+        signoutB = (Button) findViewById(R.id.buttonSignout);
+        signoutB.setVisibility(View.INVISIBLE);
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
+
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
-        if (opr.isDone()) {
-            // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
-            // and the GoogleSignInResult will be available instantly.
-            Log.d("", "Got cached sign-in");
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
-        } else {
+        String needToSignout = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("Signout", "False");
+        Log.v(TAG, "Shared pref: " + needToSignout);
+
+        if(needToSignout.equals("True"))
+        {
+            //Reset the shared pref
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("Signout", "False").apply();
+
+            Log.v(TAG, "Signing out");
+            signoutB.setVisibility(View.VISIBLE);
+
+//            signOut();
+        }
+        else
+        {
+            Log.v(TAG, "Trying to signin from stored user");
+            if (opr.isDone()) {
+                // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
+                // and the GoogleSignInResult will be available instantly.
+                Log.d("", "Got cached sign-in");
+                GoogleSignInResult result = opr.get();
+                handleSignInResult(result);
+            } else {
 //             If the user has not previously signed in on this device or the sign-in has expired,
 //             this asynchronous branch will attempt to sign in the user silently.  Cross-device
 //             single sign-on will occur in this branch.
-            showProgressDialog();
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(GoogleSignInResult googleSignInResult) {
-                    Log.v("Results returned", "Res returned");
-                    hideProgressDialog();
-                    handleSignInResult(googleSignInResult);
-                }
-            });
+                showProgressDialog();
+                opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+                    @Override
+                    public void onResult(GoogleSignInResult googleSignInResult) {
+                        Log.v("Results returned", "Res returned");
+                        hideProgressDialog();
+                        handleSignInResult(googleSignInResult);
+                    }
+                });
+            }
         }
     }
+
+
+    private void signOut() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        // [START_EXCLUDE]
+                        updateUI(false);
+                        Log.v(TAG, "Signed out: " + status);
+                        // [END_EXCLUDE]
+                    }
+                });
+    }
+
 
 
     private void showProgressDialog() {
@@ -201,6 +245,12 @@ public class SignInActivity extends AppCompatActivity implements
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
+                break;
+            case R.id.buttonSignout:
+                signOut();
+                signoutB.setVisibility(View.INVISIBLE);
+                Toast.makeText(getApplicationContext(), "Successfully signed out!",
+                        Toast.LENGTH_LONG).show();
                 break;
         }
     }

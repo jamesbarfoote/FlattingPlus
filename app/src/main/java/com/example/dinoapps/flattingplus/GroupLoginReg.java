@@ -86,7 +86,7 @@ public class GroupLoginReg extends AppCompatActivity {
 
     public void JSONRequestLogin(String route, String gname, String password, String email) {
         String baseURL = "https://flattingplus.herokuapp.com";
-        String url = baseURL + route + "?gname=" + gname + "&pass=" + password + "&email=" + email;
+        String url = baseURL + route + "?gname=" + gname + "&pass=" + password + "&email=" + email + "&token=" + FirebaseInstanceId.getInstance().getToken();
 
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

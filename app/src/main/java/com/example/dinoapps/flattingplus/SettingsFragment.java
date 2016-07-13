@@ -2,8 +2,10 @@ package com.example.dinoapps.flattingplus;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
@@ -82,9 +85,12 @@ public class SettingsFragment extends Fragment {
                 MainActivity.dbHelper.clearGroupTable();
                 MainActivity.dbHelper.clearNotesTable();
                 MainActivity.dbHelper.clearUserTable();
-                Log.v(TAG, "Num users = " + MainActivity.dbHelper.getAllUsers().getCount());
-                Intent home = new Intent(getContext(), MainActivity.class);
-                startActivity(home);
+
+                //Make a shared pref telling the signin activity that we want to signout
+                PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString("Signout", "True").commit();
+
+                Intent signinAct = new Intent(getContext(), SignInActivity.class);
+                startActivity(signinAct);
             }
         });
 
