@@ -115,12 +115,13 @@ public class GroupLoginReg extends AppCompatActivity {
                                 String shoppinglist = jObj.getString("shoppinglist");
                                 String calendar = jObj.getString("calendar");
                                 String money = jObj.getString("money");
+                                String pass = jObj.getString("password");
 
-                                MainActivity.dbHelper.insertGroup(groupName, shoppinglist, calendar, money, notes);
+                                MainActivity.dbHelper.insertGroup(groupName, shoppinglist, calendar, money, notes, pass);
 
                                 Toast.makeText(getApplicationContext(), "Signin successful!",
                                         Toast.LENGTH_LONG).show();
-                                MainActivity.dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes);
+                                MainActivity.dbHelper.updateGroup(groupName, shoppinglist, calendar, money, notes, pass);
 
                                 Log.v(TAG, "Name: " + groupName + " id: " + id);
                                 //Add group to online user
@@ -168,11 +169,13 @@ public class GroupLoginReg extends AppCompatActivity {
                         ArrayList<String> info = getAllUserInfo();
 
                         String groupName = groupname.getText().toString();
+                        String groupPass = grouppass.getText().toString();
+
                         Log.v(TAG, groupName + " User id: " + info.get(0));
                         MainActivity.dbHelper.addGroupToUser(groupName, Integer.parseInt(info.get(0)));
 
                         //Add group to local db
-                        MainActivity.dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty");
+                        MainActivity.dbHelper.insertGroup(groupName, "Empty", "Empty", "Empty", "Empty", groupPass);
 
                         info = getAllUserInfo();
                         Log.v(TAG, info.toString());

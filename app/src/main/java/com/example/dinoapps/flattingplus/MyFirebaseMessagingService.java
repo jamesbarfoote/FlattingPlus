@@ -30,9 +30,27 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // message, here is where that should be initiated. See sendNotification method below.
         Log.d(TAG, "From: " + remoteMessage.getFrom());
         if(remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+            String title = remoteMessage.getNotification().getTitle();
+            String content = remoteMessage.getNotification().getBody();
+            Log.d(TAG, "Notification Message Body: " + content + " Title: " + title);
+
+            //Handle pulling down new data
+            if(title.equals("New note added"))
+            {
+                //Need to pull down all the notes after the last edited time in our local db
+                Intent i= new Intent(this, getService.class);
+                //TODO update these to get them from the database
+                String groupname = "";
+                String date = "";
+                i.putExtra("groupname", groupname);
+                i.putExtra("date", date);
+                this.startService(i);
+            }
         }
-        Log.v(TAG, "Recieved push notification, but notif had no body");
+        else
+        {
+            Log.v(TAG, "Recieved push notification, but notif had no body");
+        }
     }
     // [END receive_message]
 

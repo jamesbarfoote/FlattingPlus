@@ -41,6 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String FLATGROUP_COLUMN_CALENDAR = "calendar";
     public static final String FLATGROUP_COLUMN_MONEY= "money";
     public static final String FLATGROUP_COLUMN_TODO_LIST= "todoList";
+    public static final String FLATGROUP_COLUMN_PASS= "groupPass";
     public static final String FLATGROUP_COLUMN_OWNER_ID= "ownerID";
     public String email;
     public String todoList = "";
@@ -53,6 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
             FLATGROUP_COLUMN_CALENDAR + " TEXT," +
             FLATGROUP_COLUMN_MONEY + " TEXT," +
             FLATGROUP_COLUMN_TODO_LIST + " TEXT," +
+            FLATGROUP_COLUMN_PASS + " TEXT," +
             FLATGROUP_COLUMN_OWNER_ID + " TEXT" + ")";
 
     private static final String createUser = "CREATE TABLE " + USER_TABLE_NAME + "(" +
@@ -228,7 +230,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
-    public boolean insertGroup(String groupName, String shoppingList, String calendar, String money, String todoList)
+    public boolean insertGroup(String groupName, String shoppingList, String calendar, String money, String todoList, String pass)
     {
         clearGroupTable();
         SQLiteDatabase db = getWritableDatabase();
@@ -238,6 +240,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(FLATGROUP_COLUMN_CALENDAR, calendar);
         contentValues.put(FLATGROUP_COLUMN_MONEY, money);
         contentValues.put(FLATGROUP_COLUMN_TODO_LIST, todoList);
+        contentValues.put(FLATGROUP_COLUMN_PASS, pass);
         db.insert(FLATGROUP_TABLE_NAME, null, contentValues);
 
 //        addGroupToUser(groupName);
@@ -250,7 +253,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updateGroup(String groupName, String shoppingList, String calendar, String money, String todoList)
+    public boolean updateGroup(String groupName, String shoppingList, String calendar, String money, String todoList, String pass)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -259,6 +262,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(FLATGROUP_COLUMN_CALENDAR, calendar);
         contentValues.put(FLATGROUP_COLUMN_MONEY, money);
         contentValues.put(FLATGROUP_COLUMN_TODO_LIST, todoList);
+        contentValues.put(FLATGROUP_COLUMN_PASS, pass);
+
 
         db.update(FLATGROUP_TABLE_NAME, contentValues, FLATGROUP_COLUMN_ID + " = ? ", new String[]{Integer.toString(1)});
         return true;
