@@ -73,6 +73,8 @@ public class getService extends Service {
                                     String creationTime = jObj.getString("currtime");
                                     MainActivity.dbHelper.insertNote(useremail, title, content, flatgroup, creationTime);
                                     Log.v(TAG, "Title: " + title + " Content: " + content + " Group name: " + flatgroup + " Creation time: " + creationTime);
+
+                                    //Update the notes view so we can see the recently received note
                                 }
                             }
                         } catch (JSONException e) {

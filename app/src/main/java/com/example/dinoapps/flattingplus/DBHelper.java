@@ -330,8 +330,14 @@ public class DBHelper extends SQLiteOpenHelper {
     public String getMostRecentDate()
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT MAX(created) FROM" + NOTE_TABLE_NAME + "", null);
-        String date = res.getString(0);
+//        Cursor res = db.rawQuery("SELECT MAX("+NOTE_COLUMN_CREATION_TIME+") FROM " + NOTE_TABLE_NAME + "", null);
+//        Cursor res = db.rawQuery("SELECT MAX(created) FROM notes", null);
+        Cursor cursor = db.rawQuery("select MAX(created) as created from notes", null);
+        String date = "Empty";
+        if(cursor.moveToFirst()){
+            date = cursor.getString(cursor.getColumnIndex("created"));
+        }
+
         return date;
     }
 
