@@ -327,6 +327,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public String getMostRecentDate()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT MAX(created) FROM" + NOTE_TABLE_NAME + "", null);
+        String date = res.getString(0);
+        return date;
+    }
+
 
     public void clearUserTable()   {
         SQLiteDatabase db = this.getWritableDatabase();

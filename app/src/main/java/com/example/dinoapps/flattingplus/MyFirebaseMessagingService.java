@@ -40,8 +40,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 //Need to pull down all the notes after the last edited time in our local db
                 Intent i= new Intent(this, getService.class);
                 //TODO update these to get them from the database
-                String groupname = "";
-                String date = "";
+                String groupname = MainActivity.dbHelper.getGroup();
+                String date = MainActivity.dbHelper.getMostRecentDate();
+                Log.v(TAG, "Groupname: " + groupname + " Date: " + date);
                 i.putExtra("groupname", groupname);
                 i.putExtra("date", date);
                 this.startService(i);
