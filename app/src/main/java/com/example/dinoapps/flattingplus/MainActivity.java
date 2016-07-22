@@ -1,12 +1,20 @@
 package com.example.dinoapps.flattingplus;
 
+import android.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
@@ -52,5 +60,38 @@ static DBHelper dbHelper;
         addBottomSection(newSection("Settings", new SettingsFragment()));
 
 
+    }
+
+    // This method will be called when a MessageEvent is posted (in the UI thread for Toast)
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
+        Log.v(TAG, "got message from service: " + event.message);
+        Toast.makeText(this, event.message, Toast.LENGTH_SHORT).show();
+
+        NotesFragment fr = new NotesFragment();
+        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_notes, fr);
+        ft.commit();
+
+
+
+    }
+
+    // This method will be called when a SomeOtherEvent is posted
+    @Subscribe
+    public void handleSomethingElse(String event) {
+//        doSomethingWith(event);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }

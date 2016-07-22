@@ -333,11 +333,13 @@ public class DBHelper extends SQLiteOpenHelper {
 //        Cursor res = db.rawQuery("SELECT MAX("+NOTE_COLUMN_CREATION_TIME+") FROM " + NOTE_TABLE_NAME + "", null);
 //        Cursor res = db.rawQuery("SELECT MAX(created) FROM notes", null);
         Cursor cursor = db.rawQuery("select MAX(created) as created from notes", null);
-        String date = "Empty";
+        String date = "0";
         if(cursor.moveToFirst()){
-            date = cursor.getString(cursor.getColumnIndex("created"));
+            String result = cursor.getString(cursor.getColumnIndex("created"));
+            if(result != null && !result.equals("null")) {
+                date = result;
+            }
         }
-
         return date;
     }
 

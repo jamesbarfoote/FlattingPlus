@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -14,9 +16,12 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class getService extends Service {
     private String TAG = "getService";
@@ -62,6 +67,8 @@ public class getService extends Service {
                             }
                             else {
                                 Log.v(TAG, "Number of new notes: " + response.length());
+                                ArrayList<DataObject> data = new ArrayList<>();
+
                                 //Go through all the new notes adding them to the local db
                                 for(int i = 0; i < response.length(); i++) {
                                     //The object containing all the new notes
@@ -75,7 +82,21 @@ public class getService extends Service {
                                     Log.v(TAG, "Title: " + title + " Content: " + content + " Group name: " + flatgroup + " Creation time: " + creationTime);
 
                                     //Update the notes view so we can see the recently received note
+                                    DataObject obj = new DataObject(title, content);
+                                    data.add(obj);
                                 }
+//                                NotesFragment nf = new NotesFragment();
+//                                nf.update(data);
+
+                                //If true then the notes activity is visible
+                                if(NotesFragment.m_iAmVisible)
+                                {
+                                    Log.v(TAG, "notes are visible");
+                                    EventBus.getDefault().post(new MessageEvent("Need to restart notes!!"));
+//                                    Intent restartNotes = new Intent(getApplicationContext(), NotesFragment.class);
+//                                    startActivity(restartNotes);
+                                }
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -29,14 +29,16 @@ import java.util.Set;
  * Use the {@link NotesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NotesFragment extends Fragment {
+public class NotesFragment extends android.support.v4.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private boolean addButtonClicked;
+    public static boolean m_iAmVisible;
+    private String TAG = "NotesFragment";
 
-    DBHelper dbHelper= new DBHelper(getContext());
+//    DBHelper dbHelper= new DBHelper(getContext());
 
 
     private long numNotes = 0;
@@ -83,7 +85,7 @@ public class NotesFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
+        m_iAmVisible = true;
     }
 
     @Override
@@ -106,7 +108,7 @@ public class NotesFragment extends Fragment {
         // Code to remove an item with default animation
         //((MyRecyclerViewAdapter) mAdapter).deleteItem(index);
 
-
+        m_iAmVisible = true;
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.floatAddNote);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +142,7 @@ public class NotesFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        m_iAmVisible = false;
     }
 
     /**
@@ -160,6 +163,7 @@ public class NotesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        m_iAmVisible = true;
 
         //get the data from shared prefs
 //        SharedPreferences notesT = getActivity().getSharedPreferences("NotesTitle", 0);
@@ -183,14 +187,8 @@ public class NotesFragment extends Fragment {
             Log.v("adding note", "need to add");
             //add the new notes
             long numNew = cnt - this.numNotes;
-            //Go through all the new notes and add them
             ArrayList<DataObject> d =getAndDisplay();
-            //add all the titles to an array
-
-            if(d != null) {
-                mAdapter = new MyRecycleViewAdapter(d);
-                mRecyclerView.setAdapter(mAdapter);
-            }
+           update(d);
 
             this.numNotes += numNew;
 
@@ -252,5 +250,51 @@ public class NotesFragment extends Fragment {
 
         ArrayList<DataObject> d = createDataObjs(title, content);
         return d;
+    }
+    public void update(ArrayList<DataObject> d)
+    {
+//        updateView(d);
+        if(d != null) {
+            mAdapter = new MyRecycleViewAdapter(d);
+            mRecyclerView.setAdapter(mAdapter);
+        }
+    }
+
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        m_iAmVisible = isVisibleToUser;
+
+        if (m_iAmVisible) {
+            Log.d(TAG, "this fragment is now visible");
+        } else {
+            Log.d(TAG, "this fragment is now invisible");
+        }
+    }
+//    public void updateView(ArrayList<DataObject> d)
+//    {
+////        mRecyclerView = (RecyclerView) v.findViewById(R.id.my_recycler_view);
+//        mRecyclerView.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(getContext());
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mAdapter = new MyRecycleViewAdapter(getAndDisplay());
+//        mRecyclerView.setAdapter(mAdapter);
+//        //Go through all the new notes and add them
+//
+//        //add all the titles to an array
+//
+//        if(d != null) {
+//            mAdapter = new MyRecycleViewAdapter(d);
+//            mRecyclerView.setAdapter(mAdapter);
+//        }
+//    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        m_iAmVisible = false;
+        Log.v(TAG, "Pausing");
     }
 }
