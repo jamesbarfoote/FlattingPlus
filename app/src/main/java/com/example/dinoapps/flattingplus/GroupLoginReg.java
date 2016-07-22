@@ -233,6 +233,16 @@ public class GroupLoginReg extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             Log.v(TAG, "updated user: " + response.toString(4));
+
+                            //Need to pull down all the notes after the last edited time in our local db
+                            Intent i= new Intent(getApplicationContext(), getService.class);
+                            String groupname = MainActivity.dbHelper.getGroup();
+                            String date = MainActivity.dbHelper.getMostRecentDate();
+                            Log.v(TAG, "Groupname: " + groupname + " Date: " + date);
+                            i.putExtra("groupname", groupname);
+                            i.putExtra("date", date);
+                            startService(i);
+
                             Intent home = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(home);
                         } catch (JSONException e) {
