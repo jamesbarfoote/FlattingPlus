@@ -1,0 +1,4 @@
+users in a group already are prompted to login to that group when they login to the app for the first time
+Cant logout fully (something to do with google login)
+Need to add progress dialog
+Push notification recipient (to) is currently hard coded. Needs to be changed so that we get it from the database

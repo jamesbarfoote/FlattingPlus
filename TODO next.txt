@@ -1,0 +1,8 @@
+Retrieve new notes on notification 
+Have pictures of the user that sent the notes appear next to the note
+Set up the settings page (logout of group / join another group, picture, name, upcoming events)
+When the user (re)installs the app it should automatically log them into their group
+Get group login and retrieval working
+Get notes editing and deleting
+Get calendar syncing
+Set up in shopping list and money list
