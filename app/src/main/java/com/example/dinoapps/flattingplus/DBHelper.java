@@ -182,21 +182,23 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getNotesCount() {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        long cnt  = DatabaseUtils.queryNumEntries(db, NOTE_TABLE_NAME);
-//        db.close();
-//        return cnt;
-
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + NOTE_TABLE_NAME;
         Cursor cursor = db.rawQuery(query,null);
-//        int cnt = 0;
-//        if(cursor != null) {
-//            cnt = cursor.getCount();
-//        }
+        return cursor;
+    }
 
-       // cursor.close();
+    public Cursor getMoneyCount() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + MONEY_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
+    }
 
+    public Cursor getShoppingCount() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + SHOPPING_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
         return cursor;
     }
 

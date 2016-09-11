@@ -1,11 +1,17 @@
 package com.example.dinoapps.flattingplus;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -30,12 +36,20 @@ public class MoneyFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private ArrayList<String> countries;
+    private boolean addButtonClicked;
+    public static boolean m_iAmVisible;
+    private String TAG = "MoneyFragment";
+    private long numNotes = 0;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     public MoneyFragment() {
         // Required empty public constructor
@@ -66,6 +80,7 @@ public class MoneyFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        m_iAmVisible = true;
     }
 
     @Override
@@ -73,55 +88,83 @@ public class MoneyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_money, container, false);
-        initViews(v);
-        return v;
-    }
 
-    private void initViews(View v){
-        RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.card_recycler_view);
-        recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        countries = new ArrayList<>();
-        countries.add("Australia");
-        countries.add("India");
-        countries.add("United States of America");
-        countries.add("Germany");
-        countries.add("Russia");
-        RecyclerView.Adapter adapter = new DataAdapter(countries);
-        recyclerView.setAdapter(adapter);
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.money_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyRecycleViewAdapter(getAndDisplay());
+        mRecyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
-
-                @Override public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-
-            });
+        m_iAmVisible = true;
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.floatAddMoney);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+            public void onClick(View view) {
+                //Set a shared prefs so that our add notes activity knows the call is coming from the Notes fragment
+                SharedPreferences sharedPreferences = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                SharedPreferences.Editor noteType = sharedPreferences.edit();
+                noteType.putString("NoteType", "Money");
+                noteType.commit();
 
-                View child = rv.findChildViewUnder(e.getX(), e.getY());
-                if(child != null && gestureDetector.onTouchEvent(e)) {
-                    int position = rv.getChildAdapterPosition(child);
-                    Toast.makeText(getContext(), countries.get(position), Toast.LENGTH_SHORT).show();
-                }
+                addButtonClicked = true;
+                Log.v("add button", "Set to: " + addButtonClicked);
 
-                return false;
-            }
+                Intent ni = new Intent(getContext(), AddNoteActivity.class);
+                startActivity(ni);
 
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
             }
         });
+        return v;
     }
+
+//    private void initViews(View v){
+//        RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.card_recycler_view);
+//        recyclerView.setHasFixedSize(true);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        countries = new ArrayList<>();
+//        countries.add("Australia");
+//        countries.add("India");
+//        countries.add("United States of America");
+//        countries.add("Germany");
+//        countries.add("Russia");
+//        RecyclerView.Adapter adapter = new DataAdapter(countries);
+//        recyclerView.setAdapter(adapter);
+//
+//        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+//            GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
+//
+//                @Override public boolean onSingleTapUp(MotionEvent e) {
+//                    return true;
+//                }
+//
+//            });
+//            @Override
+//            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+//
+//                View child = rv.findChildViewUnder(e.getX(), e.getY());
+//                if(child != null && gestureDetector.onTouchEvent(e)) {
+//                    int position = rv.getChildAdapterPosition(child);
+//                    Toast.makeText(getContext(), countries.get(position), Toast.LENGTH_SHORT).show();
+//                }
+//
+//                return false;
+//            }
+//
+//            @Override
+//            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+//
+//            }
+//        });
+//    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -150,5 +193,118 @@ public class MoneyFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        m_iAmVisible = true;
+
+
+        //get all the info from the notes table
+        Cursor cursor = MainActivity.dbHelper.getMoneyCount();
+        int cnt = 0;
+        if(cursor != null) {
+            cnt = cursor.getCount();
+        }
+        Log.v("Money count","Money count: " + cnt);
+
+        if(cnt > this.numNotes)
+        {
+            Log.v("adding money note", "need to add money note");
+            //add the new notes
+            long numNew = cnt - this.numNotes;
+            ArrayList<DataObject> d =getAndDisplay();
+            update(d);
+
+            this.numNotes += numNew;
+
+        }
+//
+        ((MyRecycleViewAdapter) mAdapter).setOnItemClickListener(new MyRecycleViewAdapter
+                .MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Log.i(TAG, " Clicked on Item " + position);
+            }
+        });
+    }
+
+    private ArrayList<DataObject> createDataObjs(ArrayList<String> title, ArrayList<String> content)
+    {
+        ArrayList<DataObject> data = new ArrayList<>();
+        for(int i =0; i < title.size(); i++)
+        {
+            DataObject obj = new DataObject(title.get(i), content.get(i));
+            data.add(obj);
+        }
+        return data;
+    }
+
+    private ArrayList<DataObject> getAndDisplay()
+    {
+        Cursor cursor = MainActivity.dbHelper.getMoneyCount();
+        int cnt = 0;
+        if(cursor != null) {
+            cnt = cursor.getCount();
+        }
+
+        //add all the titles to an array
+        ArrayList<String> title= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("title"));
+
+                title.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        //add all the content to another array
+        ArrayList<String> content= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("content"));
+
+                content.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        ArrayList<DataObject> d = createDataObjs(title, content);
+        return d;
+    }
+    public void update(ArrayList<DataObject> d)
+    {
+//        updateView(d);
+        if(d != null) {
+            mAdapter = new MyRecycleViewAdapter(d);
+            mRecyclerView.setAdapter(mAdapter);
+        }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        m_iAmVisible = isVisibleToUser;
+
+        if (m_iAmVisible) {
+            Log.d(TAG, "this fragment is now visible");
+        } else {
+            Log.d(TAG, "this fragment is now invisible");
+        }
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        m_iAmVisible = false;
+        Log.v(TAG, "Pausing");
     }
 }
