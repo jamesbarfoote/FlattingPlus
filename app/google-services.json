@@ -62,11 +62,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "990776252040-e7ca6db2puesj2s847n7gd0ajeg6pkon.apps.googleusercontent.com",
+          "client_id": "990776252040-53b13tjr2ubiriklqfd743fi76qskv25.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.dinoapps.flattingplus",
-            "certificate_hash": "EF312E8C6284710CCF7CFB0997C98B77EA295733"
+            "certificate_hash": "A86E58C9877DE5E6EA90FB9CF8B38DE0E636BA57"
           }
         },
         {

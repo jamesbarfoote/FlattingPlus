@@ -112,7 +112,7 @@ public class SignInActivity extends AppCompatActivity implements
             if (opr.isDone()) {
                 // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
                 // and the GoogleSignInResult will be available instantly.
-                Log.d("", "Got cached sign-in");
+                Log.d(TAG, "Got cached sign-in");
                 GoogleSignInResult result = opr.get();
                 handleSignInResult(result);
             } else {
@@ -123,7 +123,7 @@ public class SignInActivity extends AppCompatActivity implements
                 opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                     @Override
                     public void onResult(GoogleSignInResult googleSignInResult) {
-                        Log.v("Results returned", "Res returned");
+                        Log.v(TAG, "Res returned");
                         hideProgressDialog();
                         handleSignInResult(googleSignInResult);
                     }
@@ -184,7 +184,7 @@ public class SignInActivity extends AppCompatActivity implements
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        Log.v("Res code", "" + resultCode);
+        Log.v(TAG, "rEScODE: " + resultCode);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
@@ -194,7 +194,7 @@ public class SignInActivity extends AppCompatActivity implements
 
     // [START handleSignInResult]
     private void handleSignInResult(GoogleSignInResult result) {
-        Log.d("", "handleSignInResult:" + result.isSuccess());
+        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
@@ -207,7 +207,7 @@ public class SignInActivity extends AppCompatActivity implements
             addUserToDB(personName, personEmail, personId, personPhoto);
 //            updateUI(true);
         } else {
-            Log.v("Signin", "signin failed");
+            Log.v(TAG, "signin failed");
             // Signed out, show unauthenticated UI.
             updateUI(false);
         }
@@ -230,12 +230,12 @@ public class SignInActivity extends AppCompatActivity implements
     public void onConnectionFailed(ConnectionResult connectionResult) {
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
         // be available.
-        Log.d("", "onConnectionFailed:" + connectionResult);
+        Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
 
     public void signIn()
     {
-        Log.v("Signin method", "In signin method");
+        Log.v(TAG, "In signin method");
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
