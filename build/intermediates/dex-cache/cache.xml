@@ -259,7 +259,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="7c53da9d8b015db70e077c4ff51409d737196317">
+        sha1="ea02ce88ea78b5e6f5a1cb186be67342f651f3c3">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d2133ece8a035a9bf7fe66b6dab23bd91b7f3685\classes.dex" />
     </item>
     <item
@@ -790,7 +790,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="9f43ec1c9faa9a261d5a8be2c8253a0f3ab3c00f">
+        sha1="a10c09cafe41baa27a8f0f78865f747250d32839">
         <dex dex="C:\Users\james\Documents\Android\FlattingPlus23\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d1fa33dac2b7b36f2f4c40433732d5584e871f45\classes.dex" />
     </item>
 

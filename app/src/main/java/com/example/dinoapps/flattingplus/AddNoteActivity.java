@@ -118,9 +118,9 @@ public class AddNoteActivity extends AppCompatActivity {
         {
             url = baseURL + "/add/money";
         }
-        else
+        else //Shopping
         {
-            url = baseURL + "/add/money";
+            url = baseURL + "/add/shopping";
         }
 
         /*Post data*/

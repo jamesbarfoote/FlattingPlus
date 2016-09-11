@@ -400,6 +400,34 @@ public class DBHelper extends SQLiteOpenHelper {
         return date;
     }
 
+    public String getMostRecentDateMoney()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select MAX(created) as created from money", null);
+        String date = "0";
+        if(cursor.moveToFirst()){
+            String result = cursor.getString(cursor.getColumnIndex("created"));
+            if(result != null && !result.equals("null")) {
+                date = result;
+            }
+        }
+        return date;
+    }
+
+    public String getMostRecentDateShopping()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select MAX(created) as created from shopping", null);
+        String date = "0";
+        if(cursor.moveToFirst()){
+            String result = cursor.getString(cursor.getColumnIndex("created"));
+            if(result != null && !result.equals("null")) {
+                date = result;
+            }
+        }
+        return date;
+    }
+
 
     public void clearUserTable()   {
         SQLiteDatabase db = this.getWritableDatabase();
