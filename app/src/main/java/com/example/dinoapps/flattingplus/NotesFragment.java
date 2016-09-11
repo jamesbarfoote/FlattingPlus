@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -113,12 +114,22 @@ public class NotesFragment extends android.support.v4.app.Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Set a shared prefs so that our add notes activity knows the call is coming from the Notes fragment
+                SharedPreferences sharedPreferences = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                SharedPreferences.Editor noteType = sharedPreferences.edit();
+                noteType.putString("NoteType", "Notes");
+                noteType.commit();
+
 //                final FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.calendar_view, new EventPicker(), "NewFragmentTag");
 //                ft.commit();
                 // AddNoteActivity nn = new AddNoteActivity();
                 addButtonClicked = true;
                 Log.v("add button", "Set to: " + addButtonClicked);
+
+
+
                 Intent ni = new Intent(getContext(), AddNoteActivity.class);
                 startActivity(ni);
 

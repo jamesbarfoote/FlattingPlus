@@ -2,6 +2,7 @@ package com.example.dinoapps.flattingplus;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -81,19 +82,48 @@ public class AddNoteActivity extends AppCompatActivity {
 
         Log.v("Add note activity", "Email: " + userEmail + " Group: " + flatgroup + " Time created: " + ts);
 
-        MainActivity.dbHelper.insertNote(userEmail,title, note, flatgroup, ts);
-        uploadNote(userEmail, flatgroup, ts, title, note);
+        //Figure out what type of note we have
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String type = prefs.getString("NoteType", "Empty");
+
+        Log.v(TAG, "Type: " + type);
+
+        if(type == "Notes") {
+            MainActivity.dbHelper.insertNote(userEmail, title, note, flatgroup, ts);
+        }
+        else if(type.equals("Money"))
+        {
+            MainActivity.dbHelper.insertMoney(userEmail, title, note, flatgroup, ts);
+        }
+        else if(type.equals("Shopping"))
+        {
+            MainActivity.dbHelper.insertShopping(userEmail, title, note, flatgroup, ts);
+        }
+
+        //Upload the note to the internet db
+        uploadNote(userEmail, flatgroup, ts, title, note, type);
+
     }
 
-    public void uploadNote(String userEmail, String flatgroup, String ts, String title, String note)
+    public void uploadNote(String userEmail, String flatgroup, String ts, String title, String note, String type)
     {
-        Log.v(TAG, userEmail + " " + flatgroup + " " + ts + " " + title + " " + note);
+        Log.v("AddNote", userEmail + " " + flatgroup + " " + ts + " " + title + " " + note);
         String baseURL = "https://flattingplus.herokuapp.com";
-        String url = baseURL + "/add/note";
+        String url;
 
-         /*Post data*/
-//        Map<String, String> jsonParams = new HashMap<String, String>();
+        if(type.equals("Notes")) {
+            url = baseURL + "/add/note";
+        }
+        else if(type.equals("Money"))
+        {
+            url = baseURL + "/add/money";
+        }
+        else
+        {
+            url = baseURL + "/add/money";
+        }
 
+        /*Post data*/
         JSONObject notes = new JSONObject();
         try {
             notes.put("group", flatgroup);

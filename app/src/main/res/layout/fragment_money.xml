@@ -11,4 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatAddNote"
+        android:layout_width="66dp"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom|end"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </LinearLayout>

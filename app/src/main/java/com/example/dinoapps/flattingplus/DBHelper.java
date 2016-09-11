@@ -33,6 +33,22 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NOTE_COLUMN_CREATION_TIME = "created";
     public static final String NOTE_COLUMN_FLAT_GROUP = "flatgroup";
 
+    public static final String MONEY_TABLE_NAME = "money";
+    public static final String MONEY_COLUMN_ID = "_id";
+    public static final String MONEY_COLUMN_USER_ID = "userID";
+    public static final String MONEY_COLUMN_TITLE = "title";
+    public static final String MONEY_COLUMN_CONTENT = "content";
+    public static final String MONEY_COLUMN_CREATION_TIME = "created";
+    public static final String MONEY_COLUMN_FLAT_GROUP = "flatgroup";
+
+    public static final String SHOPPING_TABLE_NAME = "shopping";
+    public static final String SHOPPING_COLUMN_ID = "_id";
+    public static final String SHOPPING_COLUMN_USER_ID = "userID";
+    public static final String SHOPPING_COLUMN_TITLE = "title";
+    public static final String SHOPPING_COLUMN_CONTENT = "content";
+    public static final String SHOPPING_COLUMN_CREATION_TIME = "created";
+    public static final String SHOPPING_COLUMN_FLAT_GROUP = "flatgroup";
+
     public static final String FLATGROUP_TABLE_NAME = "fgroup";
     public static final String FLATGROUP_COLUMN_ID = "_id";
     public static final String FLATGROUP_COLUMN_GROUP_ID = "groupID";
@@ -72,6 +88,22 @@ public class DBHelper extends SQLiteOpenHelper {
             NOTE_COLUMN_CREATION_TIME + " TEXT, " +
             NOTE_COLUMN_FLAT_GROUP + " TEXT" + ")";
 
+    private static final String createMoney = "CREATE TABLE " + MONEY_TABLE_NAME + "(" +
+            MONEY_COLUMN_ID + " INTEGER PRIMARY KEY, " +
+            MONEY_COLUMN_USER_ID + " INTEGER, " +
+            MONEY_COLUMN_TITLE + " TEXT, " +
+            MONEY_COLUMN_CONTENT + " TEXT," +
+            MONEY_COLUMN_CREATION_TIME + " TEXT, " +
+            MONEY_COLUMN_FLAT_GROUP + " TEXT" + ")";
+
+    private static final String createShopping = "CREATE TABLE " + SHOPPING_TABLE_NAME + "(" +
+            SHOPPING_COLUMN_ID + " INTEGER PRIMARY KEY, " +
+            SHOPPING_COLUMN_USER_ID + " INTEGER, " +
+            SHOPPING_COLUMN_TITLE + " TEXT, " +
+            SHOPPING_COLUMN_CONTENT + " TEXT," +
+            SHOPPING_COLUMN_CREATION_TIME + " TEXT, " +
+            SHOPPING_COLUMN_FLAT_GROUP + " TEXT" + ")";
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -87,12 +119,20 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(createNotes);
         Log.v("Notes table created", "Notes table created");
 
+        db.execSQL(createMoney);
+        Log.v("Money table created", "Money table created");
+
+        db.execSQL(createShopping);
+        Log.v("Shopping table created", "Shopping table created");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + NOTE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + MONEY_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SHOPPING_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + FLATGROUP_TABLE_NAME);
         onCreate(db);
     }
@@ -109,14 +149,29 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-//    public boolean insertNote(String title, String content) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(NOTE_COLUMN_TITLE, title);
-//        contentValues.put(NOTE_COLUMN_CONTENT, content);
-//        db.insert(NOTE_TABLE_NAME, null, contentValues);
-//        return true;
-//    }
+    public boolean insertMoney(String userID, String title, String content, String flatGroup, String creationTime) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MONEY_COLUMN_USER_ID, userID);
+        contentValues.put(MONEY_COLUMN_TITLE, title);
+        contentValues.put(MONEY_COLUMN_CONTENT, content);
+        contentValues.put(MONEY_COLUMN_CREATION_TIME, creationTime);
+        contentValues.put(MONEY_COLUMN_FLAT_GROUP, flatGroup);
+        db.insert(MONEY_TABLE_NAME, null, contentValues);
+        return true;
+    }
+
+    public boolean insertShopping(String userID, String title, String content, String flatGroup, String creationTime) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(SHOPPING_COLUMN_USER_ID, userID);
+        contentValues.put(SHOPPING_COLUMN_TITLE, title);
+        contentValues.put(SHOPPING_COLUMN_CONTENT, content);
+        contentValues.put(SHOPPING_COLUMN_CREATION_TIME, creationTime);
+        contentValues.put(SHOPPING_COLUMN_FLAT_GROUP, flatGroup);
+        db.insert(SHOPPING_TABLE_NAME, null, contentValues);
+        return true;
+    }
 
     public Cursor getNotes()
     {
