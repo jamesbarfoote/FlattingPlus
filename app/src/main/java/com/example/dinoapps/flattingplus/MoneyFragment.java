@@ -35,7 +35,6 @@ public class MoneyFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private ArrayList<String> countries;
     private boolean addButtonClicked;
     public static boolean m_iAmVisible;
     private String TAG = "MoneyFragment";

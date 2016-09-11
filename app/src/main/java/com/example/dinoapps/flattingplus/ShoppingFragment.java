@@ -1,12 +1,22 @@
 package com.example.dinoapps.flattingplus;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 
 /**
@@ -23,11 +33,20 @@ public class ShoppingFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private boolean addButtonClicked;
+    public static boolean m_iAmVisible;
+    private String TAG = "ShoppingFragment";
+    private long numNotes = 0;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     public ShoppingFragment() {
         // Required empty public constructor
@@ -58,13 +77,45 @@ public class ShoppingFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        m_iAmVisible = true;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shopping, container, false);
+        View v = inflater.inflate(R.layout.fragment_shopping, container, false);
+
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.shopping_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyRecycleViewAdapter(getAndDisplay());
+        mRecyclerView.setAdapter(mAdapter);
+
+        m_iAmVisible = true;
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.floatAddShopping);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Set a shared prefs so that our add notes activity knows the call is coming from the shopping fragment
+                SharedPreferences sharedPreferences = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                SharedPreferences.Editor noteType = sharedPreferences.edit();
+                noteType.putString("NoteType", "Shopping");
+                noteType.commit();
+
+                addButtonClicked = true;
+                Log.v("add button", "Set to: " + addButtonClicked);
+
+                Intent ni = new Intent(getContext(), AddNoteActivity.class);
+                startActivity(ni);
+
+
+            }
+        });
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -94,5 +145,117 @@ public class ShoppingFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        m_iAmVisible = true;
+
+
+        //get all the info from the shopping table
+        Cursor cursor = MainActivity.dbHelper.getShoppingCount();
+        int cnt = 0;
+        if(cursor != null) {
+            cnt = cursor.getCount();
+        }
+        Log.v("Shopping count","Shopping count: " + cnt);
+
+        if(cnt > this.numNotes)
+        {
+            Log.v("adding shopping note", "need to add shopping note");
+            //add the new notes
+            long numNew = cnt - this.numNotes;
+            ArrayList<DataObject> d =getAndDisplay();
+            update(d);
+
+            this.numNotes += numNew;
+
+        }
+//
+        ((MyRecycleViewAdapter) mAdapter).setOnItemClickListener(new MyRecycleViewAdapter
+                .MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Log.i(TAG, " Clicked on Item " + position);
+            }
+        });
+    }
+
+    private ArrayList<DataObject> createDataObjs(ArrayList<String> title, ArrayList<String> content)
+    {
+        ArrayList<DataObject> data = new ArrayList<>();
+        for(int i =0; i < title.size(); i++)
+        {
+            DataObject obj = new DataObject(title.get(i), content.get(i));
+            data.add(obj);
+        }
+        return data;
+    }
+
+    private ArrayList<DataObject> getAndDisplay()
+    {
+        Cursor cursor = MainActivity.dbHelper.getShoppingCount();
+        int cnt = 0;
+        if(cursor != null) {
+            cnt = cursor.getCount();
+        }
+
+        //add all the titles to an array
+        ArrayList<String> title= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("title"));
+
+                title.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        //add all the content to another array
+        ArrayList<String> content= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("content"));
+
+                content.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        ArrayList<DataObject> d = createDataObjs(title, content);
+        return d;
+    }
+    public void update(ArrayList<DataObject> d)
+    {
+//        updateView(d);
+        if(d != null) {
+            mAdapter = new MyRecycleViewAdapter(d);
+            mRecyclerView.setAdapter(mAdapter);
+        }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        m_iAmVisible = isVisibleToUser;
+
+        if (m_iAmVisible) {
+            Log.d(TAG, "this fragment is now visible");
+        } else {
+            Log.d(TAG, "this fragment is now invisible");
+        }
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        m_iAmVisible = false;
+        Log.v(TAG, "Pausing");
     }
 }

@@ -11,9 +11,7 @@
         android:layout_height="match_parent"
         android:id="@+id/money_recycler_view"
         android:clipToPadding="true"
-        android:clipChildren="true" >
-
-    </android.support.v7.widget.RecyclerView>
+        android:clipChildren="true" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/money_recycler_view"
