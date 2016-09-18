@@ -287,6 +287,27 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
+    public Integer deleteNote(String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(NOTE_TABLE_NAME,
+                NOTE_COLUMN_CREATION_TIME + " = ? ",
+                new String[] { date });
+    }
+
+    public Integer deleteMoneyItem(String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(MONEY_TABLE_NAME,
+                MONEY_COLUMN_CREATION_TIME + " = ? ",
+                new String[] { date });
+    }
+
+    public Integer deleteShoppingItem(String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(SHOPPING_TABLE_NAME,
+                SHOPPING_COLUMN_CREATION_TIME + " = ? ",
+                new String[] { date });
+    }
+
     public boolean insertGroup(String groupName, String shoppingList, String calendar, String money, String todoList, String pass)
     {
         clearGroupTable();

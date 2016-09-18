@@ -249,7 +249,7 @@ public class MoneyFragment extends Fragment {
                                 for (int position : reverseSortedPositions) {
 //                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped left", Toast.LENGTH_SHORT).show();
 //                                    mItems.remove(position);
-                                    ((MyRecycleViewAdapter) mAdapter).deleteItem(position);
+                                    ((MyRecycleViewAdapter) mAdapter).deleteItem(position, "Money");
                                     Toast.makeText(getContext(), "Swiped Left " + position, Toast.LENGTH_LONG).show();
 
                                     mAdapter.notifyItemRemoved(position);
@@ -262,7 +262,7 @@ public class MoneyFragment extends Fragment {
                                 for (int position : reverseSortedPositions) {
 //                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped right", Toast.LENGTH_SHORT).show();
 //                                    mItems.remove(position);
-                                    ((MyRecycleViewAdapter) mAdapter).deleteItem(position);
+                                    ((MyRecycleViewAdapter) mAdapter).deleteItem(position, "Money");
 
                                     Toast.makeText(getContext(), "Swiped Right on Item " + position, Toast.LENGTH_LONG).show();
 
@@ -275,12 +275,12 @@ public class MoneyFragment extends Fragment {
         mRecyclerView.addOnItemTouchListener(swipeTouchListener);
     }
 
-    private ArrayList<DataObject> createDataObjs(ArrayList<String> title, ArrayList<String> content)
+    private ArrayList<DataObject> createDataObjs(ArrayList<String> title, ArrayList<String> content, ArrayList<String> times)
     {
         ArrayList<DataObject> data = new ArrayList<>();
         for(int i =0; i < title.size(); i++)
         {
-            DataObject obj = new DataObject(title.get(i), content.get(i));
+            DataObject obj = new DataObject(title.get(i), content.get(i), times.get(i));
             data.add(obj);
         }
         return data;
@@ -320,7 +320,20 @@ public class MoneyFragment extends Fragment {
             }
         }
 
-        ArrayList<DataObject> d = createDataObjs(title, content);
+        //add all the times to another array
+        ArrayList<String> times= new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+
+            while (cursor.isAfterLast() == false) {
+                String name = cursor.getString(cursor
+                        .getColumnIndex("created"));
+
+                times.add(name);
+                cursor.moveToNext();
+            }
+        }
+
+        ArrayList<DataObject> d = createDataObjs(title, content, times);
         return d;
     }
     public void update(ArrayList<DataObject> d)

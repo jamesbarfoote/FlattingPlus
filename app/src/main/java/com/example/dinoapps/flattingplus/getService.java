@@ -79,7 +79,7 @@ public class getService extends Service {
                                         Log.v(TAG, "Title: " + title + " Content: " + content + " Group name: " + flatgroup + " Creation time: " + creationTime);
 
                                         //Update the notes view so we can see the recently received note
-                                        DataObject obj = new DataObject(title, content);
+                                        DataObject obj = new DataObject(title, content, creationTime);
                                         data.add(obj);
                                     }
 //                                NotesFragment nf = new NotesFragment();

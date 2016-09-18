@@ -10,6 +10,8 @@ package com.example.dinoapps.flattingplus;
 
         import java.util.ArrayList;
 
+        import static com.google.android.gms.wearable.DataMap.TAG;
+
 public class MyRecycleViewAdapter extends RecyclerView
         .Adapter<MyRecycleViewAdapter
         .DataObjectHolder> {
@@ -46,6 +48,7 @@ public class MyRecycleViewAdapter extends RecyclerView
     }
 
     public MyRecycleViewAdapter(ArrayList<DataObject> myDataset) {
+        Log.v(TAG, "Dataset reset!!");
         mDataset = myDataset;
     }
 
@@ -66,8 +69,8 @@ public class MyRecycleViewAdapter extends RecyclerView
 
     @Override
     public void onBindViewHolder(DataObjectHolder holder, int position) {
-        holder.title.setText(mDataset.get(position).getmText1());//title
-        holder.content.setText(mDataset.get(position).getmText2());//content
+        holder.title.setText(mDataset.get(position).getTitle());//title
+        holder.content.setText(mDataset.get(position).getContent());//content
     }
 
     public void addItem(DataObject dataObj, int index) {
@@ -75,11 +78,23 @@ public class MyRecycleViewAdapter extends RecyclerView
         notifyItemInserted(index);
     }
 
-    public void deleteItem(int index) {
-        Log.i(LOG_TAG, "Deleting item " + mDataset.get(index).getmText1() + " " + mDataset.get(index).getmText2());
+    public void deleteItem(int index, String comingFrom) {
+        Log.i(LOG_TAG, "Deleting item " + mDataset.get(index).getTitle() + " " + mDataset.get(index).getContent());
 
         mDataset.remove(index);
         notifyItemRemoved(index);
+
+        if(comingFrom.equals("Notes")) {
+            MainActivity.dbHelper.deleteNote(mDataset.get(index).getTime());
+        }
+        else if(comingFrom.equals("Shopping"))
+        {
+            MainActivity.dbHelper.deleteShoppingItem(mDataset.get(index).getTime());
+        }
+        else if(comingFrom.equals("Money"))
+        {
+            MainActivity.dbHelper.deleteMoneyItem(mDataset.get(index).getTime());
+        }
     }
 
     @Override

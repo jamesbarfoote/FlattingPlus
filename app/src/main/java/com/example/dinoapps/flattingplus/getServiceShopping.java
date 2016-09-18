@@ -77,7 +77,7 @@ public class getServiceShopping extends Service {
                                     Log.v(TAG, "Title: " + title + " Content: " + content + " Group name: " + flatgroup + " Creation time: " + creationTime);
 
                                     //Update the shopping view so we can see the recently received item
-                                    DataObject obj = new DataObject(title, content);
+                                    DataObject obj = new DataObject(title, content, creationTime);
                                     data.add(obj);
                                 }
 //                                NotesFragment nf = new NotesFragment();
@@ -86,7 +86,7 @@ public class getServiceShopping extends Service {
                                 //If true then the shopping activity is visible
                                 if(ShoppingFragment.m_iAmVisible)
                                 {
-                                    Log.v(TAG, "shopping itmes are visible");
+                                    Log.v(TAG, "shopping items are visible");
                                     EventBus.getDefault().post(new MessageEvent("Need to restart shopping!!"));
 //                                    Intent restartNotes = new Intent(getApplicationContext(), NotesFragment.class);
 //                                    startActivity(restartNotes);

@@ -77,7 +77,7 @@ public class getServiceMoney extends Service {
                                     Log.v(TAG, "Title: " + title + " Content: " + content + " Group name: " + flatgroup + " Creation time: " + creationTime);
 
                                     //Update the money view so we can see the recently received money note
-                                    DataObject obj = new DataObject(title, content);
+                                    DataObject obj = new DataObject(title, content, creationTime);
                                     data.add(obj);
                                 }
 //                                NotesFragment nf = new NotesFragment();

@@ -6,25 +6,29 @@ package com.example.dinoapps.flattingplus;
 public class DataObject {
     private String Title;
     private String Content;
+    private String Time;
 
-    DataObject (String text1, String text2){
-        Title = text1;
-        Content = text2;
+    DataObject (String t, String c, String created){
+        Title = t;
+        Content = c;
+        Time = created;
     }
 
-    public String getmText1() {
+    public String getTitle() {
         return Title;
     }
 
-    public void setmText1(String mText1) {
+    public void setTitle(String mText1) {
         this.Title = mText1;
     }
 
-    public String getmText2() {
+    public String getContent() {
         return Content;
     }
 
-    public void setmText2(String mText2) {
+    public void setContent(String mText2) {
         this.Content = mText2;
     }
+
+    public String getTime() { return Time;}
 }
