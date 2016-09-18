@@ -8,10 +8,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
-    private ArrayList<String> countries;
+    private ArrayList<String> items;
 
-    public DataAdapter(ArrayList<String> countries) {
-        this.countries = countries;
+    public DataAdapter(ArrayList<String> noteItems) {
+        this.items = noteItems;
     }
 
     @Override
@@ -23,20 +23,20 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
 
-        viewHolder.tv_country.setText(countries.get(i));
+        viewHolder.title.setText(items.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return countries.size();
+        return items.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView tv_country;
+        private TextView title;
         public ViewHolder(View view) {
             super(view);
 
-            tv_country = (TextView)view.findViewById(R.id.tv_country);
+            title = (TextView)view.findViewById(R.id.title);
         }
     }
 

@@ -36,7 +36,6 @@ public class getService extends Service {
 
         String groupName = intent.getStringExtra("groupname");
         String date = intent.getStringExtra("date");
-        String type = intent.getStringExtra("Type");
 
         getNewNotes(groupName, date);
 

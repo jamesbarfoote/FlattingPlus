@@ -15,6 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.github.brnunes.swipeablerecyclerview.SwipeableRecyclerViewTouchListener;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -210,8 +213,52 @@ public class NotesFragment extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(int position, View v) {
                 Log.i(LOG_TAG, " Clicked on Item " + position);
+                Toast.makeText(getContext(), "Clicked on Item " + position, Toast.LENGTH_LONG).show();
             }
         });
+
+        SwipeableRecyclerViewTouchListener swipeTouchListener =
+                new SwipeableRecyclerViewTouchListener(mRecyclerView,
+                        new SwipeableRecyclerViewTouchListener.SwipeListener() {
+                            @Override
+                            public boolean canSwipeLeft(int position) {
+                                return true;
+                            }
+
+                            @Override
+                            public boolean canSwipeRight(int position) {
+                                return true;
+                            }
+
+                            @Override
+                            public void onDismissedBySwipeLeft(RecyclerView recyclerView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+//                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped left", Toast.LENGTH_SHORT).show();
+//                                    mItems.remove(position);
+                                    ((MyRecycleViewAdapter) mAdapter).deleteItem(position);
+                                    Toast.makeText(getContext(), "Swiped Left " + position, Toast.LENGTH_LONG).show();
+
+                                    mAdapter.notifyItemRemoved(position);
+                                }
+                                mAdapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+//                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped right", Toast.LENGTH_SHORT).show();
+//                                    mItems.remove(position);
+                                    ((MyRecycleViewAdapter) mAdapter).deleteItem(position);
+
+                                    Toast.makeText(getContext(), "Swiped Right on Item " + position, Toast.LENGTH_LONG).show();
+
+                                    mAdapter.notifyItemRemoved(position);
+                                }
+                                mAdapter.notifyDataSetChanged();
+                            }
+                        });
+
+        mRecyclerView.addOnItemTouchListener(swipeTouchListener);
     }
 
     private ArrayList<DataObject> createDataObjs(ArrayList<String> title, ArrayList<String> content)

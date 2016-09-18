@@ -5,6 +5,7 @@ package com.example.dinoapps.flattingplus;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.TextView;
 
         import java.util.ArrayList;
@@ -24,8 +25,10 @@ public class MyRecycleViewAdapter extends RecyclerView
 
         public DataObjectHolder(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.textView4);
-            content = (TextView) itemView.findViewById(R.id.textView5);
+            title = (TextView) itemView.findViewById(R.id.title);
+            content = (TextView) itemView.findViewById(R.id.content);
+
+
             Log.i(LOG_TAG, "Adding Listener");
             itemView.setOnClickListener(this);
         }
@@ -34,6 +37,8 @@ public class MyRecycleViewAdapter extends RecyclerView
         public void onClick(View v) {
             myClickListener.onItemClick(getAdapterPosition(), v);
         }
+
+
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
@@ -42,6 +47,11 @@ public class MyRecycleViewAdapter extends RecyclerView
 
     public MyRecycleViewAdapter(ArrayList<DataObject> myDataset) {
         mDataset = myDataset;
+    }
+
+    public ArrayList<DataObject> getDataset()
+    {
+        return mDataset;
     }
 
     @Override
@@ -66,6 +76,8 @@ public class MyRecycleViewAdapter extends RecyclerView
     }
 
     public void deleteItem(int index) {
+        Log.i(LOG_TAG, "Deleting item " + mDataset.get(index).getmText1() + " " + mDataset.get(index).getmText2());
+
         mDataset.remove(index);
         notifyItemRemoved(index);
     }
@@ -76,6 +88,6 @@ public class MyRecycleViewAdapter extends RecyclerView
     }
 
     public interface MyClickListener {
-        public void onItemClick(int position, View v);
+        void onItemClick(int position, View v);
     }
 }
